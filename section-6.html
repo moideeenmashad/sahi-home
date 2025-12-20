@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enquire Now Section</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif !important;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif !important;
+            background: #1b2a56 !important;
+            margin: 0;
+            padding: 0;
+        }
+
+        .enquire-section {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enquire-container {
+            width: 100%;
+            max-width: 1400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enquire-line-container {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .enquire-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .enquire-dot-left,
+        .enquire-dot-right {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .enquire-dot-left {
+            left: 0;
+        }
+
+        .enquire-dot-right {
+            right: 0;
+        }
+
+        .enquire-button {
+            position: relative;
+            z-index: 10;
+            background: white;
+            color: #ff6b35;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(16px, 2vw, 20px);
+            font-weight: 700;
+            padding: 18px 50px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .enquire-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #fff;
+        }
+
+        .enquire-button:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .enquire-section {
+                padding: 60px 15px;
+            }
+
+            .enquire-line-container {
+                padding: 0 15px;
+            }
+
+            .enquire-button {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .enquire-section {
+                padding: 40px 10px;
+            }
+
+            .enquire-button {
+                padding: 14px 30px;
+                font-size: 14px;
+            }
+
+            .enquire-dot-left,
+            .enquire-dot-right {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="enquire-section">
+        <div class="enquire-container">
+            <div class="enquire-line-container">
+                <div class="enquire-line"></div>
+                <div class="enquire-dot-left"></div>
+                <button class="enquire-button" id="enquireButton">Enquire Now</button>
+                <div class="enquire-dot-right"></div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const enquireButton = document.getElementById('enquireButton');
+        
+        enquireButton.addEventListener('click', function() {
+            // Add your enquiry form link or action here
+            // Example: window.location.href = '/contact';
+            // Example: window.open('/contact', '_blank');
+            console.log('Enquire Now clicked');
+        });
+    </script>
+</body>
+
+</html>
+

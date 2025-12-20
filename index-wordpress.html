@@ -10,6 +10,9 @@
         *{
             font-family: 'Poppins', sans-serif !important;
         }
+        body{
+            background-color: #1b2a56 !important;
+        }
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         /* ============================================
@@ -33,7 +36,7 @@
 
         .hover-section-title-wp {
             color: white !important;
-            font-size: clamp(32px, 5vw, 48px) !important;
+            font-size: clamp(27px, 4.25vw, 41px) !important;
             font-weight: bold !important;
             text-align: center !important;
             letter-spacing: 2px !important;
@@ -68,7 +71,7 @@
 
         .hover-section-content-wp p {
             color: white;
-            font-size: clamp(14px, 1.5vw, 18px);
+            font-size: clamp(12px, 1.275vw, 15px);
             line-height: 1.8;
             margin-bottom: 20px;
             opacity: 0;
@@ -119,7 +122,7 @@
 
         .how-we-do-section-wp .section-title-wp {
             color: white !important;
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(27px, 4.25vw, 41px);
             font-weight: bold;
             text-align: center;
             margin-bottom: 20px;
@@ -127,7 +130,7 @@
         }
 
         .how-we-do-section-wp .section-description-wp {
-            font-size: clamp(16px, 1.8vw, 20px);
+            font-size: clamp(14px, 1.53vw, 17px);
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
@@ -207,7 +210,7 @@
 
         .card-content-wp {
             color: white;
-            font-size: clamp(14px, 1.3vw, 16px);
+            font-size: clamp(12px, 1.105vw, 14px);
             line-height: 1.7;
         }
 
@@ -226,7 +229,7 @@
         }
 
         .how-we-roll-section-wp .section-title-wp {
-            font-size: clamp(32px, 5vw, 48px) !important;
+            font-size: clamp(27px, 4.25vw, 41px) !important;
             font-weight: bold !important;
             color: white !important;
             text-align: center !important;
@@ -365,7 +368,7 @@
         }
 
         .roll-card-wp .card-title-wp {
-            font-size: clamp(18px, 2vw, 22px) !important;
+            font-size: clamp(15px, 1.7vw, 19px) !important;
             font-weight: 700 !important;
             color: white !important;
             margin-bottom: 0 !important;
@@ -379,7 +382,7 @@
         }
 
         .roll-card-wp .card-description-wp {
-            font-size: clamp(13px, 1.2vw, 15px) !important;
+            font-size: clamp(11px, 1.02vw, 13px) !important;
             color: rgba(255, 255, 255, 0.95) !important;
             line-height: 1.6 !important;
             max-height: 0 !important;
@@ -409,7 +412,7 @@
             background: rgba(255, 107, 53, 0.2) !important;
             border: 2px solid #ff6b35 !important;
             color: #ff6b35 !important;
-            font-size: 24px !important;
+            font-size: 20px !important;
             cursor: pointer !important;
             transition: all 0.3s ease !important;
             display: flex !important;
@@ -465,7 +468,7 @@
         }
 
         .who-we-serve-section .serve-title {
-            font-size: clamp(32px, 5vw, 48px);
+            font-size: clamp(27px, 4.25vw, 41px);
             font-weight: bold;
             text-align: center;
             color: white;
@@ -606,7 +609,7 @@
         }
 
         .serve-card .serve-card-title {
-            font-size: clamp(18px, 2vw, 22px);
+            font-size: clamp(15px, 1.7vw, 19px);
             font-weight: 700;
             text-align: center;
             color: white;
@@ -618,7 +621,7 @@
         }
 
         .serve-card .serve-card-description {
-            font-size: clamp(13px, 1.2vw, 15px);
+            font-size: clamp(11px, 1.02vw, 13px);
             color: rgba(255, 255, 255, 0.95);
             line-height: 1.6;
             max-height: 0;
@@ -631,6 +634,96 @@
             max-height: 300px;
             opacity: 1;
             margin-top: 10px;
+        }
+
+        /* ============================================
+           SECTION 6 - ENQUIRE NOW
+           ============================================ */
+        .enquire-section-wp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enquire-container-wp {
+            width: 100%;
+            max-width: 1400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enquire-line-container-wp {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .enquire-line-wp {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .enquire-dot-left-wp,
+        .enquire-dot-right-wp {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .enquire-dot-left-wp {
+            left: 0;
+        }
+
+        .enquire-dot-right-wp {
+            right: 0;
+        }
+
+        .enquire-button-wp {
+            position: relative;
+            z-index: 10;
+            background: white;
+            color: #ff6b35;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(14px, 1.7vw, 17px);
+            font-weight: 700;
+            padding: 18px 50px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .enquire-button-wp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #fff;
+        }
+
+        .enquire-button-wp:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
 
         /* ============================================
@@ -666,7 +759,7 @@
             }
 
             .hover-section-wp.active .hover-section-title-wp {
-                font-size: clamp(24px, 6vw, 36px);
+                font-size: clamp(20px, 5.1vw, 31px);
             }
 
             .hover-section-content-wp {
@@ -690,7 +783,7 @@
             }
 
             .hover-section-content-wp p {
-                font-size: 14px;
+                font-size: 12px;
                 opacity: 1;
                 transform: translateX(0);
                 transition: none;
@@ -742,7 +835,7 @@
             }
 
             .card-content-wp {
-                font-size: 15px;
+                font-size: 12px;
             }
 
             .how-we-roll-section-wp {
@@ -795,6 +888,19 @@
             .serve-card {
                 max-width: 100%;
             }
+
+            .enquire-section-wp {
+                padding: 60px 15px;
+            }
+
+            .enquire-line-container-wp {
+                padding: 0 15px;
+            }
+
+            .enquire-button-wp {
+                padding: 16px 40px;
+                font-size: 14px;
+            }
         }
 
         @media (max-width: 480px) {
@@ -807,7 +913,7 @@
             }
 
             .hover-section-content-wp p {
-                font-size: 13px;
+                font-size: 11px;
                 line-height: 1.6;
                 margin-bottom: 15px;
             }
@@ -837,7 +943,7 @@
             }
 
             .card-content-wp {
-                font-size: 14px;
+                font-size: 12px;
                 line-height: 1.6;
             }
 
@@ -855,6 +961,21 @@
 
             .who-we-serve-section {
                 padding: 40px 10px;
+            }
+
+            .enquire-section-wp {
+                padding: 40px 10px;
+            }
+
+            .enquire-button-wp {
+                padding: 14px 30px;
+                font-size: 12px;
+            }
+
+            .enquire-dot-left-wp,
+            .enquire-dot-right-wp {
+                width: 10px;
+                height: 10px;
             }
         }
     </style>
@@ -1059,6 +1180,18 @@
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 6 - Enquire Now -->
+    <div class="enquire-section-wp">
+        <div class="enquire-container-wp">
+            <div class="enquire-line-container-wp">
+                <div class="enquire-line-wp"></div>
+                <div class="enquire-dot-left-wp"></div>
+                <button class="enquire-button-wp" id="enquireButtonWp">Enquire Now</button>
+                <div class="enquire-dot-right-wp"></div>
             </div>
         </div>
     </div>
@@ -1434,6 +1567,22 @@
 
             updateServeCarousel();
             startServeAutoPlay();
+        })();
+
+        // Section 6 - Enquire Now
+        (function () {
+            'use strict';
+
+            const enquireButtonWp = document.getElementById('enquireButtonWp');
+
+            if (enquireButtonWp) {
+                enquireButtonWp.addEventListener('click', function () {
+                    // Add your enquiry form link or action here
+                    // Example: window.location.href = '/contact';
+                    // Example: window.open('/contact', '_blank');
+                    console.log('Enquire Now clicked');
+                });
+            }
         })();
     </script>
 </body>

@@ -1,0 +1,156 @@
+<?php
+/**
+ * Section 6 - Enquire Now
+ * WordPress Shortcode
+ * 
+ * Usage: [section_6_enquire_now]
+ */
+
+function section_6_enquire_now_shortcode($atts) {
+    $atts = shortcode_atts(array(
+        'link' => '#',
+        'target' => '_self'
+    ), $atts);
+    
+    ob_start();
+    ?>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        .enquire-section-wp {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .enquire-container-wp {
+            width: 100%;
+            max-width: 1400px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .enquire-line-container-wp {
+            position: relative;
+            width: 100%;
+            max-width: 1200px;
+            height: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 20px;
+        }
+
+        .enquire-line-wp {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .enquire-dot-left-wp,
+        .enquire-dot-right-wp {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 2;
+        }
+
+        .enquire-dot-left-wp {
+            left: 0;
+        }
+
+        .enquire-dot-right-wp {
+            right: 0;
+        }
+
+        .enquire-button-wp {
+            position: relative;
+            z-index: 10;
+            background: white;
+            color: #ff6b35;
+            font-family: 'Poppins', sans-serif;
+            font-size: clamp(16px, 2vw, 20px);
+            font-weight: 700;
+            padding: 18px 50px;
+            border-radius: 50px;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .enquire-button-wp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            background: #fff;
+        }
+
+        .enquire-button-wp:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 768px) {
+            .enquire-section-wp {
+                padding: 60px 15px;
+            }
+
+            .enquire-line-container-wp {
+                padding: 0 15px;
+            }
+
+            .enquire-button-wp {
+                padding: 16px 40px;
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .enquire-section-wp {
+                padding: 40px 10px;
+            }
+
+            .enquire-button-wp {
+                padding: 14px 30px;
+                font-size: 14px;
+            }
+
+            .enquire-dot-left-wp,
+            .enquire-dot-right-wp {
+                width: 10px;
+                height: 10px;
+            }
+        }
+    </style>
+
+    <div class="enquire-section-wp">
+        <div class="enquire-container-wp">
+            <div class="enquire-line-container-wp">
+                <div class="enquire-line-wp"></div>
+                <div class="enquire-dot-left-wp"></div>
+                <a href="<?php echo esc_url($atts['link']); ?>" target="<?php echo esc_attr($atts['target']); ?>" class="enquire-button-wp">Enquire Now</a>
+                <div class="enquire-dot-right-wp"></div>
+            </div>
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('section_6_enquire_now', 'section_6_enquire_now_shortcode');
+
