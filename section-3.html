@@ -10,12 +10,7 @@
         * {
             margin: 0;
             padding: 0;
-        }
-
-        body {
             font-family: 'Poppins', sans-serif;
-            /* background: linear-gradient(135deg, #2d3a52 0%, #1a1f31 100%); */
-            overflow-x: hidden;
         }
 
         .how-we-do-section {
@@ -150,7 +145,18 @@
 
         @media (max-width: 768px) {
             .how-we-do-section {
-                /* padding: 60px 15px; */
+                padding: 60px 15px;
+                overflow-x: hidden;
+            }
+
+            .content-wrapper {
+                padding: 0;
+                width: 100%;
+                box-sizing: border-box;
+            }
+
+            .section-header {
+                padding: 0 10px;
             }
 
             .cards-container {
@@ -160,6 +166,9 @@
                 transform: none;
                 margin-top: 60px;
                 height: auto;
+                width: 100%;
+                padding: 0;
+                box-sizing: border-box;
             }
 
             .content-card {
@@ -172,14 +181,13 @@
                 max-width: 100%;
                 margin-bottom: 20px;
                 transform: translateY(20px);
+                box-sizing: border-box;
             }
 
             .how-we-do-section.header-hovered .content-card,
             .how-we-do-section.active .content-card {
                 transform: translateY(0);
             }
-
-
 
             .card-content {
                 font-size: 15px;
@@ -188,12 +196,27 @@
 
         @media (max-width: 480px) {
             .how-we-do-section {
-                /* padding: 40px 10px; */
+                padding: 40px 15px;
+                overflow-x: hidden;
+            }
+
+            .content-wrapper {
+                padding: 0;
+            }
+
+            .section-header {
+                padding: 0 5px;
+            }
+
+            .cards-container {
+                margin-top: 40px;
+                padding: 0;
             }
 
             .content-card {
-                padding: 20px 25px;
+                padding: 18px 20px;
                 border-radius: 20px;
+                box-sizing: border-box;
             }
 
             .card-content {
