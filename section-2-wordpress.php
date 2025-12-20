@@ -1,38 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/**
+ * Section 2 - Who We Are / What We Do
+ * WordPress Shortcode
+ * 
+ * Usage: [section_2_who_we_are]
+ */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+function section_2_who_we_are_shortcode($atts) {
+    ob_start();
+    ?>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
 
-        body {
-            font-family: 'Poppins', sans-serif !important;
-            background: #1b2a56 !important;
-         
-        }
-
-        body, input, textarea, button, select,h2 {
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        .interactive-section-container {
+        .interactive-section-container-wp {
             width: 100%;
             max-width: 100%;
-            /* min-height: 75vh; */
             font-family: 'Poppins', sans-serif;
             overflow: visible;
             position: relative;
         }
 
-        .hover-section {
+        .hover-section-wp {
             position: relative;
             padding: 60px 20px;
             cursor: pointer;
@@ -40,11 +28,7 @@
             overflow: hidden;
         }
 
-        .hover-section:hover {
-            /* background: rgba(255, 255, 255, 0.05); */
-        }
-
-        .hover-section-title {
+        .hover-section-title-wp {
             color: white !important;
             font-size: clamp(32px, 5vw, 48px);
             font-weight: bold;
@@ -57,18 +41,17 @@
                         color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .hover-section.active .hover-section-title {
+        .hover-section-wp.active .hover-section-title-wp {
             transform: translateX(calc(-30% + 40px));
             color: #ff6b35 !important;
         }
 
-        .hover-section-content {
+        .hover-section-content-wp {
             position: absolute;
             right: -100%;
             top: 0;
             width: 60%;
             height: auto;
-            /* background: rgba(0, 0, 0, 0.3); */
             padding: 50px;
             transition: right 0.7s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
@@ -76,11 +59,11 @@
             justify-content: center;
         }
 
-        .hover-section.active .hover-section-content {
+        .hover-section-wp.active .hover-section-content-wp {
             right: 0;
         }
 
-        .hover-section-content p {
+        .hover-section-content-wp p {
             color: white;
             font-size: clamp(14px, 1.5vw, 18px);
             line-height: 1.8;
@@ -91,41 +74,39 @@
                 transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
         }
 
-        .hover-section.active .hover-section-content p {
+        .hover-section-wp.active .hover-section-content-wp p {
             opacity: 1;
             transform: translateX(0);
         }
 
-        .hover-section.active .hover-section-content p:nth-child(2) {
+        .hover-section-wp.active .hover-section-content-wp p:nth-child(2) {
             transition-delay: 0.3s;
         }
 
-        /* Hover effect for titles */
-        .hover-section:hover .hover-section-title {
+        .hover-section-wp:hover .hover-section-title-wp {
             color: #ff6b35 !important;
         }
 
         @media (max-width: 768px) {
-            .hover-section {
+            .hover-section-wp {
                 padding: 40px 15px;
                 display: flex;
                 flex-direction: column;
             }
 
-            .hover-section-title {
+            .hover-section-title-wp {
                 transform: translateX(0) !important;
                 text-align: center !important;
             }
 
-            .hover-section.active .hover-section-title {
+            .hover-section-wp.active .hover-section-title-wp {
                 font-size: clamp(24px, 6vw, 36px);
             }
 
-            .hover-section-content {
+            .hover-section-content-wp {
                 position: relative;
                 width: 100%;
                 padding: 0 20px;
-                /* background: rgba(0, 0, 0, 0.5); */
                 right: auto;
                 max-height: 0;
                 opacity: 0;
@@ -135,14 +116,14 @@
                     padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             }
 
-            .hover-section.active .hover-section-content {
+            .hover-section-wp.active .hover-section-content-wp {
                 min-height: 500px;
                 opacity: 1;
                 padding: 30px 20px;
                 margin-top: 20px;
             }
 
-            .hover-section-content p {
+            .hover-section-content-wp p {
                 font-size: 14px;
                 opacity: 1;
                 transform: translateX(0);
@@ -151,88 +132,88 @@
         }
 
         @media (max-width: 480px) {
-            .hover-section {
+            .hover-section-wp {
                 padding: 30px 10px;
             }
 
-            .hover-section-content {
+            .hover-section-content-wp {
                 padding: 30px 15px;
             }
 
-            .hover-section-content p {
+            .hover-section-content-wp p {
                 font-size: 13px;
                 line-height: 1.6;
                 margin-bottom: 15px;
             }
         }
     </style>
-</head>
 
-<body>
-    <div class="interactive-section-container">
-        <!-- WHO WE ARE Section -->
-        <div class="hover-section" data-section="who-we-are">
-            <h2 class="hover-section-title">WHO WE ARE</h2>
-            <div class="hover-section-content">
+    <div class="interactive-section-container-wp">
+        <div class="hover-section-wp" data-section="who-we-are">
+            <h2 class="hover-section-title-wp">WHO WE ARE</h2>
+            <div class="hover-section-content-wp">
                 <p>We are SAHI - Your trusted partner that helps enterprises like yours find, train, and manage the
-                    people who make growth a reality. 
-
+                    people who make growth a reality.
                 </p>
                 <p> We partner with you to build productive, compliant, and future-ready teams by strengthening people
                     foundations for long-term success, driving sustained growth and performance across every level.</p>
             </div>
         </div>
 
-        <!-- WHAT WE DO Section -->
-        <div class="hover-section" data-section="what-we-do">
-            <h2 class="hover-section-title">WHAT WE DO</h2>
-            <div class="hover-section-content">
+        <div class="hover-section-wp" data-section="what-we-do">
+            <h2 class="hover-section-title-wp">WHAT WE DO</h2>
+            <div class="hover-section-content-wp">
                 <p>We partner with you to manage every part of your talent ecosystem - from hiring to managing and
                     engaging, which in turn enhances productivity, ensures compliance, and improves retention. <br>
                     Our solutions are simple, adaptable, and scalable, <br>
                     designed to deliver measurable business outcomes.
-                    .</p>
+                </p>
             </div>
         </div>
     </div>
 
     <script>
-        // Get all hover sections
-        const hoverSections = document.querySelectorAll('.hover-section');
+        (function() {
+            'use strict';
+            
+            const hoverSectionsWp = document.querySelectorAll('.hover-section-wp');
 
-        hoverSections.forEach(section => {
-            // Mouse enter event
-            section.addEventListener('mouseenter', function () {
-                // Remove active class from all sections
-                hoverSections.forEach(s => s.classList.remove('active'));
-                // Add active class to hovered section
-                this.classList.add('active');
-            });
+            hoverSectionsWp.forEach(function(section) {
+                section.addEventListener('mouseenter', function () {
+                    hoverSectionsWp.forEach(function(s) {
+                        s.classList.remove('active');
+                    });
+                    this.classList.add('active');
+                });
 
-            // Mouse leave event
-            section.addEventListener('mouseleave', function () {
-                this.classList.remove('active');
-            });
+                section.addEventListener('mouseleave', function () {
+                    this.classList.remove('active');
+                });
 
-            // Touch support for mobile
-            section.addEventListener('click', function () {
-                if (window.innerWidth <= 768) {
-                    const isActive = this.classList.contains('active');
-                    hoverSections.forEach(s => s.classList.remove('active'));
-                    if (!isActive) {
-                        this.classList.add('active');
+                section.addEventListener('click', function () {
+                    if (window.innerWidth <= 768) {
+                        const isActive = this.classList.contains('active');
+                        hoverSectionsWp.forEach(function(s) {
+                            s.classList.remove('active');
+                        });
+                        if (!isActive) {
+                            this.classList.add('active');
+                        }
                     }
+                });
+            });
+
+            document.addEventListener('click', function (e) {
+                if (window.innerWidth <= 768 && !e.target.closest('.hover-section-wp')) {
+                    hoverSectionsWp.forEach(function(s) {
+                        s.classList.remove('active');
+                    });
                 }
             });
-        });
-
-        // Close active section when clicking outside on mobile
-        document.addEventListener('click', function (e) {
-            if (window.innerWidth <= 768 && !e.target.closest('.hover-section')) {
-                hoverSections.forEach(s => s.classList.remove('active'));
-            }
-        });
+        })();
     </script>
-</body>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('section_2_who_we_are', 'section_2_who_we_are_shortcode');
 
-</html>

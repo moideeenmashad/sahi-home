@@ -1,328 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+
+      
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background: #1b2a56;;
-         
+            font-family: 'Poppins', sans-serif !important;
+            background: #1b2a56 !important;
+        }
+
+        h3,p {
+            font-family: 'Poppins', sans-serif !important;
         }
 
         .how-we-roll-section {
-            padding: 80px 20px;
-            max-width: 1400px;
-            margin: 0 auto;
-            /* background: linear-gradient(135deg, #3a4a5f 0%, #2a3548 100%); */
+            padding: 80px 20px !important;
+            max-width: 1400px !important;
+            margin: 0 auto !important;
         }
 
         /* Header */
         .how-we-roll-section .section-header {
-            text-align: center;
-            margin-bottom: 60px;
+            text-align: center !important;
+            margin-bottom: 60px !important;
         }
 
         .how-we-roll-section .section-title {
-            font-size: clamp(32px, 5vw, 48px);
-            font-weight: 800;
-            color: white;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
+            font-size: clamp(32px, 5vw, 48px) !important;
+            font-weight: bold !important;
+            color: white !important;
+            text-align: center !important;
+            letter-spacing: 2px !important;
+            margin-bottom: 30px !important;
         }
 
         /* Progress Line */
         .progress-line-container {
-            position: relative;
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 10px 0;
+            position: relative ;
+            width: 100% ;
+            max-width: 1400px ;
+            margin: 0 auto ;
+            padding: 10px 0 ;
         }
 
         .progress-line-bg {
-            position: absolute;
-            width: 100%;
-            height: 3px;
-            /* background: rgba(255, 255, 255, 0.15); */
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: 10px;
+            position: absolute ;
+            width: 100% ;
+            height: 3px ;
+            background: rgba(255, 255, 255, 0.15);
+            top: 50% ;
+            transform: translateY(-50%) ;
+            border-radius: 10px ;
         }
 
         .progress-line-fill {
-            position: absolute;
-            height: 3px;
+            position: absolute ;
+            height: 3px ;
             background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0%;
-            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+            top: 50% ;
+            transform: translateY(-50%) ;
+            width: 0% ;
+            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1) ;
+            border-radius: 10px ;
+            box-shadow: 0 0 20px rgba(255, 107, 53, 0.4) ;
         }
 
         .progress-line-fill.initialized {
-            width: 0%;
+            width: 0% ;
         }
 
         .progress-dots {
-            position: relative;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            position: relative ;
+            display: flex ;
+            justify-content: space-between ;
+            align-items: center ;
         }
 
         .progress-dot {
-            width: 18px;
-            height: 18px;
-            border-radius: 50%;
-            /* background: rgba(255, 255, 255, 0.2); */
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            z-index: 2;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            cursor: pointer;
+            width: 18px ;
+            height: 18px ;
+            border-radius: 50% ;
+            border: 3px solid rgba(255, 255, 255, 0.3) ;
+            z-index: 2 ;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ;
+            position: relative ;
+            cursor: pointer ;
         }
 
         .progress-dot::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: #ff6b35;
-            opacity: 0;
-            transform: scale(0.5);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%) scale(0.5);
+            content: '' ;
+            position: absolute ;
+            width: 100% ;
+            height: 100% ;
+            border-radius: 50% ;
+            background: #ff6b35 ;
+            opacity: 0 ;
+            transform: scale(0.5) ;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) ;
+            top: 50% ;
+            left: 50% ;
+            transform: translate(-50%, -50%) scale(0.5) ;
         }
 
         .progress-dot.active {
-            background: #ff6b35;
-            border-color: #ff6b35;
-            transform: scale(1.3);
-            /* box-shadow: 0 0 25px rgba(255, 107, 53, 0.7); */
+            background: #ff6b35 ;
+            border-color: #ff6b35 ;
+            transform: scale(1.3) ;
         }
 
         .progress-dot.active::before {
-            opacity: 1;
-            transform: translate(-50%, -50%) scale(1);
+            opacity: 1 ;
+            transform: translate(-50%, -50%) scale(1) ;
         }
 
         .progress-dot:hover {
-            transform: scale(1.2);
-            background: rgba(255, 107, 53, 0.3);
+            transform: scale(1.2) ;
+            background: rgba(255, 107, 53, 0.3) ;
         }
 
         /* Cards Container */
         .how-we-roll-section .cards-container {
-            display: flex;
-            justify-content: space-between;
-            gap: 30px;
-            margin-top: 60px;
-            margin-left: auto;
-            margin-right: auto;
+            display: flex !important;
+            justify-content: space-between !important;
+            gap: 30px !important;
+            margin-top: 60px !important;
+            margin-left: auto !important;
+            margin-right: auto !important;
         }
 
         /* Card */
         .roll-card {
-            position: relative;
-            border-radius: 20px;
-            overflow: hidden;
-            cursor: pointer;
-            height: 500px;
-            flex: 1;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative !important;
+            border-radius: 20px !important;
+            overflow: hidden !important;
+            cursor: pointer !important;
+            height: 500px !important;
+            flex: 1 !important;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .roll-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-10px) !important;
         }
 
         .card-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
         }
 
         .roll-card .card-overlay {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            top: auto;
-            height: auto;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
-            padding: 30px;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            top: auto !important;
+            height: auto !important;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%) !important;
+            padding: 30px !important;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-end !important;
         }
 
         .roll-card:hover .card-overlay {
-            top: 0;
-            height: 100%;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.35) 0%, rgba(255, 140, 0, 0.3) 100%);
-            justify-content: center;
+            top: 0 !important;
+            height: 100% !important;
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.35) 0%, rgba(255, 140, 0, 0.3) 100%) !important;
+            justify-content: center !important;
         }
 
         .roll-card .card-title {
-            font-size: clamp(18px, 2vw, 22px);
-            font-weight: 700;
-            color: white;
-            margin-bottom: 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: clamp(18px, 2vw, 22px) !important;
+            font-weight: 700 !important;
+            color: white !important;
+            margin-bottom: 0 !important;
+            text-transform: uppercase !important;
+            letter-spacing: 1px !important;
+            transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .roll-card:hover .card-title {
-            margin-bottom: 15px;
+            margin-bottom: 15px !important;
         }
 
         .roll-card .card-description {
-            font-size: clamp(13px, 1.2vw, 15px);
-            color: rgba(255, 255, 255, 0.95);
-            line-height: 1.6;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: clamp(13px, 1.2vw, 15px) !important;
+            color: rgba(255, 255, 255, 0.95) !important;
+            line-height: 1.6 !important;
+            max-height: 0 !important;
+            opacity: 0 !important;
+            overflow: hidden !important;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
         }
 
         .roll-card:hover .card-description {
-            max-height: 300px;
-            opacity: 1;
-            margin-top: 10px;
+            max-height: 300px !important;
+            opacity: 1 !important;
+            margin-top: 10px !important;
         }
 
         /* Mobile Carousel Navigation */
         .carousel-controls {
-            display: none;
-            justify-content: center;
-            align-items: center;
-            gap: 20px;
-            margin-top: 30px;
+            display: none !important;
+            justify-content: center !important;
+            align-items: center !important;
+            gap: 20px !important;
+            margin-top: 30px !important;
         }
 
         .carousel-btn {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background: rgba(255, 107, 53, 0.2);
-            border: 2px solid #ff6b35;
-            color: #ff6b35;
-            font-size: 24px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50% !important;
+            background: rgba(255, 107, 53, 0.2) !important;
+            border: 2px solid #ff6b35 !important;
+            color: #ff6b35 !important;
+            font-size: 24px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
         }
 
         .carousel-btn:hover {
-            background: #ff6b35;
-            color: white;
+            background: #ff6b35 !important;
+            color: white !important;
         }
 
         .carousel-dots {
-            display: flex;
-            gap: 10px;
+            display: flex !important;
+            gap: 10px !important;
         }
 
         .carousel-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.3);
-            cursor: pointer;
-            transition: all 0.3s ease;
+            width: 10px !important;
+            height: 10px !important;
+            border-radius: 50% !important;
+            background: rgba(255, 255, 255, 0.3) !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
         }
 
         .carousel-dot.active {
-            background: #ff6b35;
-            width: 30px;
-            border-radius: 5px;
+            background: #ff6b35 !important;
+            width: 30px !important;
+            border-radius: 5px !important;
         }
 
         /* Responsive Design */
         @media (max-width: 968px) {
             .how-we-roll-section .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
             }
 
             .roll-card {
-                height: 400px;
+                height: 400px !important;
             }
         }
 
         @media (max-width: 768px) {
             .how-we-roll-section {
-                padding: 60px 15px;
+                padding: 60px 15px !important;
             }
 
             .how-we-roll-section .cards-container {
-                display: flex;
-                overflow-x: hidden;
-                scroll-behavior: smooth;
-                gap: 0;
+                display: flex !important;
+                overflow-x: hidden !important;
+                scroll-behavior: smooth !important;
+                gap: 0 !important;
             }
 
             .roll-card {
-                min-width: 100%;
-                height: 450px;
-                margin-right: 0;
-                transform: translateX(0);
-                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+                min-width: 100% !important;
+                height: 450px !important;
+                margin-right: 0 !important;
+                transform: translateX(0) !important;
+                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
             }
 
             .roll-card:hover {
-                transform: translateY(0);
+                transform: translateY(0) !important;
             }
 
             .carousel-controls {
-                display: flex;
+                display: flex !important;
             }
 
             .progress-line-container {
-                max-width: 100%;
+                max-width: 100% !important;
             }
         }
 
         @media (max-width: 480px) {
             .how-we-roll-section {
-                padding: 40px 10px;
+                padding: 40px 10px !important;
             }
 
             .roll-card {
-                height: 400px;
+                height: 400px !important;
             }
 
             .roll-card .card-overlay {
-                padding: 20px;
+                padding: 20px !important;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="how-we-roll-section">
         <!-- Header -->
         <div class="section-header">
             <h2 class="section-title">HOW WE ROLL</h2>
-            
+
             <!-- Progress Line -->
             <div class="progress-line-container">
                 <div class="progress-line-bg"></div>
@@ -339,7 +338,8 @@
         <div class="cards-container" id="cardsContainer">
             <!-- Card 1 -->
             <div class="roll-card">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="SAHI Work" class="card-image">
+                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="SAHI Work"
+                    class="card-image">
                 <div class="card-overlay">
                     <h3 class="card-title">SAHI WORK</h3>
                     <p class="card-description">
@@ -350,22 +350,27 @@
 
             <!-- Card 2 -->
             <div class="roll-card">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800" alt="Work Integrated Skilling" class="card-image">
+                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800"
+                    alt="Work Integrated Skilling" class="card-image">
                 <div class="card-overlay">
                     <h3 class="card-title">WORK INTEGRATED SKILLING</h3>
                     <p class="card-description">
-                        Solve for Productivity (Teaching) through our role-specific skilling and engagement-led deployment models, on-the-job learning, continuous development, engagement and career progression strategies that increase efficiency.
+                        Solve for Productivity (Teaching) through our role-specific skilling and engagement-led
+                        deployment models, on-the-job learning, continuous development, engagement and career
+                        progression strategies that increase efficiency.
                     </p>
                 </div>
             </div>
 
             <!-- Card 3 -->
             <div class="roll-card">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800" alt="Work Integrated Benefits" class="card-image">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"
+                    alt="Work Integrated Benefits" class="card-image">
                 <div class="card-overlay">
                     <h3 class="card-title">WORK INTEGRATED BENEFITS</h3>
                     <p class="card-description">
-                        Solve for Retention by providing comprehensive long-term worker benefits to create the foundations for improved tenure & retention and reducing cost for training costs.
+                        Solve for Retention by providing comprehensive long-term worker benefits to create the
+                        foundations for improved tenure & retention and reducing cost for training costs.
                     </p>
                 </div>
             </div>
@@ -401,7 +406,7 @@
                     updateProgressLine(index);
                 }
             });
-            
+
             card.addEventListener('mouseleave', () => {
                 if (window.innerWidth > 768) {
                     resetProgressLine();
@@ -517,4 +522,5 @@
         });
     </script>
 </body>
+
 </html>

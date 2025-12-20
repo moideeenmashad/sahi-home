@@ -1,47 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+/**
+ * Section 3 - How We Do It
+ * WordPress Shortcode
+ * 
+ * Usage: [section_3_how_we_do_it]
+ */
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+function section_3_how_we_do_it_shortcode($atts) {
+    ob_start();
+    ?>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif !important;
-            background: #1b2a56 !important;
-
-        }
-
-        h2 {
-            font-family: 'Poppins', sans-serif !important;
-        }
-
-        .how-we-do-section {
+        .how-we-do-section-wp {
             min-height: 80vh;
-            /* padding: 60px 20px; */
-            /* background: linear-gradient(135deg, #2d3a52 0%, #1a1f31 100%); */
             position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
-        .content-wrapper {
+        .content-wrapper-wp {
             position: relative;
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
         }
 
-        /* Header - Center */
-        .how-we-do-section .section-header {
+        .how-we-do-section-wp .section-header-wp {
             text-align: center;
             position: relative;
             z-index: 10;
@@ -50,7 +36,7 @@
             cursor: pointer;
         }
 
-        .how-we-do-section .section-title {
+        .how-we-do-section-wp .section-title-wp {
             color: white !important;
             font-size: clamp(32px, 5vw, 48px);
             font-weight: bold;
@@ -59,14 +45,13 @@
             letter-spacing: 2px;
         }
 
-        .how-we-do-section .section-description {
+        .how-we-do-section-wp .section-description-wp {
             font-size: clamp(16px, 1.8vw, 20px);
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
 
-        /* Cards Container */
-        .how-we-do-section .cards-container {
+        .how-we-do-section-wp .cards-container-wp {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -76,12 +61,10 @@
             pointer-events: none;
         }
 
-        /* Card */
-        .content-card {
+        .content-card-wp {
             position: absolute;
             width: 450px;
             max-width: 90%;
-            /* background: rgba(255, 255, 255, 0.05); */
             backdrop-filter: blur(10px);
             border: 2px solid #ff6b35;
             border-bottom: 8px solid #ff6b35;
@@ -93,84 +76,83 @@
             pointer-events: auto;
         }
 
-        .how-we-do-section.header-hovered .content-card {
+        .how-we-do-section-wp.header-hovered-wp .content-card-wp {
             opacity: 1;
         }
 
-        .content-card.card-1 {
+        .content-card-wp.card-1-wp {
             top: -180px;
             left: 5%;
             transform: translate(calc(50vw - 50% - 5%), 250px) scale(0.3);
             transition-delay: 0.1s;
         }
 
-        .how-we-do-section.header-hovered .content-card.card-1 {
+        .how-we-do-section-wp.header-hovered-wp .content-card-wp.card-1-wp {
             transform: translate(0, 0) scale(1);
         }
 
-        .content-card.card-2 {
+        .content-card-wp.card-2-wp {
             top: -180px;
             right: 5%;
             transform: translate(calc(-50vw + 50% + 5%), 250px) scale(0.3);
             transition-delay: 0.2s;
         }
 
-        .how-we-do-section.header-hovered .content-card.card-2 {
+        .how-we-do-section-wp.header-hovered-wp .content-card-wp.card-2-wp {
             transform: translate(0, 0) scale(1);
         }
 
-        .content-card.card-3 {
+        .content-card-wp.card-3-wp {
             bottom: -180px;
             left: 5%;
             transform: translate(calc(50vw - 50% - 5%), -250px) scale(0.3);
             transition-delay: 0.3s;
         }
 
-        .how-we-do-section.header-hovered .content-card.card-3 {
+        .how-we-do-section-wp.header-hovered-wp .content-card-wp.card-3-wp {
             transform: translate(0, 0) scale(1);
         }
 
-        .content-card.card-4 {
+        .content-card-wp.card-4-wp {
             bottom: -180px;
             right: 5%;
             transform: translate(calc(-50vw + 50% + 5%), -250px) scale(0.3);
             transition-delay: 0.4s;
         }
 
-        .how-we-do-section.header-hovered .content-card.card-4 {
+        .how-we-do-section-wp.header-hovered-wp .content-card-wp.card-4-wp {
             transform: translate(0, 0) scale(1);
         }
 
-        .card-content {
+        .card-content-wp {
             color: white;
             font-size: clamp(14px, 1.3vw, 16px);
             line-height: 1.7;
         }
 
-        /* Responsive Design */
         @media (max-width: 1200px) {
-            .content-card {
+            .content-card-wp {
                 width: 100% !important;
             }
         }
 
         @media (max-width: 768px) {
-            .how-we-do-section {
+            .how-we-do-section-wp {
                 padding: 60px 15px;
                 overflow-x: hidden;
             }
 
-            .content-wrapper {
+            .content-wrapper-wp {
                 padding: 0;
                 width: 100%;
                 box-sizing: border-box;
             }
 
-            .how-we-do-section .section-header {
+            .how-we-do-section-wp .section-header-wp {
                 padding: 0 10px;
             }
 
-            .how-we-do-section .cards-container {
+            .how-we-do-section-wp .cards-container-wp {
                 position: relative;
                 top: auto;
                 left: auto;
@@ -182,7 +164,7 @@
                 box-sizing: border-box;
             }
 
-            .content-card {
+            .content-card-wp {
                 position: relative !important;
                 top: auto !important;
                 left: auto !important;
@@ -195,86 +177,82 @@
                 box-sizing: border-box;
             }
 
-            .how-we-do-section.header-hovered .content-card,
-            .how-we-do-section.active .content-card {
+            .how-we-do-section-wp.header-hovered-wp .content-card-wp,
+            .how-we-do-section-wp.active-wp .content-card-wp {
                 transform: translateY(0);
             }
 
-            .card-content {
+            .card-content-wp {
                 font-size: 15px;
             }
         }
 
         @media (max-width: 480px) {
-            .how-we-do-section {
+            .how-we-do-section-wp {
                 padding: 40px 15px;
                 overflow-x: hidden;
             }
 
-            .content-wrapper {
+            .content-wrapper-wp {
                 padding: 0;
             }
 
-            .how-we-do-section .section-header {
+            .how-we-do-section-wp .section-header-wp {
                 padding: 0 5px;
             }
 
-            .how-we-do-section .cards-container {
+            .how-we-do-section-wp .cards-container-wp {
                 margin-top: 40px;
                 padding: 0;
             }
 
-            .content-card {
+            .content-card-wp {
                 padding: 18px 20px;
                 border-radius: 20px;
                 box-sizing: border-box;
             }
 
-            .card-content {
+            .card-content-wp {
                 font-size: 14px;
                 line-height: 1.6;
             }
         }
     </style>
-</head>
 
-<body>
-    <div class="how-we-do-section" id="howWeDoSection">
-        <div class="content-wrapper">
-            <!-- Header -->
-            <div class="section-header">
-                <h2 class="section-title">HOW WE DO IT</h2>
-                <p class="section-description">
+    <div class="how-we-do-section-wp" id="howWeDoSectionWp">
+        <div class="content-wrapper-wp">
+            <div class="section-header-wp">
+                <h2 class="section-title-wp">HOW WE DO IT</h2>
+                <p class="section-description-wp">
                     We combine industry expertise, technology, and on-ground insight to create sustainable talent
                     ecosystems:
                 </p>
             </div>
 
-            <!-- Content Cards -->
-            <div class="cards-container">
-                <div class="content-card card-1">
-                    <p class="card-content">
+            <div class="cards-container-wp">
+                <div class="content-card-wp card-1-wp">
+                    <p class="card-content-wp">
                         We identify and prepare pre-assessed, job-ready talent
                         tailored to your business needs.
                     </p>
                 </div>
 
-                <div class="content-card card-2">
-                    <p class="card-content">
+                <div class="content-card-wp card-2-wp">
+                    <p class="card-content-wp">
                         We maintain compliance and performance
                         through transparent systems.
                     </p>
                 </div>
 
-                <div class="content-card card-3">
-                    <p class="card-content">
+                <div class="content-card-wp card-3-wp">
+                    <p class="card-content-wp">
                         Our flexible forms of work and continuous skilling model
                         ensures productivity stays high.
                     </p>
                 </div>
 
-                <div class="content-card card-4">
-                    <p class="card-content">
+                <div class="content-card-wp card-4-wp">
+                    <p class="card-content-wp">
                         providing integrated benefits that support your workforce through housing and financial
                         planning.
                         , improving efficiency and engagement over time.
@@ -285,25 +263,29 @@
     </div>
 
     <script>
-        const section = document.getElementById('howWeDoSection');
-        const sectionHeader = section.querySelector('.section-header');
+        (function() {
+            'use strict';
+            
+            const sectionWp = document.getElementById('howWeDoSectionWp');
+            const sectionHeaderWp = sectionWp.querySelector('.section-header-wp');
 
-        // Hover effect on section header
-        sectionHeader.addEventListener('mouseenter', function () {
-            section.classList.add('header-hovered');
-        });
-
-        sectionHeader.addEventListener('mouseleave', function () {
-            section.classList.remove('header-hovered');
-        });
-
-        // Mobile touch support
-        if (window.innerWidth <= 768) {
-            sectionHeader.addEventListener('click', function () {
-                section.classList.toggle('active');
+            sectionHeaderWp.addEventListener('mouseenter', function () {
+                sectionWp.classList.add('header-hovered-wp');
             });
-        }
-    </script>
-</body>
 
-</html>
+            sectionHeaderWp.addEventListener('mouseleave', function () {
+                sectionWp.classList.remove('header-hovered-wp');
+            });
+
+            if (window.innerWidth <= 768) {
+                sectionHeaderWp.addEventListener('click', function () {
+                    sectionWp.classList.toggle('active-wp');
+                });
+            }
+        })();
+    </script>
+    <?php
+    return ob_get_clean();
+}
+add_shortcode('section_3_how_we_do_it', 'section_3_how_we_do_it_shortcode');
+
