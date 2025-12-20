@@ -10,13 +10,19 @@
         * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
             font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            min-height: 100vh;
         }
 
         .how-we-do-section {
             min-height: 80vh;
             /* padding: 60px 20px; */
-            background: linear-gradient(135deg, #2d3a52 0%, #1a1f31 100%);
+            /* background: linear-gradient(135deg, #2d3a52 0%, #1a1f31 100%); */
             position: relative;
             display: flex;
             align-items: center;
@@ -31,7 +37,7 @@
         }
 
         /* Header - Center */
-        .section-header {
+        .how-we-do-section .section-header {
             text-align: center;
             position: relative;
             z-index: 10;
@@ -40,7 +46,7 @@
             cursor: pointer;
         }
 
-        .section-title {
+        .how-we-do-section .section-title {
             font-size: clamp(32px, 5vw, 48px);
             font-weight: 800;
             color: white;
@@ -48,14 +54,14 @@
             letter-spacing: 2px;
         }
 
-        .section-description {
+        .how-we-do-section .section-description {
             font-size: clamp(16px, 1.8vw, 20px);
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
 
         /* Cards Container */
-        .cards-container {
+        .how-we-do-section .cards-container {
             position: absolute;
             top: 50%;
             left: 50%;
@@ -155,11 +161,11 @@
                 box-sizing: border-box;
             }
 
-            .section-header {
+            .how-we-do-section .section-header {
                 padding: 0 10px;
             }
 
-            .cards-container {
+            .how-we-do-section .cards-container {
                 position: relative;
                 top: auto;
                 left: auto;
@@ -204,11 +210,11 @@
                 padding: 0;
             }
 
-            .section-header {
+            .how-we-do-section .section-header {
                 padding: 0 5px;
             }
 
-            .cards-container {
+            .how-we-do-section .cards-container {
                 margin-top: 40px;
                 padding: 0;
             }
