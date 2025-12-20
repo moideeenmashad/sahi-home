@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+        body, input, textarea, button, select { font-family: 'Poppins', sans-serif; }
+      
+
+        .interactive-section-container {
+            width: 100%;
+            max-width: 100%;
+            min-height: 75vh;
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            font-family: 'Poppins', sans-serif;
+            overflow: visible;
+            position: relative;
+        }
+
+        .hover-section {
+            position: relative;
+            padding: 60px 20px;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: hidden;
+        }
+
+        .hover-section:hover {
+            /* background: rgba(255, 255, 255, 0.05); */
+        }
+
+        .hover-section-title {
+            color: white !important;
+            font-size: clamp(32px, 5vw, 48px);
+            font-weight: bold;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            letter-spacing: 2px;
+            transform: translateX(0);
+            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+                        color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .hover-section.active .hover-section-title {
+            transform: translateX(calc(-30% + 40px));
+            color: #ff6b35 !important;
+        }
+
+        .hover-section-content {
+            position: absolute;
+            right: -100%;
+            top: 0;
+            width: 60%;
+            height: auto;
+            /* background: rgba(0, 0, 0, 0.3); */
+            padding: 50px;
+            transition: right 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .hover-section.active .hover-section-content {
+            right: 0;
+        }
+
+        .hover-section-content p {
+            color: white;
+            font-size: clamp(14px, 1.5vw, 18px);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
+                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+        }
+
+        .hover-section.active .hover-section-content p {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .hover-section.active .hover-section-content p:nth-child(2) {
+            transition-delay: 0.3s;
+        }
+
+        /* Hover effect for titles */
+        .hover-section:hover .hover-section-title {
+            color: #ff6b35 !important;
+        }
+
+        @media (max-width: 768px) {
+            .hover-section {
+                padding: 40px 15px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hover-section-title {
+                transform: translateX(0) !important;
+                text-align: center !important;
+            }
+
+            .hover-section.active .hover-section-title {
+                font-size: clamp(24px, 6vw, 36px);
+            }
+
+            .hover-section-content {
+                position: relative;
+                width: 100%;
+                padding: 0 20px;
+                /* background: rgba(0, 0, 0, 0.5); */
+                right: auto;
+                max-height: 0;
+                opacity: 0;
+                overflow: hidden;
+                transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
+                    padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+
+            .hover-section.active .hover-section-content {
+                min-height: 500px;
+                opacity: 1;
+                padding: 30px 20px;
+                margin-top: 20px;
+            }
+
+            .hover-section-content p {
+                font-size: 14px;
+                opacity: 1;
+                transform: translateX(0);
+                transition: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hover-section {
+                padding: 30px 10px;
+            }
+
+            .hover-section-content {
+                padding: 30px 15px;
+            }
+
+            .hover-section-content p {
+                font-size: 13px;
+                line-height: 1.6;
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="interactive-section-container">
+        <!-- WHO WE ARE Section -->
+        <div class="hover-section" data-section="who-we-are">
+            <h2 class="hover-section-title">WHO WE ARE</h2>
+            <div class="hover-section-content">
+                <p>We are SAHI - Your trusted partner that helps enterprises like yours find, train, and manage the
+                    people who make growth a reality.</p>
+                <p>We partner with you to build productive, compliant, and future-ready teams by strengthening people
+                    foundations for long-term success, driving sustained growth and performance across every level.</p>
+            </div>
+        </div>
+
+        <!-- WHAT WE DO Section -->
+        <div class="hover-section" data-section="what-we-do">
+            <h2 class="hover-section-title">WHAT WE DO</h2>
+            <div class="hover-section-content">
+                <p>We partner with you to manage every aspect of your people operations - from hiring to managing and
+                    engaging talent. Our comprehensive approach ensures compliance, and fosters a culture of continuous
+                    growth.</p>
+                <p>Our solutions are simple, compliant, and effective, designed to deliver measurable results that drive
+                    your business forward.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Get all hover sections
+        const hoverSections = document.querySelectorAll('.hover-section');
+
+        hoverSections.forEach(section => {
+            // Mouse enter event
+            section.addEventListener('mouseenter', function () {
+                // Remove active class from all sections
+                hoverSections.forEach(s => s.classList.remove('active'));
+                // Add active class to hovered section
+                this.classList.add('active');
+            });
+
+            // Mouse leave event
+            section.addEventListener('mouseleave', function () {
+                this.classList.remove('active');
+            });
+
+            // Touch support for mobile
+            section.addEventListener('click', function () {
+                if (window.innerWidth <= 768) {
+                    const isActive = this.classList.contains('active');
+                    hoverSections.forEach(s => s.classList.remove('active'));
+                    if (!isActive) {
+                        this.classList.add('active');
+                    }
+                }
+            });
+        });
+
+        // Close active section when clicking outside on mobile
+        document.addEventListener('click', function (e) {
+            if (window.innerWidth <= 768 && !e.target.closest('.hover-section')) {
+                hoverSections.forEach(s => s.classList.remove('active'));
+            }
+        });
+    </script>
+</body>
+
+</html>
