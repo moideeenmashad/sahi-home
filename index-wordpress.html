@@ -16,7 +16,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         /* ============================================
-           CSS VARIABLES
+           CSS VARIABLES & UTILITIES
            ============================================ */
         :root {
             /* Colors */
@@ -45,6 +45,10 @@
             --spacing-lg: 30px;
             --spacing-xl: 50px;
             --spacing-xxl: 80px;
+            
+            /* Container Widths */
+            --container-sm: 1200px;
+            --container-md: 1400px;
             
             /* Transitions */
             --transition-fast: 0.3s;
@@ -85,6 +89,25 @@
             --font-black: 900;
         }
 
+        /* Utility Classes */
+        .flex-center {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .flex-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .absolute-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         /* ============================================
            SECTION 1 - HERO SECTION
            ============================================ */
@@ -115,7 +138,7 @@
         .hero-content-wrapper-wp {
             position: relative;
             width: 100%;
-            max-width: 1400px;
+            max-width: var(--container-md);
             margin: 0 auto;
             padding: 0 var(--spacing-md);
             z-index: var(--z-content);
@@ -141,7 +164,7 @@
 
         .hero-logo-letter-wp {
             font-size: clamp(80px, 15vw, 200px);
-            font-weight: 900;
+            font-weight: var(--font-black);
             line-height: 1;
             position: relative;
             z-index: var(--z-overlay);
@@ -149,23 +172,22 @@
             letter-spacing: -0.05em;
         }
 
-        .hero-logo-letter-wp.letter-s-wp {
-            color: var(--primary-blue);
+        .hero-logo-letter-wp {
             margin-right: clamp(10px, 2vw, 30px);
         }
 
-        .hero-logo-letter-wp.letter-a-wp {
-            color: var(--primary-orange);
-            margin-right: clamp(10px, 2vw, 30px);
-        }
-
+        .hero-logo-letter-wp.letter-s-wp,
         .hero-logo-letter-wp.letter-h-wp {
             color: var(--primary-blue);
-            margin-right: clamp(10px, 2vw, 30px);
+        }
+
+        .hero-logo-letter-wp.letter-a-wp,
+        .hero-logo-letter-wp.letter-i-wp {
+            color: var(--primary-orange);
         }
 
         .hero-logo-letter-wp.letter-i-wp {
-            color: var(--primary-orange);
+            margin-right: 0;
         }
 
         .hero-stats-container-wp {
@@ -175,7 +197,7 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
-            gap: 15px;
+            gap: var(--spacing-sm);
             z-index: var(--z-above);
         }
 
@@ -216,7 +238,7 @@
         .hero-stat-number-item-wp {
             color: white;
             font-size: clamp(14px, 1.5vw, 20px);
-            font-weight: 700;
+            font-weight: var(--font-bold);
             line-height: clamp(25px, 3vw, 35px);
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             height: clamp(25px, 3vw, 35px);
@@ -255,7 +277,7 @@
             transform: translateY(-50%);
             color: white;
             font-size: clamp(14px, 1.5vw, 20px);
-            font-weight: 700;
+            font-weight: var(--font-bold);
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
             z-index: var(--z-higher);
             pointer-events: none;
@@ -347,7 +369,7 @@
         .hover-section-title-wp {
             color: white !important;
             font-size: clamp(27px, 4.25vw, 41px) !important;
-            font-weight: bold !important;
+            font-weight: var(--font-bold) !important;
             text-align: center !important;
             letter-spacing: 2px !important;
             position: relative !important;
@@ -417,7 +439,7 @@
         .content-wrapper-wp {
             position: relative;
             width: 100%;
-            max-width: 1400px;
+            max-width: var(--container-md);
             margin: 0 auto;
         }
 
@@ -433,7 +455,7 @@
         .how-we-do-section-wp .section-title-wp {
             color: white !important;
             font-size: clamp(27px, 4.25vw, 41px);
-            font-weight: bold;
+            font-weight: var(--font-bold);
             text-align: center;
             margin-bottom: 20px;
             letter-spacing: 2px;
@@ -497,7 +519,7 @@
         }
 
         .content-card-wp.card-3-wp {
-            bottom: -180px;
+            bottom: -120px;
             left: 5%;
             transform: translate(calc(50vw - 50% - 5%), -250px) scale(0.3);
             transition-delay: 0.3s;
@@ -508,7 +530,7 @@
         }
 
         .content-card-wp.card-4-wp {
-            bottom: -180px;
+            bottom: -120px;
             right: 5%;
             transform: translate(calc(-50vw + 50% + 5%), -250px) scale(0.3);
             transition-delay: 0.4s;
@@ -529,7 +551,7 @@
            ============================================ */
         .how-we-roll-section-wp {
             padding: var(--spacing-xxl) var(--spacing-md) !important;
-            max-width: 1400px !important;
+            max-width: var(--container-md) !important;
             margin: 0 auto !important;
         }
 
@@ -540,7 +562,7 @@
 
         .how-we-roll-section-wp .section-title-wp {
             font-size: clamp(27px, 4.25vw, 41px) !important;
-            font-weight: bold !important;
+            font-weight: var(--font-bold) !important;
             color: white !important;
             text-align: center !important;
             letter-spacing: 2px !important;
@@ -550,7 +572,7 @@
         .progress-line-container-wp {
             position: relative;
             width: 100%;
-            max-width: 1400px;
+            max-width: var(--container-md);
             margin: 0 auto;
             padding: 10px 0;
         }
@@ -587,7 +609,7 @@
         .progress-dot-wp {
             width: 18px;
             height: 18px;
-            border-radius: 50%;
+            border-radius: var(--radius-full);
             border: 3px solid rgba(255, 255, 255, 0.3);
             z-index: var(--z-content);
             transition: all var(--transition-normal) var(--easing-smooth);
@@ -600,7 +622,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            border-radius: 50%;
+            border-radius: var(--radius-full);
             background: var(--primary-orange);
             opacity: 0;
             transform: scale(0.5);
@@ -629,7 +651,7 @@
         .how-we-roll-section-wp .cards-container-wp {
             display: flex !important;
             justify-content: flex-start !important;
-            gap: 30px !important;
+            gap: var(--spacing-lg) !important;
             margin-top: 60px !important;
             margin-left: auto !important;
             margin-right: auto !important;
@@ -731,14 +753,14 @@
             display: none !important;
             justify-content: center !important;
             align-items: center !important;
-            gap: 20px !important;
-            margin-top: 30px !important;
+            gap: var(--spacing-md) !important;
+            margin-top: var(--spacing-lg) !important;
         }
 
         .carousel-btn-wp {
             width: 50px !important;
             height: 50px !important;
-            border-radius: 50% !important;
+            border-radius: var(--radius-full) !important;
             background: rgba(var(--primary-orange-rgb), 0.2) !important;
             border: 2px solid var(--primary-orange) !important;
             color: var(--primary-orange) !important;
@@ -757,13 +779,13 @@
 
         .carousel-dots-wp {
             display: flex !important;
-            gap: 10px !important;
+            gap: var(--spacing-xs) !important;
         }
 
         .carousel-dot-wp {
             width: 10px !important;
             height: 10px !important;
-            border-radius: 50% !important;
+            border-radius: var(--radius-full) !important;
             background: rgba(255, 255, 255, 0.3) !important;
             cursor: pointer !important;
             transition: all var(--transition-fast) var(--easing-ease) !important;
@@ -789,7 +811,7 @@
 
         .serve-container {
             width: 100%;
-            max-width: 1400px;
+            max-width: var(--container-md);
         }
 
         .who-we-serve-section .serve-header {
@@ -799,7 +821,7 @@
 
         .who-we-serve-section .serve-title {
             font-size: clamp(27px, 4.25vw, 41px);
-            font-weight: bold;
+            font-weight: var(--font-bold);
             text-align: center;
             color: white;
             letter-spacing: 2px;
@@ -980,7 +1002,7 @@
 
         .enquire-container-wp {
             width: 100%;
-            max-width: 1400px;
+            max-width: var(--container-md);
             position: relative;
             display: flex;
             align-items: center;
@@ -990,7 +1012,7 @@
         .enquire-line-container-wp {
             position: relative;
             width: 100%;
-            max-width: 1200px;
+            max-width: var(--container-sm);
             height: 4px;
             display: flex;
             align-items: center;
@@ -1012,7 +1034,7 @@
             position: absolute;
             width: 12px;
             height: 12px;
-            border-radius: 50%;
+            border-radius: var(--radius-full);
             background: rgba(255, 255, 255, 0.5);
             top: 50%;
             transform: translateY(-50%);
@@ -1068,7 +1090,7 @@
         @media (max-width: 968px) {
             .how-we-roll-section-wp .cards-container-wp {
                 grid-template-columns: repeat(2, 1fr) !important;
-                gap: 20px !important;
+                gap: var(--spacing-md) !important;
             }
 
             .roll-card-wp {
@@ -1152,7 +1174,7 @@
                 font-size: clamp(21px, 3.8vw, 25px);
                 line-height: clamp(35px, 5vw, 42px);
                 height: clamp(35px, 5vw, 42px);
-                font-weight: 800 !important;
+                font-weight: var(--font-extrabold) !important;
                 color: white !important;
                 opacity: 1 !important;
                 text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.6);
@@ -1212,7 +1234,7 @@
             }
 
             .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp {
-                font-weight: 800;
+                font-weight: var(--font-extrabold);
             }
 
             /* Hide non-active items on mobile (only show target value) */
