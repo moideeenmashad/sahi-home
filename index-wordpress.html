@@ -11,9 +11,319 @@
             font-family: 'Poppins', sans-serif !important;
         }
         body{
-            background-color: #1b2a56 !important;
+            background-color: var(--primary-blue) !important;
         }
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+        /* ============================================
+           CSS VARIABLES
+           ============================================ */
+        :root {
+            /* Colors */
+            --primary-orange: #EF6824;
+            --primary-orange-light: #ff8c42;
+            --primary-orange-rgb: 239, 104, 36;
+            --primary-blue: #1b2a56;
+            --primary-blue-rgb: 27, 42, 86;
+            --white: #ffffff;
+            --black: #000000;
+            
+            /* Border Radius */
+            --radius-xs: 5px;
+            --radius-sm: 8px;
+            --radius-md: 10px;
+            --radius-lg: 20px;
+            --radius-xl: 25px;
+            --radius-2xl: 30px;  /* Used for card borders */
+            --radius-3xl: 50px;  /* Used for button borders */
+            --radius-full: 50%;
+            
+            /* Spacing */
+            --spacing-xs: 10px;
+            --spacing-sm: 15px;
+            --spacing-md: 20px;
+            --spacing-lg: 30px;
+            --spacing-xl: 50px;
+            --spacing-xxl: 80px;
+            
+            /* Transitions */
+            --transition-fast: 0.3s;
+            --transition-normal: 0.5s;
+            --transition-slow: 0.7s;
+            --transition-slower: 0.8s;
+            --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+            --easing-ease: ease;
+            
+            /* Z-Index Layers */
+            --z-base: 1;
+            --z-content: 2;
+            --z-overlay: 3;
+            --z-above: 4;
+            --z-higher: 5;
+            --z-modal: 10;
+            --z-top: 20;
+            
+            /* Backdrop Filter */
+            --blur-sm: blur(8px);
+            --blur-md: blur(10px);
+            --blur-lg: blur(15px);
+            
+            /* Box Shadows */
+            --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
+            --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
+            --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.3);
+            --shadow-xl: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --shadow-orange: 0 0 20px rgba(var(--primary-orange-rgb), 0.4);
+            
+            /* Font Weights */
+            --font-light: 300;
+            --font-normal: 400;
+            --font-medium: 500;
+            --font-semibold: 600;
+            --font-bold: 700;
+            --font-extrabold: 800;
+            --font-black: 900;
+        }
+
+        /* ============================================
+           SECTION 1 - HERO SECTION
+           ============================================ */
+        .hero-section-wp {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .hero-section-wp::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(var(--primary-blue-rgb), 0.3) 0%, rgba(var(--primary-blue-rgb), 0.5) 100%);
+            z-index: var(--z-base);
+        }
+
+        .hero-content-wrapper-wp {
+            position: relative;
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+            z-index: var(--z-content);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-logo-container-wp {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding-left: 5%;
+            z-index: var(--z-overlay);
+            pointer-events: none;
+        }
+
+        .hero-logo-letter-wp {
+            font-size: clamp(80px, 15vw, 200px);
+            font-weight: 900;
+            line-height: 1;
+            position: relative;
+            z-index: var(--z-overlay);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            letter-spacing: -0.05em;
+        }
+
+        .hero-logo-letter-wp.letter-s-wp {
+            color: var(--primary-blue);
+            margin-right: clamp(10px, 2vw, 30px);
+        }
+
+        .hero-logo-letter-wp.letter-a-wp {
+            color: var(--primary-orange);
+            margin-right: clamp(10px, 2vw, 30px);
+        }
+
+        .hero-logo-letter-wp.letter-h-wp {
+            color: var(--primary-blue);
+            margin-right: clamp(10px, 2vw, 30px);
+        }
+
+        .hero-logo-letter-wp.letter-i-wp {
+            color: var(--primary-orange);
+        }
+
+        .hero-stats-container-wp {
+            position: absolute;
+            bottom: 5%;
+            right: 5%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 15px;
+            z-index: var(--z-above);
+        }
+
+        .hero-stat-item-wp {
+            position: relative;
+            height: clamp(25px, 3vw, 35px);
+            overflow: hidden;
+            text-align: right;
+            opacity: 1;
+            cursor: pointer;
+            user-select: none;
+            transition: none;
+        }
+
+        .hero-stat-item-wp:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-stat-item-wp:active {
+            transform: scale(0.98);
+        }
+
+        .hero-stat-item-wp:nth-child(3) {
+            height: clamp(30px, 3.5vw, 42px);
+        }
+
+        .hero-stat-scroll-wrapper-wp {
+            position: relative;
+            height: auto;
+            min-height: 100%;
+            width: 100%;
+            transition: none;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .hero-stat-number-item-wp {
+            color: white;
+            font-size: clamp(14px, 1.5vw, 20px);
+            font-weight: 700;
+            line-height: clamp(25px, 3vw, 35px);
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            height: clamp(25px, 3vw, 35px);
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            opacity: 0.4;
+            transition: none;
+            padding-right: 25px;
+            min-width: 50px;
+            text-align: right;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp {
+            font-size: clamp(18px, 2vw, 28px);
+            line-height: clamp(30px, 3.5vw, 42px);
+            height: clamp(30px, 3.5vw, 42px);
+        }
+
+        .hero-stat-number-item-wp.active-wp {
+            opacity: 1;
+            font-size: clamp(16px, 1.8vw, 24px);
+            transform: none;
+        }
+
+        .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp.active-wp {
+            font-size: clamp(20px, 2.3vw, 32px);
+        }
+
+        .hero-stat-item-wp .stat-plus-wp {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: clamp(14px, 1.5vw, 20px);
+            font-weight: 700;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            z-index: var(--z-higher);
+            pointer-events: none;
+            line-height: 1;
+        }
+
+        .hero-stat-item-wp:nth-child(3) .stat-plus-wp {
+            font-size: clamp(18px, 2vw, 28px);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-section-wp {
+                min-height: 80vh;
+            }
+
+            .hero-content-wrapper-wp {
+                height: 80vh;
+            }
+
+            .hero-logo-container-wp {
+                padding-left: 3%;
+            }
+
+            .hero-logo-letter-wp {
+                font-size: clamp(50px, 12vw, 120px);
+            }
+
+            .hero-stats-container-wp {
+                bottom: 3%;
+                right: 3%;
+                gap: 10px;
+            }
+
+            .hero-stat-item-wp {
+                font-size: clamp(12px, 2.5vw, 16px);
+            }
+
+            .hero-stat-item-wp:nth-child(3) {
+                font-size: clamp(14px, 3vw, 20px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-section-wp {
+                min-height: 70vh;
+            }
+
+            .hero-content-wrapper-wp {
+                height: 70vh;
+            }
+
+            .hero-logo-container-wp {
+                padding-left: 2%;
+            }
+
+            .hero-stats-container-wp {
+                bottom: 2%;
+                right: 2%;
+                gap: 8px;
+            }
+        }
 
         /* ============================================
            SECTION 2 - WHO WE ARE / WHAT WE DO
@@ -28,9 +338,9 @@
 
         .hover-section-wp {
             position: relative;
-            padding: 60px 20px;
+            padding: 60px var(--spacing-md);
             cursor: pointer;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.4s var(--easing-smooth);
             overflow: hidden;
         }
 
@@ -43,13 +353,13 @@
             position: relative !important;
             z-index: 2 !important;
             transform: translateX(0) !important;
-            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                color 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            transition: transform var(--transition-slow) var(--easing-smooth),
+                color var(--transition-normal) var(--easing-smooth) !important;
         }
 
         .hover-section-wp.active .hover-section-title-wp {
             transform: translateX(calc(-30% + 40px)) !important;
-            color: #ff6b35 !important;
+            color: var(--primary-orange) !important;
         }
 
         .hover-section-content-wp {
@@ -58,8 +368,8 @@
             top: 0;
             width: 60%;
             height: auto;
-            padding: 50px;
-            transition: right 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: var(--spacing-xl);
+            transition: right var(--transition-slow) var(--easing-smooth);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -76,8 +386,8 @@
             margin-bottom: 20px;
             opacity: 0;
             transform: translateX(20px);
-            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
-                transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+            transition:             opacity 0.6s var(--easing-smooth) 0.2s,
+                transform 0.6s var(--easing-smooth) 0.2s;
         }
 
         .hover-section-wp.active .hover-section-content-wp p {
@@ -90,7 +400,7 @@
         }
 
         .hover-section-wp:hover .hover-section-title-wp {
-            color: #ff6b35 !important;
+            color: var(--primary-orange) !important;
         }
 
         /* ============================================
@@ -114,7 +424,7 @@
         .how-we-do-section-wp .section-header-wp {
             text-align: center;
             position: relative;
-            z-index: 10;
+            z-index: var(--z-modal);
             max-width: 800px;
             margin: 0 auto;
             cursor: pointer;
@@ -149,14 +459,14 @@
             position: absolute;
             width: 450px;
             max-width: 90%;
-            backdrop-filter: blur(10px);
-            border: 2px solid #ff6b35;
-            border-bottom: 8px solid #ff6b35;
-            border-radius: 30px;
-            padding: 16px;
+            backdrop-filter: var(--blur-md);
+            border: 2px solid var(--primary-orange);
+            border-bottom: 8px solid var(--primary-orange);
+            border-radius: var(--radius-2xl);
+            padding: var(--spacing-sm);
             opacity: 0;
             text-align: center;
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-slower) var(--easing-smooth);
             pointer-events: auto;
         }
 
@@ -165,7 +475,7 @@
         }
 
         .content-card-wp.card-1-wp {
-            top: -180px;
+            top: -120px;
             left: 5%;
             transform: translate(calc(50vw - 50% - 5%), 250px) scale(0.3);
             transition-delay: 0.1s;
@@ -176,7 +486,7 @@
         }
 
         .content-card-wp.card-2-wp {
-            top: -180px;
+            top: -120px;
             right: 5%;
             transform: translate(calc(-50vw + 50% + 5%), 250px) scale(0.3);
             transition-delay: 0.2s;
@@ -218,7 +528,7 @@
            SECTION 4 - HOW WE ROLL
            ============================================ */
         .how-we-roll-section-wp {
-            padding: 80px 20px !important;
+            padding: var(--spacing-xxl) var(--spacing-md) !important;
             max-width: 1400px !important;
             margin: 0 auto !important;
         }
@@ -252,19 +562,19 @@
             background: rgba(255, 255, 255, 0.15);
             top: 50%;
             transform: translateY(-50%);
-            border-radius: 10px;
+            border-radius: var(--radius-sm);
         }
 
         .progress-line-fill-wp {
             position: absolute;
             height: 3px;
-            background: linear-gradient(90deg, #ff6b35 0%, #ff8c42 100%);
+            background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-orange-light) 100%);
             top: 50%;
             transform: translateY(-50%);
             width: 0%;
-            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255, 107, 53, 0.4);
+            transition: width var(--transition-slow) var(--easing-smooth);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-orange);
         }
 
         .progress-dots-wp {
@@ -279,8 +589,8 @@
             height: 18px;
             border-radius: 50%;
             border: 3px solid rgba(255, 255, 255, 0.3);
-            z-index: 2;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: var(--z-content);
+            transition: all var(--transition-normal) var(--easing-smooth);
             position: relative;
             cursor: pointer;
         }
@@ -291,18 +601,18 @@
             width: 100%;
             height: 100%;
             border-radius: 50%;
-            background: #ff6b35;
+            background: var(--primary-orange);
             opacity: 0;
             transform: scale(0.5);
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-normal) var(--easing-smooth);
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%) scale(0.5);
         }
 
         .progress-dot-wp.active {
-            background: #ff6b35;
-            border-color: #ff6b35;
+            background: var(--primary-orange);
+            border-color: var(--primary-orange);
             transform: scale(1.3);
         }
 
@@ -313,26 +623,46 @@
 
         .progress-dot-wp:hover {
             transform: scale(1.2);
-            background: rgba(255, 107, 53, 0.3);
+            background: rgba(var(--primary-orange-rgb), 0.3);
         }
 
         .how-we-roll-section-wp .cards-container-wp {
             display: flex !important;
-            justify-content: space-between !important;
+            justify-content: flex-start !important;
             gap: 30px !important;
             margin-top: 60px !important;
             margin-left: auto !important;
             margin-right: auto !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+            position: relative !important;
+            /* Hide scrollbar */
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE and Edge */
+        }
+
+        .how-we-roll-section-wp .cards-container-wp::-webkit-scrollbar {
+            display: none; /* Chrome, Safari, Opera */
         }
 
         .roll-card-wp {
             position: relative !important;
-            border-radius: 20px !important;
+            border-radius: var(--radius-md) !important;
             overflow: hidden !important;
             cursor: pointer !important;
             height: 500px !important;
-            flex: 1 !important;
-            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            flex: 0 0 calc(33.333% - 20px) !important;
+            min-width: 0 !important;
+            max-width: calc(33.333% - 20px) !important;
+            transition: transform var(--transition-normal) var(--easing-smooth) !important;
+            will-change: transform;
+        }
+
+        @media (max-width: 968px) {
+            .roll-card-wp {
+                flex: 0 0 calc(50% - 15px) !important;
+                max-width: calc(50% - 15px) !important;
+            }
         }
 
         .roll-card-wp:hover {
@@ -354,7 +684,7 @@
             height: auto !important;
             background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%) !important;
             padding: 30px !important;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            transition: all var(--transition-normal) var(--easing-smooth) !important;
             display: flex !important;
             flex-direction: column !important;
             justify-content: flex-end !important;
@@ -363,7 +693,7 @@
         .roll-card-wp:hover .card-overlay-wp {
             top: 0 !important;
             height: 100% !important;
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.35) 0%, rgba(255, 140, 0, 0.3) 100%) !important;
+            background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.35) 0%, rgba(var(--primary-orange-rgb), 0.25) 100%) !important;
             justify-content: center !important;
         }
 
@@ -374,7 +704,7 @@
             margin-bottom: 0 !important;
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
-            transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            transition: margin-bottom var(--transition-normal) var(--easing-smooth) !important;
         }
 
         .roll-card-wp:hover .card-title-wp {
@@ -388,7 +718,7 @@
             max-height: 0 !important;
             opacity: 0 !important;
             overflow: hidden !important;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            transition: all var(--transition-normal) var(--easing-smooth) !important;
         }
 
         .roll-card-wp:hover .card-description-wp {
@@ -409,19 +739,19 @@
             width: 50px !important;
             height: 50px !important;
             border-radius: 50% !important;
-            background: rgba(255, 107, 53, 0.2) !important;
-            border: 2px solid #ff6b35 !important;
-            color: #ff6b35 !important;
+            background: rgba(var(--primary-orange-rgb), 0.2) !important;
+            border: 2px solid var(--primary-orange) !important;
+            color: var(--primary-orange) !important;
             font-size: 20px !important;
             cursor: pointer !important;
-            transition: all 0.3s ease !important;
+            transition: all var(--transition-fast) var(--easing-ease) !important;
             display: flex !important;
             align-items: center !important;
             justify-content: center !important;
         }
 
         .carousel-btn-wp:hover {
-            background: #ff6b35 !important;
+            background: var(--primary-orange) !important;
             color: white !important;
         }
 
@@ -436,13 +766,13 @@
             border-radius: 50% !important;
             background: rgba(255, 255, 255, 0.3) !important;
             cursor: pointer !important;
-            transition: all 0.3s ease !important;
+            transition: all var(--transition-fast) var(--easing-ease) !important;
         }
 
         .carousel-dot-wp.active {
-            background: #ff6b35 !important;
+            background: var(--primary-orange) !important;
             width: 30px !important;
-            border-radius: 5px !important;
+            border-radius: var(--radius-xs) !important;
         }
 
         /* ============================================
@@ -452,7 +782,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px;
+            padding: var(--spacing-xxl) var(--spacing-md);
             position: relative;
             overflow: hidden;
         }
@@ -502,8 +832,8 @@
             position: absolute;
             left: 0;
             height: 4px;
-            background: #ff6b35;
-            transition: width 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            background: var(--primary-orange);
+            transition: width var(--transition-slow) var(--easing-smooth);
             display: flex;
             align-items: center;
         }
@@ -515,7 +845,7 @@
             height: 0;
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
-            border-right: 10px solid #ff6b35;
+            border-right: 10px solid var(--primary-orange);
             transform: translateX(-10px);
         }
 
@@ -526,7 +856,7 @@
             height: 0;
             border-top: 6px solid transparent;
             border-bottom: 6px solid transparent;
-            border-left: 10px solid #ff6b35;
+            border-left: 10px solid var(--primary-orange);
             transform: translateX(10px);
         }
 
@@ -537,7 +867,7 @@
             height: 12px;
             background: white;
             transform: rotate(45deg);
-            z-index: 2;
+            z-index: var(--z-content);
         }
 
         .serve-progress-diamond-left {
@@ -570,10 +900,10 @@
             width: 100%;
             max-width: 400px;
             height: 450px;
-            border-radius: 20px;
+            border-radius: var(--radius-md);
             overflow: hidden;
             cursor: pointer;
-            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-slow) var(--easing-smooth);
             will-change: transform, opacity, filter;
         }
 
@@ -596,7 +926,7 @@
             height: 100%;
             padding: 30px;
             box-sizing: border-box;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-normal) var(--easing-smooth);
             display: flex;
             flex-direction: column;
             justify-content: flex-end;
@@ -604,7 +934,7 @@
         }
 
         .serve-card:hover .serve-card-overlay {
-            background: linear-gradient(135deg, rgba(255, 107, 53, 0.35) 0%, rgba(255, 140, 0, 0.3) 100%);
+            background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.35) 0%, rgba(var(--primary-orange-rgb), 0.25) 100%);
             justify-content: center;
         }
 
@@ -627,7 +957,7 @@
             max-height: 0;
             opacity: 0;
             overflow: hidden;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-normal) var(--easing-smooth);
         }
 
         .serve-card:hover .serve-card-description {
@@ -643,7 +973,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 80px 20px;
+            padding: var(--spacing-xxl) var(--spacing-md);
             position: relative;
             overflow: hidden;
         }
@@ -665,7 +995,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 20px;
+            padding: 0 var(--spacing-md);
         }
 
         .enquire-line-wp {
@@ -686,7 +1016,7 @@
             background: rgba(255, 255, 255, 0.5);
             top: 50%;
             transform: translateY(-50%);
-            z-index: 2;
+            z-index: var(--z-content);
         }
 
         .enquire-dot-left-wp {
@@ -699,31 +1029,31 @@
 
         .enquire-button-wp {
             position: relative;
-            z-index: 10;
+            z-index: var(--z-modal);
             background: white;
-            color: #ff6b35;
+            color: var(--primary-orange);
             font-family: 'Poppins', sans-serif;
             font-size: clamp(14px, 1.7vw, 17px);
             font-weight: 700;
-            padding: 18px 50px;
-            border-radius: 50px;
+            padding: 18px var(--spacing-xl);
+            border-radius: var(--radius-xl);
             border: none;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all var(--transition-fast) var(--easing-smooth);
             text-transform: uppercase;
             letter-spacing: 1px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-md);
         }
 
         .enquire-button-wp:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            box-shadow: var(--shadow-lg);
             background: #fff;
         }
 
         .enquire-button-wp:active {
             transform: translateY(0);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-sm);
         }
 
         /* ============================================
@@ -746,52 +1076,219 @@
             }
         }
 
+        /* ============================================
+           MOBILE UI/UX IMPROVEMENTS
+           ============================================ */
         @media (max-width: 768px) {
+            /* Hero Section Mobile Improvements */
+            .hero-section-wp {
+                min-height: 75vh;
+                background-attachment: scroll;
+                background-position: center center;
+                background-size: cover;
+            }
+
+            .hero-section-wp::before {
+                background: linear-gradient(to bottom, rgba(var(--primary-blue-rgb), 0.5) 0%, rgba(var(--primary-blue-rgb), 0.7) 100%);
+            }
+
+            .hero-content-wrapper-wp {
+                height: 75vh;
+                padding: 0 15px;
+                align-items: flex-end;
+                padding-bottom: var(--spacing-md);
+            }
+
+            .hero-stats-container-wp {
+                bottom: 10%;
+                right: 5%;
+                left: auto;
+                gap: 14px;
+                width: auto;
+                max-width: 45%;
+            }
+
+            .hero-stat-item-wp {
+                height: clamp(30px, 4.5vw, 35px);
+                -webkit-tap-highlight-color: transparent;
+                background: rgba(0, 0, 0, 0.4);
+                backdrop-filter: var(--blur-sm);
+                border-radius: var(--radius-sm);
+                padding: 4px 8px;
+                transition: none;
+                border: 1px solid rgba(255, 255, 255, 0.1);
+            }
+
+            .hero-stat-item-wp:active {
+                transform: scale(0.95);
+                background: rgba(0, 0, 0, 0.5);
+            }
+
+            .hero-stat-item-wp:nth-child(3) {
+                height: clamp(35px, 5vw, 42px);
+                background: rgba(var(--primary-orange-rgb), 0.3);
+                backdrop-filter: var(--blur-md);
+                border: 1px solid rgba(var(--primary-orange-rgb), 0.3);
+            }
+
+            .hero-stat-item-wp:nth-child(3):active {
+                background: rgba(var(--primary-orange-rgb), 0.4);
+            }
+
+            .hero-stat-number-item-wp {
+                font-size: clamp(17px, 3.2vw, 19px);
+                line-height: clamp(30px, 4.5vw, 35px);
+                height: clamp(30px, 4.5vw, 35px);
+                padding-right: 28px;
+                min-width: 50px;
+                -webkit-tap-highlight-color: transparent;
+                color: white !important;
+                opacity: 0.8 !important;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9), 0 0 10px rgba(0, 0, 0, 0.5);
+                font-weight: 700 !important;
+            }
+
+            .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp {
+                font-size: clamp(21px, 3.8vw, 25px);
+                line-height: clamp(35px, 5vw, 42px);
+                height: clamp(35px, 5vw, 42px);
+                font-weight: 800 !important;
+                color: white !important;
+                opacity: 1 !important;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.6);
+            }
+
+            .hero-stat-number-item-wp.active-wp {
+                font-size: clamp(19px, 3.5vw, 21px);
+                opacity: 1 !important;
+                color: white !important;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 12px rgba(0, 0, 0, 0.6);
+            }
+
+            .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp.active-wp {
+                font-size: clamp(23px, 4.2vw, 27px);
+                opacity: 1 !important;
+                color: white !important;
+            }
+
+            .hero-stat-item-wp .stat-plus-wp {
+                font-size: clamp(17px, 3.2vw, 19px);
+                color: white !important;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.5);
+                opacity: 1 !important;
+            }
+
+            .hero-stat-item-wp:nth-child(3) .stat-plus-wp {
+                font-size: clamp(21px, 3.8vw, 25px);
+                color: white !important;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.6);
+            }
+
+            /* Better mobile hero UX */
+            /* Mobile: Static counters - no scrolling */
+            .hero-stat-item-wp {
+                overflow: visible !important;
+                cursor: default !important;
+                pointer-events: none !important;
+            }
+
+            .hero-stat-item-wp:active {
+                transform: none !important;
+                background: rgba(0, 0, 0, 0.4) !important;
+            }
+
+            .hero-stat-scroll-wrapper-wp {
+                transition: none !important;
+                transform: none !important;
+                height: 100% !important;
+                overflow: visible !important;
+            }
+
+            .hero-stat-number-item-wp {
+                font-weight: 700;
+                opacity: 1 !important;
+                transform: none !important;
+                pointer-events: none !important;
+            }
+
+            .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp {
+                font-weight: 800;
+            }
+
+            /* Hide non-active items on mobile (only show target value) */
+            .hero-stat-number-item-wp:not(.active-wp) {
+                display: none !important;
+            }
+
+            /* Section 2 - Who We Are / What We Do Mobile */
             .hover-section-wp {
-                padding: 40px 15px;
+                padding: 35px 15px 25px;
                 display: flex;
                 flex-direction: column;
+                -webkit-tap-highlight-color: transparent;
             }
 
             .hover-section-title-wp {
                 transform: translateX(0) !important;
                 text-align: center !important;
+                margin-bottom: 0 !important;
+                padding-bottom: 15px;
+                transition: color var(--transition-fast) var(--easing-ease), transform var(--transition-fast) var(--easing-ease) !important;
+                color: white !important;
             }
 
             .hover-section-wp.active .hover-section-title-wp {
                 font-size: clamp(20px, 5.1vw, 31px);
+                color: white !important;
+                transform: scale(0.98) !important;
             }
 
             .hover-section-content-wp {
                 position: relative;
                 width: 100%;
-                padding: 0 20px;
+                padding: var(--spacing-md) var(--spacing-sm) var(--spacing-xs);
                 right: auto;
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                    opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1),
-                    padding 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+                max-height: none !important;
+                opacity: 1 !important;
+                overflow: visible !important;
+                margin-top: 0;
+                transform: translateY(0) !important;
+                transition: none !important;
+                display: block !important;
             }
 
             .hover-section-wp.active .hover-section-content-wp {
-                min-height: 500px;
-                opacity: 1;
-                padding: 30px 20px;
-                margin-top: 20px;
+                max-height: none !important;
+                opacity: 1 !important;
+                padding: var(--spacing-md) var(--spacing-sm) var(--spacing-xs);
+                margin-top: 0;
+                transform: translateY(0) !important;
             }
 
             .hover-section-content-wp p {
-                font-size: 12px;
-                opacity: 1;
-                transform: translateX(0);
-                transition: none;
+                font-size: 13px;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+                transition: none !important;
+                line-height: 1.7;
+                margin-bottom: 15px;
+                display: block !important;
             }
 
+            .hover-section-wp.active .hover-section-content-wp p {
+                opacity: 1 !important;
+                transform: translateY(0) !important;
+            }
+
+            .hover-section-wp.active .hover-section-content-wp p:nth-child(2) {
+                transition-delay: 0;
+            }
+
+            /* Section 3 - How We Do It Mobile */
             .how-we-do-section-wp {
-                padding: 60px 15px;
+                padding: var(--spacing-xl) var(--spacing-sm);
                 overflow-x: hidden;
+                min-height: auto;
             }
 
             .content-wrapper-wp {
@@ -809,11 +1306,12 @@
                 top: auto;
                 left: auto;
                 transform: none;
-                margin-top: 60px;
+                margin-top: 40px;
                 height: auto;
                 width: 100%;
                 padding: 0;
                 box-sizing: border-box;
+                pointer-events: auto;
             }
 
             .content-card-wp {
@@ -825,21 +1323,32 @@
                 width: 100%;
                 max-width: 100%;
                 margin-bottom: 20px;
-                transform: translateY(20px);
+                transform: none !important;
+                opacity: 1 !important;
                 box-sizing: border-box;
+                padding: var(--spacing-md) !important;
+                -webkit-tap-highlight-color: transparent;
+                transition: none !important;
             }
 
             .how-we-do-section-wp.header-hovered-wp .content-card-wp,
             .how-we-do-section-wp.active-wp .content-card-wp {
-                transform: translateY(0);
+                transform: none !important;
+                opacity: 1 !important;
             }
 
             .card-content-wp {
-                font-size: 12px;
+                font-size: 13px;
+                line-height: 1.7;
             }
 
+            /* Section 4 - How We Roll Mobile */
             .how-we-roll-section-wp {
-                padding: 60px 15px !important;
+                padding: 50px 15px !important;
+            }
+
+            .how-we-roll-section-wp .section-title-wp {
+                margin-bottom: 25px !important;
             }
 
             .how-we-roll-section-wp .cards-container-wp {
@@ -847,77 +1356,325 @@
                 overflow-x: hidden !important;
                 scroll-behavior: smooth !important;
                 gap: 0 !important;
+                -webkit-overflow-scrolling: touch;
+                scroll-snap-type: x mandatory;
+                padding-bottom: 10px;
+                width: 100% !important;
+                position: relative !important;
+                /* Hide scrollbar */
+                scrollbar-width: none; /* Firefox */
+                -ms-overflow-style: none; /* IE and Edge */
+            }
+
+            .how-we-roll-section-wp .cards-container-wp::-webkit-scrollbar {
+                display: none; /* Chrome, Safari, Opera */
             }
 
             .roll-card-wp {
                 min-width: 100% !important;
-                height: 450px !important;
+                flex-shrink: 0 !important;
+                height: 420px !important;
                 margin-right: 0 !important;
-                transform: translateX(0) !important;
-                transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+                transition: transform var(--transition-normal) var(--easing-smooth) !important;
+                scroll-snap-align: center;
+                -webkit-tap-highlight-color: transparent;
+                will-change: transform;
             }
 
             .roll-card-wp:hover {
                 transform: translateY(0) !important;
             }
 
+            .roll-card-wp .card-overlay-wp {
+                padding: 25px !important;
+            }
+
+            .roll-card-wp .card-title-wp {
+                font-size: clamp(16px, 2vw, 18px) !important;
+            }
+
+            .roll-card-wp .card-description-wp {
+                font-size: clamp(12px, 1.5vw, 13px) !important;
+            }
+
             .carousel-controls-wp {
                 display: flex !important;
+                margin-top: 25px !important;
+                gap: 15px !important;
+            }
+
+            .carousel-btn-wp {
+                width: 45px !important;
+                height: 45px !important;
+                font-size: 22px !important;
+                -webkit-tap-highlight-color: transparent;
             }
 
             .progress-line-container-wp {
                 max-width: 100% !important;
             }
 
+            /* Section 5 - Who We Serve Mobile */
             .who-we-serve-section {
-                padding: 60px 15px;
+                padding: var(--spacing-xl) var(--spacing-sm);
+                overflow: visible;
             }
 
             .who-we-serve-section .serve-header {
-                margin-bottom: 40px;
+                margin-bottom: 30px;
             }
 
             .who-we-serve-section .serve-title {
-                margin-bottom: 30px;
+                margin-bottom: 20px;
+                font-size: clamp(22px, 5vw, 28px);
+                letter-spacing: 1.5px;
+            }
+
+            .serve-progress-bar-container {
+                margin: 30px auto 25px;
+                max-width: 90%;
+            }
+
+            .serve-progress-bar-track {
+                height: 3px;
+            }
+
+            .serve-progress-bar-fill {
+                height: 3px;
             }
 
             .who-we-serve-section .serve-cards-container {
                 height: 450px;
+                -webkit-overflow-scrolling: touch;
+                overflow: visible;
+                margin-bottom: 30px;
+            }
+
+            .serve-cards-wrapper {
+                position: relative;
+                width: 100%;
+                height: 100%;
             }
 
             .serve-card {
-                max-width: 100%;
+                max-width: 90%;
+                width: 90%;
+                height: 420px;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: pan-y;
+                border-radius: var(--radius-xl);
+                box-shadow: var(--shadow-xl);
             }
 
+            .serve-card.active {
+                box-shadow: var(--shadow-xl);
+            }
+
+            .serve-card .serve-card-overlay {
+                padding: 30px 25px;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%);
+                border-radius: var(--radius-xl);
+            }
+
+            .serve-card.active .serve-card-overlay {
+                background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.4) 0%, rgba(var(--primary-orange-rgb), 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+            }
+
+            .serve-card.active {
+                transform: translate(-50%, -50%) scale(1) !important;
+                opacity: 1 !important;
+                filter: none !important;
+            }
+
+            .serve-card .serve-card-title {
+                font-size: clamp(16px, 2.5vw, 18px);
+                margin-top: 20px;
+                letter-spacing: 1.2px;
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+            }
+
+            .serve-card .serve-card-description {
+                font-size: clamp(12px, 1.8vw, 13px);
+                line-height: 1.7;
+                margin-top: 15px;
+                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            }
+
+            .serve-card:hover .serve-card-overlay,
+            .serve-card.active .serve-card-overlay {
+                justify-content: center;
+                padding: 30px 25px;
+            }
+
+            .serve-card:hover .serve-card-description,
+            .serve-card.active .serve-card-description {
+                max-height: 300px;
+                opacity: 1;
+                margin-top: 15px;
+            }
+
+            /* Section 6 - Enquire Now Mobile */
             .enquire-section-wp {
-                padding: 60px 15px;
+                padding: var(--spacing-xl) var(--spacing-sm);
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                min-height: auto !important;
+            }
+
+            .enquire-container-wp {
+                width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
             }
 
             .enquire-line-container-wp {
                 padding: 0 15px;
+                width: 100% !important;
+                height: auto !important;
+                min-height: 60px !important;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                position: relative !important;
+            }
+
+            .enquire-line-wp {
+                position: absolute;
+                width: calc(100% - 30px);
             }
 
             .enquire-button-wp {
-                padding: 16px 40px;
-                font-size: 14px;
+                padding: var(--spacing-sm) 45px !important;
+                font-size: 14px !important;
+                min-width: 200px !important;
+                width: auto !important;
+                max-width: 90% !important;
+                z-index: var(--z-top) !important;
+                position: relative !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+                -webkit-tap-highlight-color: transparent;
+                touch-action: manipulation;
+                white-space: nowrap;
+            }
+
+            .enquire-button-wp:active {
+                transform: scale(0.98);
+            }
+
+            .enquire-dot-left-wp,
+            .enquire-dot-right-wp {
+                z-index: 1 !important;
             }
         }
 
         @media (max-width: 480px) {
+            /* Hero Section Small Mobile */
+            .hero-section-wp {
+                min-height: 65vh;
+            }
+
+            .hero-section-wp::before {
+                background: linear-gradient(to bottom, rgba(var(--primary-blue-rgb), 0.6) 0%, rgba(var(--primary-blue-rgb), 0.75) 100%);
+            }
+
+            .hero-content-wrapper-wp {
+                height: 65vh;
+                padding: 0 10px;
+                align-items: flex-end;
+                padding-bottom: 15px;
+            }
+
+            .hero-stats-container-wp {
+                bottom: 12%;
+                right: 4%;
+                left: auto;
+                gap: 12px;
+                max-width: 50%;
+            }
+
+            .hero-stat-item-wp {
+                height: clamp(28px, 5vw, 32px);
+                padding: 3px 6px;
+                border-radius: 6px;
+            }
+
+            .hero-stat-item-wp:nth-child(3) {
+                height: clamp(32px, 5.5vw, 38px);
+            }
+
+            .hero-stat-number-item-wp {
+                font-size: clamp(16px, 3.8vw, 18px);
+                line-height: clamp(28px, 5vw, 32px);
+                height: clamp(28px, 5vw, 32px);
+                padding-right: 26px;
+                min-width: 48px;
+                color: white !important;
+                opacity: 0.85 !important;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.6);
+                font-weight: 700 !important;
+            }
+
+            .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp {
+                font-size: clamp(20px, 4.2vw, 23px);
+                line-height: clamp(32px, 5.5vw, 38px);
+                height: clamp(32px, 5.5vw, 38px);
+                opacity: 1 !important;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.7);
+            }
+
+            .hero-stat-number-item-wp.active-wp {
+                opacity: 1 !important;
+                color: white !important;
+            }
+
+            .hero-stat-item-wp .stat-plus-wp {
+                color: white !important;
+                opacity: 1 !important;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+
+            .hero-stat-item-wp:nth-child(3) .stat-plus-wp {
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.7);
+            }
+
+            /* Section 2 Small Mobile */
             .hover-section-wp {
-                padding: 30px 10px;
+                padding: var(--spacing-lg) var(--spacing-xs) var(--spacing-md);
+            }
+
+            .hover-section-title-wp {
+                padding-bottom: 12px;
+                color: white !important;
+            }
+
+            .hover-section-wp.active .hover-section-title-wp {
+                color: white !important;
             }
 
             .hover-section-content-wp {
-                padding: 30px 15px;
+                padding: 18px 12px 8px !important;
+                opacity: 1 !important;
+                max-height: none !important;
+                transform: translateY(0) !important;
+            }
+
+            .hover-section-wp.active .hover-section-content-wp {
+                padding: 18px 12px 8px;
             }
 
             .hover-section-content-wp p {
-                font-size: 11px;
-                line-height: 1.6;
-                margin-bottom: 15px;
+                font-size: 12px;
+                line-height: 1.7;
+                margin-bottom: 14px;
+                opacity: 1 !important;
+                transform: translateY(0) !important;
             }
 
+            /* Section 3 Small Mobile */
             .how-we-do-section-wp {
                 padding: 40px 15px;
                 overflow-x: hidden;
@@ -931,57 +1688,295 @@
                 padding: 0 5px;
             }
 
+            .how-we-do-section-wp .section-title-wp {
+                font-size: clamp(22px, 5.5vw, 26px);
+            }
+
             .how-we-do-section-wp .cards-container-wp {
                 margin-top: 40px;
                 padding: 0;
             }
 
             .content-card-wp {
-                padding: 18px 20px;
-                border-radius: 20px;
+                padding: 18px 18px;
+                border-radius: var(--radius-md);
                 box-sizing: border-box;
+                transform: none !important;
+                opacity: 1 !important;
+                transition: none !important;
             }
 
             .card-content-wp {
                 font-size: 12px;
-                line-height: 1.6;
+                line-height: 1.7;
             }
 
+            /* Section 4 Small Mobile */
             .how-we-roll-section-wp {
                 padding: 40px 10px !important;
             }
 
             .roll-card-wp {
-                height: 400px !important;
+                height: 380px !important;
             }
 
             .roll-card-wp .card-overlay-wp {
-                padding: 20px !important;
+                padding: var(--spacing-md) !important;
             }
 
+            .carousel-btn-wp {
+                width: 40px !important;
+                height: 40px !important;
+                font-size: 20px !important;
+            }
+
+            /* Section 5 Small Mobile */
             .who-we-serve-section {
                 padding: 40px 10px;
             }
 
+            .who-we-serve-section .serve-header {
+                margin-bottom: 25px;
+            }
+
+            .who-we-serve-section .serve-title {
+                margin-bottom: 15px;
+                font-size: clamp(20px, 5.5vw, 24px);
+            }
+
+            .serve-progress-bar-container {
+                margin: 25px auto 20px;
+                max-width: 85%;
+            }
+
+            .who-we-serve-section .serve-cards-container {
+                height: 400px;
+                margin-bottom: 25px;
+            }
+
+            .serve-card {
+                max-width: 85%;
+                width: 85%;
+                height: 380px;
+                border-radius: var(--radius-md);
+            }
+
+            .serve-card .serve-card-overlay {
+                padding: 25px var(--spacing-md);
+                border-radius: var(--radius-md);
+            }
+
+            .serve-card .serve-card-title {
+                font-size: clamp(15px, 2.2vw, 17px);
+                margin-top: 15px;
+            }
+
+            .serve-card .serve-card-description {
+                font-size: clamp(11px, 1.6vw, 12px);
+                margin-top: 12px;
+            }
+
+            /* Section 6 Small Mobile */
             .enquire-section-wp {
                 padding: 40px 10px;
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+
+            .enquire-line-container-wp {
+                min-height: 55px !important;
+                padding: 0 10px;
             }
 
             .enquire-button-wp {
-                padding: 14px 30px;
-                font-size: 12px;
+                padding: 14px 30px !important;
+                font-size: 13px !important;
+                min-width: 180px !important;
+                width: auto !important;
+                max-width: 85% !important;
+                z-index: var(--z-top) !important;
+                position: relative !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
             }
 
             .enquire-dot-left-wp,
             .enquire-dot-right-wp {
                 width: 10px;
                 height: 10px;
+                z-index: 1 !important;
+            }
+        }
+
+        /* General Mobile UX Enhancements */
+        @media (max-width: 768px) {
+            /* Smooth scrolling */
+            html {
+                scroll-behavior: smooth;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            /* Better touch targets */
+            button, a, .hero-stat-item-wp, .roll-card-wp, .serve-card {
+                min-height: 44px;
+                min-width: 44px;
+            }
+
+            /* Prevent text selection on interactive elements */
+            .hero-stat-item-wp, .carousel-btn-wp, .enquire-button-wp {
+                -webkit-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+
+            /* Better focus states for accessibility */
+            .enquire-button-wp:focus,
+            .carousel-btn-wp:focus {
+                outline: 2px solid var(--primary-orange);
+                outline-offset: 2px;
+            }
+
+            /* Improve card readability */
+            .roll-card-wp .card-overlay-wp,
+            .serve-card .serve-card-overlay {
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 70%, transparent 100%) !important;
+            }
+
+            /* Better spacing for section titles */
+            .section-title-wp,
+            .hover-section-title-wp,
+            .serve-title {
+                margin-bottom: 25px;
+            }
+
+            /* Performance optimizations */
+            .hero-section-wp,
+            .roll-card-wp,
+            .serve-card {
+                will-change: transform;
+            }
+
+            /* Reduce motion for users who prefer it */
+            @media (prefers-reduced-motion: reduce) {
+                * {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            }
+        }
+
+        /* Extra small devices (phones in portrait) */
+        @media (max-width: 360px) {
+            .hero-section-wp {
+                min-height: 60vh;
+            }
+
+            .hero-content-wrapper-wp {
+                height: 60vh;
+                padding-bottom: 12px;
+            }
+
+            .hero-stats-container-wp {
+                bottom: 12%;
+                right: 3%;
+                gap: 10px;
+                max-width: 55%;
+            }
+
+            .hero-stat-item-wp {
+                padding: 3px 5px;
+                border-radius: 5px;
+            }
+
+            .hero-stat-number-item-wp {
+                font-size: 15px;
+                padding-right: 24px;
+                min-width: 45px;
+                color: white !important;
+                opacity: 0.9 !important;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 12px rgba(0, 0, 0, 0.7);
+                font-weight: 700 !important;
+            }
+
+            .hero-stat-item-wp:nth-child(3) .hero-stat-number-item-wp {
+                font-size: 19px;
+                opacity: 1 !important;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.8);
+            }
+
+            .hero-stat-number-item-wp.active-wp {
+                opacity: 1 !important;
+                color: white !important;
+            }
+
+            .hero-stat-item-wp .stat-plus-wp {
+                font-size: 15px;
+                color: white !important;
+                opacity: 1 !important;
+                text-shadow: 2px 2px 8px rgba(0, 0, 0, 1), 0 0 10px rgba(0, 0, 0, 0.6);
+            }
+
+            .hero-stat-item-wp:nth-child(3) .stat-plus-wp {
+                font-size: 19px;
+                text-shadow: 2px 2px 10px rgba(0, 0, 0, 1), 0 0 15px rgba(0, 0, 0, 0.8);
+            }
+
+            .enquire-button-wp {
+                padding: 12px 25px !important;
+                font-size: 12px !important;
+                min-width: 160px !important;
+                max-width: 90% !important;
+                z-index: var(--z-top) !important;
+                position: relative !important;
+                display: block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+
+            .roll-card-wp {
+                height: 350px !important;
+            }
+
+            .serve-card {
+                height: 340px;
             }
         }
     </style>
 </head>
 
-<body style="background: #1b2a56; margin: 0; padding: 0;">
+<body style="background: var(--primary-blue); margin: 0; padding: 0;">
+    <!-- Section 1 - Hero Section -->
+    <section class="hero-section-wp" style="background-image: url('http://uat-wp.sahi.ai/wp-content/uploads/2025/12/MAIN-WEBSITE-HOME-PAGE-1.jpg');">
+        <div class="hero-content-wrapper-wp">
+            <div class="hero-stats-container-wp">
+                <div class="hero-stat-item-wp" data-target="300" data-values="0,50,100,150,200,250,300">
+                    <div class="hero-stat-scroll-wrapper-wp"></div>
+                    <span class="stat-plus-wp">+</span>
+                </div>
+                <div class="hero-stat-item-wp" data-target="600" data-values="0,100,200,300,400,500,600">
+                    <div class="hero-stat-scroll-wrapper-wp"></div>
+                    <span class="stat-plus-wp">+</span>
+                </div>
+                <div class="hero-stat-item-wp" data-target="150" data-values="0,30,60,90,120,150">
+                    <div class="hero-stat-scroll-wrapper-wp"></div>
+                    <span class="stat-plus-wp">+</span>
+                </div>
+                <div class="hero-stat-item-wp" data-target="500" data-values="0,100,200,300,400,500">
+                    <div class="hero-stat-scroll-wrapper-wp"></div>
+                    <span class="stat-plus-wp">+</span>
+                </div>
+                <div class="hero-stat-item-wp" data-target="400" data-values="0,80,160,240,320,400">
+                    <div class="hero-stat-scroll-wrapper-wp"></div>
+                    <span class="stat-plus-wp">+</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Section 2 - Who We Are / What We Do -->
     <div class="interactive-section-container-wp">
         <div class="hover-section-wp" data-section="who-we-are">
@@ -1198,26 +2193,454 @@
 
     <!-- JavaScript for all sections -->
     <script>
+        // Section 1 - Hero Scrolling Counter Animation
+        (function () {
+            'use strict';
+
+            const heroSectionWp = document.querySelector('.hero-section-wp');
+            const statItemsWp = document.querySelectorAll('.hero-stat-item-wp');
+            let hasAnimated = false;
+            let currentActiveIndexes = [];
+            let autoScrollIntervals = [];
+
+            if (!heroSectionWp || statItemsWp.length === 0) {
+                return;
+            }
+
+            // Initialize counters with number items
+            function initializeCounters() {
+                const isMobile = window.innerWidth <= 768;
+                
+                statItemsWp.forEach(function (item, itemIndex) {
+                    const valuesStr = item.getAttribute('data-values');
+                    const target = parseInt(item.getAttribute('data-target'), 10);
+                    const scrollWrapper = item.querySelector('.hero-stat-scroll-wrapper-wp');
+                    
+                    if (!scrollWrapper || !valuesStr) {
+                        return;
+                    }
+
+                    // Clear existing content
+                    scrollWrapper.innerHTML = '';
+
+                    if (isMobile) {
+                        // Mobile: Static display - just show the target value
+                        const numberItem = document.createElement('div');
+                        numberItem.className = 'hero-stat-number-item-wp active-wp';
+                        numberItem.textContent = target;
+                        numberItem.setAttribute('data-value', target);
+                        scrollWrapper.appendChild(numberItem);
+                        scrollWrapper.style.transform = 'translateY(0)';
+                        currentActiveIndexes[itemIndex] = 0;
+                    } else {
+                        // Desktop: Full scrolling functionality
+                        const values = valuesStr.split(',').map(function (v) {
+                            return parseInt(v.trim(), 10);
+                        });
+
+                        // Add target value if not in the list
+                        if (values.indexOf(target) === -1) {
+                            values.push(target);
+                            values.sort(function (a, b) {
+                                return a - b;
+                            });
+                        }
+
+                        // Add duplicate values at the beginning and end for smooth infinite scroll
+                        const firstValue = values[0];
+                        const lastValue = values[values.length - 1];
+                        const extendedValues = [lastValue, lastValue].concat(values).concat([firstValue, firstValue]);
+                        
+                        // Store original values count for indexing
+                        item.setAttribute('data-original-count', values.length);
+                        item.setAttribute('data-offset', '2'); // Offset for duplicates at start
+
+                        // Create number items with duplicates
+                        extendedValues.forEach(function (value, valueIndex) {
+                            const numberItem = document.createElement('div');
+                            numberItem.className = 'hero-stat-number-item-wp';
+                            numberItem.textContent = value;
+                            numberItem.setAttribute('data-value', value);
+                            
+                            // Mark the center target value as active (accounting for duplicates)
+                            const centerIndex = 2 + values.indexOf(target);
+                            if (valueIndex === centerIndex) {
+                                numberItem.classList.add('active-wp');
+                                currentActiveIndexes[itemIndex] = centerIndex;
+                            }
+                            scrollWrapper.appendChild(numberItem);
+                        });
+
+                        // Set initial position to center the target (accounting for duplicates)
+                        const itemHeight = item.offsetHeight || parseInt(getComputedStyle(item).height, 10);
+                        const activeIndex = 2 + values.indexOf(target); // +2 for duplicates at start
+                        const translateY = -(activeIndex * itemHeight);
+                        scrollWrapper.style.transform = 'translateY(' + translateY + 'px)';
+                    }
+                });
+            }
+
+            // Get original values array for an item (without duplicates)
+            function getValuesArray(item) {
+                const valuesStr = item.getAttribute('data-values');
+                const target = parseInt(item.getAttribute('data-target'), 10);
+                let values = valuesStr.split(',').map(function (v) {
+                    return parseInt(v.trim(), 10);
+                });
+
+                if (values.indexOf(target) === -1) {
+                    values.push(target);
+                    values.sort(function (a, b) {
+                        return a - b;
+                    });
+                }
+
+                return values;
+            }
+
+            // Get all number items (including duplicates)
+            function getAllNumberItems(item) {
+                return item.querySelectorAll('.hero-stat-number-item-wp');
+            }
+
+            // Scroll to specific value index
+            function scrollToValueIndex(itemIndex, targetIndex, smooth) {
+                const item = statItemsWp[itemIndex];
+                if (!item) {
+                    return;
+                }
+
+                const scrollWrapper = item.querySelector('.hero-stat-scroll-wrapper-wp');
+                const numberItems = getAllNumberItems(item);
+                const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
+                const offset = parseInt(item.getAttribute('data-offset'), 10);
+                const totalItems = numberItems.length;
+
+                // Handle wrapping for infinite scroll
+                let adjustedIndex = targetIndex;
+                if (targetIndex < offset) {
+                    // If we're in the duplicate area at the start, jump to equivalent position in main area
+                    adjustedIndex = targetIndex + originalCount;
+                } else if (targetIndex >= offset + originalCount) {
+                    // If we're in the duplicate area at the end, jump to equivalent position in main area
+                    adjustedIndex = targetIndex - originalCount;
+                }
+
+                const itemHeight = item.offsetHeight || parseInt(getComputedStyle(item).height, 10);
+                const translateY = -(adjustedIndex * itemHeight);
+                
+                // No animations - instant movement
+                scrollWrapper.style.transition = 'none';
+                scrollWrapper.style.transform = 'translateY(' + translateY + 'px)';
+
+                // Update active class
+                numberItems.forEach(function (numItem, idx) {
+                    if (idx === adjustedIndex) {
+                        numItem.classList.add('active-wp');
+                    } else {
+                        numItem.classList.remove('active-wp');
+                    }
+                });
+
+                // Instant position update - no animations
+                currentActiveIndexes[itemIndex] = adjustedIndex;
+            }
+
+            // Scroll to next value
+            function scrollToNext(itemIndex) {
+                const item = statItemsWp[itemIndex];
+                if (!item) {
+                    return;
+                }
+
+                const offset = parseInt(item.getAttribute('data-offset'), 10);
+                const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
+                let currentIndex = currentActiveIndexes[itemIndex] || offset;
+                
+                // Move to next value in the main area
+                currentIndex = currentIndex + 1;
+                
+                // If we've gone past the main area, wrap to beginning
+                if (currentIndex >= offset + originalCount) {
+                    currentIndex = offset;
+                }
+                
+                scrollToValueIndex(itemIndex, currentIndex, true);
+            }
+
+            // Scroll to previous value
+            function scrollToPrevious(itemIndex) {
+                const item = statItemsWp[itemIndex];
+                if (!item) {
+                    return;
+                }
+
+                const offset = parseInt(item.getAttribute('data-offset'), 10);
+                const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
+                let currentIndex = currentActiveIndexes[itemIndex] || offset;
+                
+                // Move to previous value in the main area
+                currentIndex = currentIndex - 1;
+                
+                // If we've gone before the main area, wrap to end
+                if (currentIndex < offset) {
+                    currentIndex = offset + originalCount - 1;
+                }
+                
+                scrollToValueIndex(itemIndex, currentIndex, true);
+            }
+
+            // Start auto-scroll for an item
+            function startAutoScroll(itemIndex) {
+                // Clear existing interval if any
+                if (autoScrollIntervals[itemIndex]) {
+                    clearInterval(autoScrollIntervals[itemIndex]);
+                }
+
+                // Auto-scroll every 5 seconds - move to next value in sequence
+                autoScrollIntervals[itemIndex] = setInterval(function () {
+                    const item = statItemsWp[itemIndex];
+                    if (!item) {
+                        return;
+                    }
+                    
+                    const offset = parseInt(item.getAttribute('data-offset'), 10);
+                    const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
+                    let currentIndex = currentActiveIndexes[itemIndex] || offset;
+                    
+                    // Move to next value in sequence
+                    currentIndex = currentIndex + 1;
+                    
+                    // If we've reached the end, loop back to start
+                    if (currentIndex >= offset + originalCount) {
+                        currentIndex = offset;
+                    }
+                    
+                    // Smoothly scroll to next value
+                    scrollToValueIndex(itemIndex, currentIndex, true);
+                }, 5000);
+            }
+
+            // Stop auto-scroll for an item
+            function stopAutoScroll(itemIndex) {
+                if (autoScrollIntervals[itemIndex]) {
+                    clearInterval(autoScrollIntervals[itemIndex]);
+                    autoScrollIntervals[itemIndex] = null;
+                }
+            }
+
+            // Initialize interactive scrolling
+            function setupInteractiveScrolling() {
+                const isMobile = window.innerWidth <= 768;
+                
+                // On mobile, counters are static - no interactive scrolling
+                if (isMobile) {
+                    return;
+                }
+                
+                statItemsWp.forEach(function (item, itemIndex) {
+                    const values = getValuesArray(item);
+                    const target = parseInt(item.getAttribute('data-target'), 10);
+                    const targetIndex = values.indexOf(target);
+                    const numberItems = item.querySelectorAll('.hero-stat-number-item-wp');
+                    
+                    // Set initial position to target (accounting for duplicates)
+                    const offset = parseInt(item.getAttribute('data-offset'), 10);
+                    if (targetIndex !== -1 && offset) {
+                        const centerIndex = offset + targetIndex;
+                        currentActiveIndexes[itemIndex] = centerIndex;
+                        scrollToValueIndex(itemIndex, centerIndex, false);
+                    }
+
+                    // Add click handlers to each number item
+                    numberItems.forEach(function (numberItem, valueIndex) {
+                        numberItem.addEventListener('click', function (e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            
+                            const clickedValue = parseInt(numberItem.getAttribute('data-value'), 10);
+                            const values = getValuesArray(item);
+                            const clickedValueIndex = values.indexOf(clickedValue);
+                            
+                            if (clickedValueIndex !== -1) {
+                                // Find the index in the main area (not duplicates)
+                                const mainAreaIndex = offset + clickedValueIndex;
+                                
+                                // Center the clicked value
+                                scrollToValueIndex(itemIndex, mainAreaIndex, true);
+                                
+                                // Auto-scroll disabled
+                                // stopAutoScroll(itemIndex);
+                                // setTimeout(function () {
+                                //     startAutoScroll(itemIndex);
+                                // }, 2000);
+                            }
+                        });
+                    });
+
+                    // Mouse wheel event - scroll up/down
+                    item.addEventListener('wheel', function (e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        
+                        // Auto-scroll disabled
+                        // stopAutoScroll(itemIndex);
+                        
+                        if (e.deltaY > 0) {
+                            // Scroll down - next value
+                            scrollToNext(itemIndex);
+                        } else {
+                            // Scroll up - previous value
+                            scrollToPrevious(itemIndex);
+                        }
+                        
+                        // Auto-scroll disabled
+                        // setTimeout(function () {
+                        //     startAutoScroll(itemIndex);
+                        // }, 2000);
+                    }, { passive: false });
+
+                    // Touch events for mobile
+                    let touchStartY = 0;
+                    let touchEndY = 0;
+
+                    item.addEventListener('touchstart', function (e) {
+                        touchStartY = e.touches[0].clientY;
+                        // Auto-scroll disabled
+                        // stopAutoScroll(itemIndex);
+                    }, { passive: true });
+
+                    item.addEventListener('touchend', function (e) {
+                        touchEndY = e.changedTouches[0].clientY;
+                        const diff = touchStartY - touchEndY;
+                        
+                        if (Math.abs(diff) > 30) {
+                            if (diff > 0) {
+                                // Swipe up - next value
+                                scrollToNext(itemIndex);
+                            } else {
+                                // Swipe down - previous value
+                                scrollToPrevious(itemIndex);
+                            }
+                        }
+                        
+                        // Auto-scroll disabled
+                        // setTimeout(function () {
+                        //     startAutoScroll(itemIndex);
+                        // }, 2000);
+                    }, { passive: true });
+
+                    // Auto-scroll disabled - counters remain static
+                    // Uncomment below to enable auto-scroll:
+                    // setTimeout(function () {
+                    //     startAutoScroll(itemIndex);
+                    // }, 5000);
+                });
+
+                hasAnimated = true;
+            }
+
+            // Initialize on load
+            function initializeAll() {
+                initializeCounters();
+                // Small delay to ensure DOM is ready before setting up interactions
+                setTimeout(function () {
+                    setupInteractiveScrolling();
+                }, 100);
+            }
+
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initializeAll);
+            } else {
+                initializeAll();
+            }
+
+            // Use Intersection Observer to trigger when section is visible
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !hasAnimated) {
+                            // Small delay to ensure DOM is ready
+                            setTimeout(function () {
+                                if (!hasAnimated) {
+                                    setupInteractiveScrolling();
+                                }
+                            }, 100);
+                        }
+                    });
+                }, {
+                    threshold: 0.3
+                });
+
+                observer.observe(heroSectionWp);
+            } else {
+                // Fallback for browsers without IntersectionObserver
+                setTimeout(function () {
+                    if (!hasAnimated) {
+                        setupInteractiveScrolling();
+                    }
+                }, 500);
+            }
+
+            // Handle window resize - reinitialize if switching between mobile/desktop
+            let resizeTimeout;
+            window.addEventListener('resize', function () {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function () {
+                    const wasMobile = window.innerWidth <= 768;
+                    // Reinitialize counters when switching between mobile/desktop
+                    initializeCounters();
+                    if (!wasMobile) {
+                        setupInteractiveScrolling();
+                    }
+                }, 250);
+            });
+        })();
+
         // Section 2 - Who We Are / What We Do
         (function () {
             'use strict';
 
             const hoverSectionsWp = document.querySelectorAll('.hover-section-wp');
 
-            hoverSectionsWp.forEach(function (section) {
-                section.addEventListener('mouseenter', function () {
-                    hoverSectionsWp.forEach(function (s) {
-                        s.classList.remove('active');
+            // On mobile, make all sections active by default (content always visible)
+            function setMobileVisibility() {
+                if (window.innerWidth <= 768) {
+                    hoverSectionsWp.forEach(function (section) {
+                        section.classList.add('active');
                     });
-                    this.classList.add('active');
+                } else {
+                    // Desktop: remove active class on load
+                    hoverSectionsWp.forEach(function (section) {
+                        section.classList.remove('active');
+                    });
+                }
+            }
+
+            // Set initial state
+            setMobileVisibility();
+
+            hoverSectionsWp.forEach(function (section) {
+                // Desktop hover effects
+                section.addEventListener('mouseenter', function () {
+                    if (window.innerWidth > 768) {
+                        hoverSectionsWp.forEach(function (s) {
+                            s.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
                 });
 
                 section.addEventListener('mouseleave', function () {
-                    this.classList.remove('active');
+                    if (window.innerWidth > 768) {
+                        this.classList.remove('active');
+                    }
                 });
 
+                // Mobile: content is always visible (CSS handles this), click just changes title color
                 section.addEventListener('click', function () {
                     if (window.innerWidth <= 768) {
+                        // On mobile, just toggle active for title color, content stays visible via CSS
                         const isActive = this.classList.contains('active');
                         hoverSectionsWp.forEach(function (s) {
                             s.classList.remove('active');
@@ -1229,12 +2652,9 @@
                 });
             });
 
-            document.addEventListener('click', function (e) {
-                if (window.innerWidth <= 768 && !e.target.closest('.hover-section-wp')) {
-                    hoverSectionsWp.forEach(function (s) {
-                        s.classList.remove('active');
-                    });
-                }
+            // Handle resize - ensure mobile sections are always active
+            window.addEventListener('resize', function () {
+                setMobileVisibility();
             });
         })();
 
@@ -1248,24 +2668,30 @@
             const sectionHeaderWp = sectionWp.querySelector('.section-header-wp');
             if (!sectionHeaderWp) return;
 
+            // Enable hover effects on desktop (mobile is static - no animations)
             sectionHeaderWp.addEventListener('mouseenter', function () {
-                sectionWp.classList.add('header-hovered-wp');
+                if (window.innerWidth > 768) {
+                    sectionWp.classList.add('header-hovered-wp');
+                }
             });
 
             sectionHeaderWp.addEventListener('mouseleave', function () {
-                sectionWp.classList.remove('header-hovered-wp');
+                if (window.innerWidth > 768) {
+                    sectionWp.classList.remove('header-hovered-wp');
+                }
             });
 
-            function setupMobileToggle() {
-                if (window.innerWidth <= 768) {
-                    sectionHeaderWp.addEventListener('click', function () {
-                        sectionWp.classList.toggle('active-wp');
-                    });
-                }
+            // On mobile, ensure cards are always visible (static) - no click toggle needed
+            if (window.innerWidth <= 768) {
+                sectionWp.classList.remove('active-wp', 'header-hovered-wp');
             }
 
-            setupMobileToggle();
-            window.addEventListener('resize', setupMobileToggle);
+            // Handle resize
+            window.addEventListener('resize', function () {
+                if (window.innerWidth <= 768) {
+                    sectionWp.classList.remove('active-wp', 'header-hovered-wp');
+                }
+            });
         })();
 
         // Section 4 - How We Roll
@@ -1329,28 +2755,45 @@
 
             function updateCarouselWp() {
                 if (window.innerWidth <= 768) {
+                    // Mobile: Use transform for smooth sliding
                     const offset = -currentIndexWp * 100;
                     cardsWp.forEach(function (card, index) {
                         card.style.transform = 'translateX(' + offset + '%)';
                     });
-
-                    carouselDotsWp.forEach(function (dot, index) {
-                        dot.classList.toggle('active', index === currentIndexWp);
-                    });
-
-                    updateProgressLineWp(currentIndexWp);
+                } else {
+                    // Desktop: Use scrollIntoView for smooth scrolling
+                    if (cardsWp[currentIndexWp]) {
+                        cardsWp[currentIndexWp].scrollIntoView({ 
+                            behavior: 'smooth', 
+                            block: 'nearest', 
+                            inline: 'center' 
+                        });
+                    }
                 }
+
+                carouselDotsWp.forEach(function (dot, index) {
+                    dot.classList.toggle('active', index === currentIndexWp);
+                });
+
+                updateProgressLineWp(currentIndexWp);
             }
 
+            // Initialize carousel position
+            updateCarouselWp();
+
             if (prevBtnWp) {
-                prevBtnWp.addEventListener('click', function () {
+                prevBtnWp.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     currentIndexWp = (currentIndexWp - 1 + totalCardsWp) % totalCardsWp;
                     updateCarouselWp();
                 });
             }
 
             if (nextBtnWp) {
-                nextBtnWp.addEventListener('click', function () {
+                nextBtnWp.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
                     currentIndexWp = (currentIndexWp + 1) % totalCardsWp;
                     updateCarouselWp();
                 });
@@ -1420,6 +2863,7 @@
             const serveTotalItems = serveCards.length;
 
             function getServeCardStyle(index) {
+                const isMobile = window.innerWidth <= 768;
                 const diff = index - serveActiveIndex;
                 let position = diff;
 
@@ -1429,44 +2873,85 @@
                     position = diff + serveTotalItems;
                 }
 
-                if (Math.abs(position) > 1) {
+                if (isMobile) {
+                    // Mobile: Show only active and adjacent cards
+                    if (Math.abs(position) > 1) {
+                        return {
+                            display: 'none',
+                            transform: 'translate(-50%, -50%) scale(0.8)',
+                            opacity: 0,
+                            zIndex: 10,
+                            filter: 'blur(3px)'
+                        };
+                    }
+
+                    const cardSpacing = isMobile ? 15 : 110;
+                    let translateX = position * cardSpacing;
+                    let scale = 0.9;
+                    let opacity = 0.4;
+                    let zIndex = 10;
+                    let blur = 3;
+
+                    if (position === 0) {
+                        translateX = 0;
+                        scale = 1;
+                        opacity = 1;
+                        zIndex = 30;
+                        blur = 0;
+                    } else if (Math.abs(position) === 1) {
+                        scale = 0.85;
+                        opacity = 0.5;
+                        zIndex = 20;
+                        blur = 2;
+                    }
+
                     return {
-                        display: 'none',
-                        transform: 'translate(-50%, -50%) scale(0.85)',
-                        opacity: 0,
-                        zIndex: 10,
-                        filter: 'blur(2px)'
+                        display: 'block',
+                        transform: 'translate(calc(-50% + ' + translateX + '%), -50%) scale(' + scale + ')',
+                        opacity: opacity,
+                        zIndex: zIndex,
+                        filter: 'blur(' + blur + 'px)'
+                    };
+                } else {
+                    // Desktop: Original behavior
+                    if (Math.abs(position) > 1) {
+                        return {
+                            display: 'none',
+                            transform: 'translate(-50%, -50%) scale(0.85)',
+                            opacity: 0,
+                            zIndex: 10,
+                            filter: 'blur(2px)'
+                        };
+                    }
+
+                    const cardSpacing = 110;
+                    let translateX = position * cardSpacing;
+                    let scale = 1;
+                    let opacity = 0.5;
+                    let zIndex = 10;
+                    let blur = 2;
+
+                    if (position === 0) {
+                        translateX = 0;
+                        scale = 1.1;
+                        opacity = 1;
+                        zIndex = 30;
+                        blur = 0;
+                    } else if (Math.abs(position) === 1) {
+                        scale = 0.85;
+                        opacity = 0.6;
+                        zIndex = 20;
+                        blur = 2;
+                    }
+
+                    return {
+                        display: 'block',
+                        transform: 'translate(calc(-50% + ' + translateX + '%), -50%) scale(' + scale + ')',
+                        opacity: opacity,
+                        zIndex: zIndex,
+                        filter: 'blur(' + blur + 'px)'
                     };
                 }
-
-                const cardSpacing = 110;
-                let translateX = position * cardSpacing;
-
-                let scale = 1;
-                let opacity = 0.5;
-                let zIndex = 10;
-                let blur = 2;
-
-                if (position === 0) {
-                    translateX = 0;
-                    scale = 1.1;
-                    opacity = 1;
-                    zIndex = 30;
-                    blur = 0;
-                } else if (Math.abs(position) === 1) {
-                    scale = 0.85;
-                    opacity = 0.6;
-                    zIndex = 20;
-                    blur = 2;
-                }
-
-                return {
-                    display: 'block',
-                    transform: 'translate(calc(-50% + ' + translateX + '%), -50%) scale(' + scale + ')',
-                    opacity: opacity,
-                    zIndex: zIndex,
-                    filter: 'blur(' + blur + 'px)'
-                };
             }
 
             function updateServeProgressBar() {
@@ -1513,10 +2998,12 @@
                 if (serveAutoPlayInterval) {
                     clearInterval(serveAutoPlayInterval);
                 }
+                const isMobile = window.innerWidth <= 768;
+                const delay = isMobile ? 6000 : 5000; // Slower on mobile for better UX
                 serveAutoPlayInterval = setInterval(function () {
                     serveActiveIndex = (serveActiveIndex + 1) % serveTotalItems;
                     updateServeCarousel();
-                }, 5000);
+                }, delay);
             }
 
             function stopServeAutoPlay() {
@@ -1538,20 +3025,38 @@
 
             function handleServeTouchMove(e) {
                 serveTouchEnd = e.touches[0].clientX;
+                // Prevent scrolling while swiping
+                if (Math.abs(serveTouchStart - serveTouchEnd) > 10) {
+                    e.preventDefault();
+                }
             }
 
             function handleServeTouchEnd() {
-                if (serveTouchStart - serveTouchEnd > 75) {
-                    nextServeSlide();
+                const swipeThreshold = 50;
+                const swipeDistance = serveTouchStart - serveTouchEnd;
+                
+                if (Math.abs(swipeDistance) > swipeThreshold) {
+                    if (swipeDistance > 0) {
+                        // Swipe left - next slide
+                        nextServeSlide();
+                    } else {
+                        // Swipe right - previous slide
+                        prevServeSlide();
+                    }
                 }
-                if (serveTouchStart - serveTouchEnd < -75) {
-                    prevServeSlide();
-                }
-                startServeAutoPlay();
+                
+                // Reset touch values
+                serveTouchStart = 0;
+                serveTouchEnd = 0;
+                
+                // Restart autoplay after a delay
+                setTimeout(function() {
+                    startServeAutoPlay();
+                }, 3000);
             }
 
             serveCarouselContainer.addEventListener('touchstart', handleServeTouchStart, { passive: true });
-            serveCarouselContainer.addEventListener('touchmove', handleServeTouchMove, { passive: true });
+            serveCarouselContainer.addEventListener('touchmove', handleServeTouchMove, { passive: false });
             serveCarouselContainer.addEventListener('touchend', handleServeTouchEnd, { passive: true });
 
             serveCards.forEach(function (card, index) {
@@ -1564,6 +3069,16 @@
 
             serveCarouselContainer.addEventListener('mouseenter', stopServeAutoPlay);
             serveCarouselContainer.addEventListener('mouseleave', startServeAutoPlay);
+
+            // Handle window resize
+            let resizeTimeout;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeout);
+                resizeTimeout = setTimeout(function() {
+                    updateServeCarousel();
+                }, 250);
+            });
+
 
             updateServeCarousel();
             startServeAutoPlay();
