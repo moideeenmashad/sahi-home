@@ -426,6 +426,100 @@
         }
 
         /* ============================================
+           DIVIDER - AFTER SECTION 2
+           ============================================ */
+        .section-divider-wp {
+            position: relative;
+            width: 100%;
+            max-width: var(--container-md);
+            margin: 60px auto;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .divider-line-container-wp {
+            position: relative;
+            width: 100%;
+            height: 3px;
+            display: flex;
+            align-items: center;
+        }
+
+        .divider-line-left-wp,
+        .divider-line-right-wp {
+            flex: 1;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.15);
+            position: relative;
+            border-radius: var(--radius-sm);
+        }
+
+        .divider-line-left-wp {
+            border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+        }
+
+        .divider-line-right-wp {
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+        }
+
+        .divider-line-middle-wp {
+            height: 3px;
+            min-width: 200px;
+            width: 30%;
+            background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-orange-light) 100%);
+            position: relative;
+            margin: 0 10px;
+            border-radius: var(--radius-sm);
+        }
+
+        .divider-line-middle-wp::before,
+        .divider-line-middle-wp::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .divider-line-middle-wp::before {
+            left: -6px;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-right: 6px solid var(--primary-orange);
+        }
+
+        .divider-line-middle-wp::after {
+            right: -6px;
+            border-top: 3px solid transparent;
+            border-bottom: 3px solid transparent;
+            border-left: 6px solid var(--primary-orange);
+        }
+
+        .divider-diamond-left-wp,
+        .divider-diamond-right-wp {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            transform: rotate(45deg);
+        }
+
+        .divider-diamond-left-wp {
+            left: -5px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .divider-diamond-right-wp {
+            right: -5px;
+            top: 50%;
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        /* ============================================
            SECTION 3 - HOW WE DO IT
            ============================================ */
         .how-we-do-section-wp {
@@ -569,34 +663,75 @@
             margin-bottom: 30px !important;
         }
 
-        .progress-line-container-wp {
+        /* How We Roll Progress Bar - Same as Who We Serve */
+        .roll-progress-bar-container {
             position: relative;
             width: 100%;
             max-width: var(--container-md);
-            margin: 0 auto;
-            padding: 10px 0;
+            margin: 40px auto 0;
+            height: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0 6px;
+            margin-bottom: 28px;
         }
 
-        .progress-line-bg-wp {
-            position: absolute;
+        .roll-progress-bar-track {
+            position: relative;
             width: 100%;
-            height: 3px;
-            background: rgba(255, 255, 255, 0.15);
-            top: 50%;
-            transform: translateY(-50%);
-            border-radius: var(--radius-sm);
+            height: 4px;
+            background: rgba(255, 255, 255, 0.5);
+            display: flex;
+            align-items: center;
         }
 
-        .progress-line-fill-wp {
+        .roll-progress-bar-fill {
             position: absolute;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-orange) 0%, var(--primary-orange-light) 100%);
-            top: 50%;
-            transform: translateY(-50%);
-            width: 0%;
+            left: 0;
+            height: 4px;
+            background: var(--primary-orange);
             transition: width var(--transition-slow) var(--easing-smooth);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-orange);
+            display: flex;
+            align-items: center;
+        }
+
+        .roll-progress-arrow-right {
+            position: absolute;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-orange);
+            transform: translateX(5px) rotate(45deg);
+        }
+
+        .roll-progress-diamond-left,
+        .roll-progress-diamond-right {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            background: white;
+            transform: rotate(45deg);
+            z-index: var(--z-content);
+            transition: background var(--transition-slow) var(--easing-smooth);
+        }
+
+        .roll-progress-diamond-left {
+            left: 0;
+            transform: translateX(-6px) rotate(45deg);
+        }
+
+        .roll-progress-bar-container.active .roll-progress-diamond-left {
+            background: var(--primary-orange);
+        }
+
+        .roll-progress-diamond-right {
+            right: 0;
+            transform: translateX(6px) rotate(45deg);
+        }
+
+        .roll-progress-bar-container.complete .roll-progress-diamond-right {
+            background: var(--primary-orange);
         }
 
         .progress-dots-wp {
@@ -831,7 +966,7 @@
         .serve-progress-bar-container {
             position: relative;
             width: 100%;
-            max-width: 800px;
+            max-width: var(--container-md);
             margin: 40px auto 0;
             height: 4px;
             display: flex;
@@ -860,26 +995,13 @@
             align-items: center;
         }
 
-        .serve-progress-arrow-left {
-            position: absolute;
-            left: 0;
-            width: 0;
-            height: 0;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-            border-right: 10px solid var(--primary-orange);
-            transform: translateX(-10px);
-        }
-
         .serve-progress-arrow-right {
             position: absolute;
             right: 0;
-            width: 0;
-            height: 0;
-            border-top: 6px solid transparent;
-            border-bottom: 6px solid transparent;
-            border-left: 10px solid var(--primary-orange);
-            transform: translateX(10px);
+            width: 10px;
+            height: 10px;
+            background: var(--primary-orange);
+            transform: translateX(5px) rotate(45deg);
         }
 
         .serve-progress-diamond-left,
@@ -890,6 +1012,7 @@
             background: white;
             transform: rotate(45deg);
             z-index: var(--z-content);
+            transition: background var(--transition-slow) var(--easing-smooth);
         }
 
         .serve-progress-diamond-left {
@@ -897,9 +1020,17 @@
             transform: translateX(-6px) rotate(45deg);
         }
 
+        .serve-progress-bar-container.active .serve-progress-diamond-left {
+            background: var(--primary-orange);
+        }
+
         .serve-progress-diamond-right {
             right: 0;
             transform: translateX(6px) rotate(45deg);
+        }
+
+        .serve-progress-bar-container.complete .serve-progress-diamond-right {
+            background: var(--primary-orange);
         }
 
         .who-we-serve-section .serve-cards-container {
@@ -1306,6 +1437,29 @@
                 transition-delay: 0;
             }
 
+            /* Divider Mobile */
+            .section-divider-wp {
+                margin: 40px auto;
+                padding: 10px 0;
+            }
+
+            .divider-line-middle-wp {
+                min-width: 120px;
+                width: 25%;
+                height: 3px;
+            }
+
+            .divider-line-left-wp,
+            .divider-line-right-wp {
+                height: 3px;
+            }
+
+            .divider-diamond-left-wp,
+            .divider-diamond-right-wp {
+                width: 8px;
+                height: 8px;
+            }
+
             /* Section 3 - How We Do It Mobile */
             .how-we-do-section-wp {
                 padding: var(--spacing-xl) var(--spacing-sm);
@@ -1432,7 +1586,7 @@
                 -webkit-tap-highlight-color: transparent;
             }
 
-            .progress-line-container-wp {
+            .roll-progress-bar-container {
                 max-width: 100% !important;
             }
 
@@ -1694,6 +1848,29 @@
                 margin-bottom: 14px;
                 opacity: 1 !important;
                 transform: translateY(0) !important;
+            }
+
+            /* Divider Small Mobile */
+            .section-divider-wp {
+                margin: 30px auto;
+                padding: 10px 0;
+            }
+
+            .divider-line-middle-wp {
+                min-width: 100px;
+                width: 20%;
+                height: 3px;
+            }
+
+            .divider-line-left-wp,
+            .divider-line-right-wp {
+                height: 3px;
+            }
+
+            .divider-diamond-left-wp,
+            .divider-diamond-right-wp {
+                width: 6px;
+                height: 6px;
             }
 
             /* Section 3 Small Mobile */
@@ -2024,6 +2201,19 @@
         </div>
     </div>
 
+    <!-- Divider After Section 2 -->
+    <div class="section-divider-wp">
+        <div class="divider-line-container-wp">
+            <div class="divider-line-left-wp">
+                <div class="divider-diamond-left-wp"></div>
+            </div>
+            <div class="divider-line-middle-wp"></div>
+            <div class="divider-line-right-wp">
+                <div class="divider-diamond-right-wp"></div>
+            </div>
+        </div>
+    </div>
+
     <!-- Section 3 - How We Do It -->
     <div class="how-we-do-section-wp" id="howWeDoSectionWp">
         <div class="content-wrapper-wp">
@@ -2073,14 +2263,14 @@
         <div class="section-header-wp">
             <h2 class="section-title-wp">HOW WE ROLL</h2>
 
-            <div class="progress-line-container-wp">
-                <div class="progress-line-bg-wp"></div>
-                <div class="progress-line-fill-wp"></div>
-                <div class="progress-dots-wp">
-                    <div class="progress-dot-wp"></div>
-                    <div class="progress-dot-wp"></div>
-                    <div class="progress-dot-wp"></div>
+            <div class="roll-progress-bar-container">
+                <div class="roll-progress-diamond-left"></div>
+                <div class="roll-progress-bar-track">
+                    <div class="roll-progress-bar-fill" id="rollProgressBarFill">
+                        <div class="roll-progress-arrow-right"></div>
+                    </div>
                 </div>
+                <div class="roll-progress-diamond-right"></div>
             </div>
         </div>
 
@@ -2144,7 +2334,6 @@
                 <div class="serve-progress-diamond-left"></div>
                 <div class="serve-progress-bar-track">
                     <div class="serve-progress-bar-fill" id="serveProgressBarFill">
-                        <div class="serve-progress-arrow-left"></div>
                         <div class="serve-progress-arrow-right"></div>
                     </div>
                 </div>
@@ -2726,53 +2915,145 @@
             const prevBtnWp = document.getElementById('prevBtnWp');
             const nextBtnWp = document.getElementById('nextBtnWp');
             const carouselDotsWp = document.querySelectorAll('.carousel-dot-wp');
-            const progressDotsWp = document.querySelectorAll('.progress-dot-wp');
-            const progressFillWp = document.querySelector('.progress-line-fill-wp');
+            const progressFillWp = document.getElementById('rollProgressBarFill');
+            const progressLineContainerWp = progressFillWp ? progressFillWp.closest('.roll-progress-bar-container') : null;
             const totalCardsWp = cardsWp.length;
 
             if (!cardsContainerWp || totalCardsWp === 0) return;
 
+            // Add hover handlers for progress bar updates - same as Who We Serve
             cardsWp.forEach(function (card, index) {
                 card.addEventListener('mouseenter', function () {
-                    if (window.innerWidth > 768) {
-                        updateProgressLineWp(index);
-                    }
+                    // Update progress bar to show this card's position
+                    updateProgressLineWp(index);
                 });
 
                 card.addEventListener('mouseleave', function () {
-                    if (window.innerWidth > 768) {
-                        resetProgressLineWp();
-                    }
+                    // Reset to current carousel position when not hovering
+                    updateProgressLineWp(currentIndexWp);
                 });
             });
 
-            progressDotsWp.forEach(function (dot, index) {
-                dot.addEventListener('click', function () {
-                    if (window.innerWidth > 768) {
-                        updateProgressLineWp(index);
-                        cardsWp[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            function getRollCardStyle(index) {
+                const isMobile = window.innerWidth <= 768;
+                const diff = index - currentIndexWp;
+                let position = diff;
+
+                if (diff > totalCardsWp / 2) {
+                    position = diff - totalCardsWp;
+                } else if (diff < -totalCardsWp / 2) {
+                    position = diff + totalCardsWp;
+                }
+
+                if (isMobile) {
+                    if (Math.abs(position) > 1) {
+                        return {
+                            display: 'none',
+                            transform: 'translate(-50%, -50%) scale(0.8)',
+                            opacity: 0,
+                            zIndex: 10,
+                            filter: 'blur(3px)'
+                        };
                     }
-                });
-            });
+
+                    const cardSpacing = 15;
+                    let translateX = position * cardSpacing;
+                    let scale = 0.9;
+                    let opacity = 0.4;
+                    let zIndex = 10;
+                    let blur = 3;
+
+                    if (position === 0) {
+                        translateX = 0;
+                        scale = 1;
+                        opacity = 1;
+                        zIndex = 30;
+                        blur = 0;
+                    } else if (Math.abs(position) === 1) {
+                        scale = 0.85;
+                        opacity = 0.5;
+                        zIndex = 20;
+                        blur = 2;
+                    }
+
+                    return {
+                        display: 'block',
+                        transform: 'translate(calc(-50% + ' + translateX + '%), -50%) scale(' + scale + ')',
+                        opacity: opacity,
+                        zIndex: zIndex,
+                        filter: 'blur(' + blur + 'px)'
+                    };
+                } else {
+                    if (Math.abs(position) > 1) {
+                        return {
+                            display: 'none',
+                            transform: 'translate(-50%, -50%) scale(0.85)',
+                            opacity: 0,
+                            zIndex: 10,
+                            filter: 'blur(2px)'
+                        };
+                    }
+
+                    const cardSpacing = 110;
+                    let translateX = position * cardSpacing;
+                    let scale = 1;
+                    let opacity = 0.5;
+                    let zIndex = 10;
+                    let blur = 2;
+
+                    if (position === 0) {
+                        translateX = 0;
+                        scale = 1.1;
+                        opacity = 1;
+                        zIndex = 30;
+                        blur = 0;
+                    } else if (Math.abs(position) === 1) {
+                        scale = 0.85;
+                        opacity = 0.6;
+                        zIndex = 20;
+                        blur = 2;
+                    }
+
+                    return {
+                        display: 'block',
+                        transform: 'translate(calc(-50% + ' + translateX + '%), -50%) scale(' + scale + ')',
+                        opacity: opacity,
+                        zIndex: zIndex,
+                        filter: 'blur(' + blur + 'px)'
+                    };
+                }
+            }
 
             function updateProgressLineWp(index) {
-                const progressPercent = (index / (totalCardsWp - 1)) * 100;
-                progressFillWp.style.width = progressPercent + '%';
+                // Exact same calculation and logic as Who We Serve
+                const progressPercent = ((index + 1) / totalCardsWp) * 100;
+                
+                if (progressFillWp) {
+                    progressFillWp.style.width = progressPercent + '%';
+                }
 
-                progressDotsWp.forEach(function (dot, dotIndex) {
-                    if (dotIndex <= index) {
-                        dot.classList.add('active');
+                if (progressLineContainerWp) {
+                    if (progressPercent > 0) {
+                        progressLineContainerWp.classList.add('active');
                     } else {
-                        dot.classList.remove('active');
+                        progressLineContainerWp.classList.remove('active');
                     }
-                });
+                    if (progressPercent >= 100) {
+                        progressLineContainerWp.classList.add('complete');
+                    } else {
+                        progressLineContainerWp.classList.remove('complete');
+                    }
+                }
             }
 
             function resetProgressLineWp() {
-                progressFillWp.style.width = '0%';
-                progressDotsWp.forEach(function (dot) {
-                    dot.classList.remove('active');
-                });
+                if (progressFillWp) {
+                    progressFillWp.style.width = '0%';
+                }
+                if (progressLineContainerWp) {
+                    progressLineContainerWp.classList.remove('active');
+                    progressLineContainerWp.classList.remove('complete');
+                }
             }
 
             function updateCarouselWp() {
@@ -2856,10 +3137,13 @@
                     cardsWp.forEach(function (card) {
                         card.style.transform = 'translateX(0)';
                     });
-                    progressFillWp.style.width = '0%';
-                    progressDotsWp.forEach(function (dot) {
-                        dot.classList.remove('active');
-                    });
+                    if (progressFillWp) {
+                        progressFillWp.style.width = '0%';
+                    }
+                    if (progressLineContainerWp) {
+                        progressLineContainerWp.classList.remove('active');
+                        progressLineContainerWp.classList.remove('complete');
+                    }
                 } else {
                     updateCarouselWp();
                 }
@@ -2978,9 +3262,22 @@
 
             function updateServeProgressBar() {
                 const progressBarFill = document.getElementById('serveProgressBarFill');
+                const progressBarContainer = progressBarFill ? progressBarFill.closest('.serve-progress-bar-container') : null;
                 if (progressBarFill) {
                     const progressPercent = ((serveActiveIndex + 1) / serveTotalItems) * 100;
                     progressBarFill.style.width = progressPercent + '%';
+                    if (progressBarContainer) {
+                        if (progressPercent > 0) {
+                            progressBarContainer.classList.add('active');
+                        } else {
+                            progressBarContainer.classList.remove('active');
+                        }
+                        if (progressPercent >= 100) {
+                            progressBarContainer.classList.add('complete');
+                        } else {
+                            progressBarContainer.classList.remove('complete');
+                        }
+                    }
                 }
             }
 
