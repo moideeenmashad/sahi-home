@@ -403,7 +403,7 @@
 
         .hover-section-content-wp p {
             color: white;
-            font-size: clamp(12px, 1.275vw, 15px);
+            font-size: 16px;
             line-height: 1.8;
             margin-bottom: 20px;
             opacity: 0;
@@ -556,7 +556,7 @@
         }
 
         .how-we-do-section-wp .section-description-wp {
-            font-size: clamp(14px, 1.53vw, 17px);
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.9);
             line-height: 1.6;
         }
@@ -636,7 +636,7 @@
 
         .card-content-wp {
             color: white;
-            font-size: clamp(12px, 1.105vw, 14px);
+            font-size: 16px;
             line-height: 1.7;
         }
 
@@ -869,7 +869,7 @@
         }
 
         .roll-card-wp .card-description-wp {
-            font-size: clamp(11px, 1.02vw, 13px) !important;
+            font-size: 16px !important;
             color: rgba(255, 255, 255, 0.95) !important;
             line-height: 1.6 !important;
             max-height: 0 !important;
@@ -1086,7 +1086,8 @@
             overflow: visible;
         }
 
-        .serve-card:hover .serve-card-overlay {
+        .serve-card:hover .serve-card-overlay,
+        .serve-card.active .serve-card-overlay {
             background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.35) 0%, rgba(var(--primary-orange-rgb), 0.25) 100%);
             justify-content: center;
         }
@@ -1104,7 +1105,7 @@
         }
 
         .serve-card .serve-card-description {
-            font-size: clamp(11px, 1.02vw, 13px);
+            font-size: 16px;
             color: rgba(255, 255, 255, 0.95);
             line-height: 1.6;
             max-height: 0;
@@ -1113,10 +1114,12 @@
             transition: all var(--transition-normal) var(--easing-smooth);
         }
 
-        .serve-card:hover .serve-card-description {
+        .serve-card:hover .serve-card-description,
+        .serve-card.active .serve-card-description {
             max-height: 300px;
             opacity: 1;
             margin-top: 10px;
+            color: rgba(255, 255, 255, 0.95);
         }
 
         /* ============================================
@@ -1514,7 +1517,7 @@
             }
 
             .card-content-wp {
-                font-size: 13px;
+                font-size: 16px;
                 line-height: 1.7;
             }
 
@@ -1570,7 +1573,7 @@
             }
 
             .roll-card-wp .card-description-wp {
-                font-size: clamp(12px, 1.5vw, 13px) !important;
+                font-size: 16px !important;
             }
 
             .carousel-controls-wp {
@@ -1670,7 +1673,7 @@
             }
 
             .serve-card .serve-card-description {
-                font-size: clamp(12px, 1.8vw, 13px);
+                font-size: 16px;
                 line-height: 1.7;
                 margin-top: 15px;
                 text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
@@ -1687,6 +1690,7 @@
                 max-height: 300px;
                 opacity: 1;
                 margin-top: 15px;
+                color: rgba(255, 255, 255, 0.95);
             }
 
             /* Section 6 - Enquire Now Mobile */
@@ -1906,7 +1910,7 @@
             }
 
             .card-content-wp {
-                font-size: 12px;
+                font-size: 16px;
                 line-height: 1.7;
             }
 
@@ -1971,7 +1975,7 @@
             }
 
             .serve-card .serve-card-description {
-                font-size: clamp(11px, 1.6vw, 12px);
+                font-size: 16px;
                 margin-top: 12px;
             }
 
@@ -2276,7 +2280,7 @@
 
         <div class="cards-container-wp" id="cardsContainerWp">
             <div class="roll-card-wp">
-                <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=800" alt="SAHI Work"
+                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/Screenshot-2025-12-22-135121.png" alt="SAHI Work"
                     class="card-image-wp">
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">SAHI WORK</h3>
@@ -2287,7 +2291,7 @@
             </div>
 
             <div class="roll-card-wp">
-                <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=800"
+                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/12.png"
                     alt="Work Integrated Skilling" class="card-image-wp">
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">WORK INTEGRATED SKILLING</h3>
@@ -2300,7 +2304,7 @@
             </div>
 
             <div class="roll-card-wp">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"
+                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/14.png"
                     alt="Work Integrated Benefits" class="card-image-wp">
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">WORK INTEGRATED BENEFITS</h3>
@@ -2343,7 +2347,7 @@
             <div class="serve-cards-container" id="serveCarouselContainer">
                 <div class="serve-cards-wrapper" id="serveCardsWrapper">
                     <div class="serve-card" data-index="0">
-                        <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800"
+                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/13.png"
                             alt="Manufacturing" class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
@@ -2357,7 +2361,7 @@
                     </div>
 
                     <div class="serve-card" data-index="1">
-                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800" alt="Sales & Service"
+                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/16.png" alt="Sales & Service"
                             class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
@@ -2372,7 +2376,7 @@
                     </div>
 
                     <div class="serve-card" data-index="2">
-                        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800"
+                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/15.png"
                             alt="Digital - IT/ITES" class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
