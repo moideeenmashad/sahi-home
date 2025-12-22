@@ -719,10 +719,13 @@
         .roll-progress-diamond-left {
             left: 0;
             transform: translateX(-6px) rotate(45deg);
+            opacity: 0;
+            transition: background var(--transition-slow) var(--easing-smooth), opacity var(--transition-slow) var(--easing-smooth);
         }
 
         .roll-progress-bar-container.active .roll-progress-diamond-left {
             background: var(--primary-orange);
+            opacity: 1;
         }
 
         .roll-progress-diamond-right {
@@ -1187,7 +1190,7 @@
             position: relative;
             z-index: var(--z-modal);
             background: white;
-            color: var(--primary-orange);
+            color: var(--primary-orange) !important;
             font-family: 'Poppins', sans-serif;
             font-size: clamp(14px, 1.7vw, 17px);
             font-weight: 700;
@@ -2925,7 +2928,7 @@
 
             if (!cardsContainerWp || totalCardsWp === 0) return;
 
-            // Add hover handlers for progress bar updates - same as Who We Serve
+            // Add hover handlers for progress bar updates - only show on hover
             cardsWp.forEach(function (card, index) {
                 card.addEventListener('mouseenter', function () {
                     // Update progress bar to show this card's position
@@ -2933,8 +2936,8 @@
                 });
 
                 card.addEventListener('mouseleave', function () {
-                    // Reset to current carousel position when not hovering
-                    updateProgressLineWp(currentIndexWp);
+                    // Reset progress bar when not hovering - no active state
+                    resetProgressLineWp();
                 });
             });
 
@@ -3082,11 +3085,14 @@
                     dot.classList.toggle('active', index === currentIndexWp);
                 });
 
-                updateProgressLineWp(currentIndexWp);
+                // Don't update progress bar automatically - only on hover
+                // updateProgressLineWp(currentIndexWp);
             }
 
             // Initialize carousel position
             updateCarouselWp();
+            // Reset progress bar on initialization - no active state by default
+            resetProgressLineWp();
 
             if (prevBtnWp) {
                 prevBtnWp.addEventListener('click', function (e) {
@@ -3415,10 +3421,7 @@
 
             if (enquireButtonWp) {
                 enquireButtonWp.addEventListener('click', function () {
-                    // Add your enquiry form link or action here
-                    // Example: window.location.href = '/contact';
-                    // Example: window.open('/contact', '_blank');
-                    console.log('Enquire Now clicked');
+                    window.location.href = 'http://uat-wp.sahi.ai/contact-us/';
                 });
             }
         })();
