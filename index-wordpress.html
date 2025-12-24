@@ -694,9 +694,9 @@
             position: absolute;
             left: 0;
             height: 4px;
-            width: 33.333%;
-            min-width: 200px;
-            max-width: 500px;
+            width: 28%;
+            min-width: 180px;
+            max-width: 450px;
             background: var(--primary-orange);
             transition: transform var(--transition-slow) var(--easing-smooth), 
                         opacity var(--transition-slow) var(--easing-smooth);
@@ -822,8 +822,8 @@
 
         .how-we-roll-section-wp .cards-container-wp {
             display: flex !important;
-            justify-content: flex-start !important;
-            gap: var(--spacing-lg) !important;
+            justify-content: space-between !important;
+            gap: 20px !important;
             margin-top: 60px !important;
             margin-left: auto !important;
             margin-right: auto !important;
@@ -841,21 +841,21 @@
 
         .roll-card-wp {
             position: relative !important;
-            border-radius: var(--radius-md) !important;
+            border-radius: var(--radius-md) var(--radius-md) 0 0 !important;
             overflow: hidden !important;
             cursor: pointer !important;
-            height: 500px !important;
-            flex: 0 0 calc(33.333% - 20px) !important;
+            height: 580px !important;
+            flex: 0 0 calc(28% - 20px) !important;
             min-width: 0 !important;
-            max-width: calc(33.333% - 20px) !important;
+            max-width: calc(28% - 20px) !important;
             transition: transform var(--transition-normal) var(--easing-smooth) !important;
             will-change: transform;
         }
 
         @media (max-width: 968px) {
             .roll-card-wp {
-                flex: 0 0 calc(50% - 15px) !important;
-                max-width: calc(50% - 15px) !important;
+                flex: 0 0 calc(42% - 15px) !important;
+                max-width: calc(42% - 15px) !important;
             }
         }
 
@@ -1283,11 +1283,11 @@
         @media (max-width: 968px) {
             .how-we-roll-section-wp .cards-container-wp {
                 grid-template-columns: repeat(2, 1fr) !important;
-                gap: var(--spacing-md) !important;
+                gap: 15px !important;
             }
 
             .roll-card-wp {
-                height: 400px !important;
+                height: 460px !important;
             }
         }
 
@@ -1611,7 +1611,7 @@
             .roll-card-wp {
                 min-width: 100% !important;
                 flex-shrink: 0 !important;
-                height: 420px !important;
+                height: 480px !important;
                 margin-right: 0 !important;
                 transition: transform var(--transition-normal) var(--easing-smooth) !important;
                 scroll-snap-align: center;
@@ -1988,7 +1988,7 @@
             }
 
             .roll-card-wp {
-                height: 380px !important;
+                height: 440px !important;
             }
 
             .roll-card-wp .card-overlay-wp {
@@ -2209,7 +2209,7 @@
             }
 
             .roll-card-wp {
-                height: 350px !important;
+                height: 400px !important;
             }
 
             .serve-card {
