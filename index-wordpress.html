@@ -673,7 +673,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 6px;
+            padding: 0;
             margin-bottom: 28px;
         }
 
@@ -681,19 +681,47 @@
             position: relative;
             width: 100%;
             height: 4px;
-            background: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(to right, 
+                rgba(255, 255, 255, 0.6) 0%, 
+                rgba(255, 255, 255, 0.5) 50%, 
+                rgba(255, 255, 255, 0.6) 100%);
             display: flex;
             align-items: center;
+            overflow: visible;
         }
 
         .roll-progress-bar-fill {
             position: absolute;
             left: 0;
             height: 4px;
+            width: 33.333%;
+            min-width: 200px;
+            max-width: 500px;
             background: var(--primary-orange);
-            transition: width var(--transition-slow) var(--easing-smooth);
+            transition: transform var(--transition-slow) var(--easing-smooth), 
+                        opacity var(--transition-slow) var(--easing-smooth);
             display: flex;
             align-items: center;
+            transform: translateX(0px);
+            z-index: 1;
+            will-change: transform;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .roll-progress-bar-fill.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .roll-progress-arrow-left {
+            position: absolute;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-orange);
+            transform: translateX(-5px) rotate(45deg);
+            z-index: 2;
         }
 
         .roll-progress-arrow-right {
@@ -703,6 +731,7 @@
             height: 10px;
             background: var(--primary-orange);
             transform: translateX(5px) rotate(45deg);
+            z-index: 2;
         }
 
         .roll-progress-diamond-left,
@@ -719,18 +748,23 @@
         .roll-progress-diamond-left {
             left: 0;
             transform: translateX(-6px) rotate(45deg);
-            opacity: 0;
-            transition: background var(--transition-slow) var(--easing-smooth), opacity var(--transition-slow) var(--easing-smooth);
+            opacity: 1;
+            transition: background var(--transition-slow) var(--easing-smooth);
         }
 
         .roll-progress-bar-container.active .roll-progress-diamond-left {
             background: var(--primary-orange);
-            opacity: 1;
         }
 
         .roll-progress-diamond-right {
             right: 0;
             transform: translateX(6px) rotate(45deg);
+            opacity: 1;
+            transition: background var(--transition-slow) var(--easing-smooth);
+        }
+
+        .roll-progress-bar-container.complete .roll-progress-diamond-right {
+            background: var(--primary-orange);
         }
 
         .roll-progress-bar-container.complete .roll-progress-diamond-right {
@@ -853,22 +887,28 @@
         .roll-card-wp:hover .card-overlay-wp {
             top: 0 !important;
             height: 100% !important;
-            background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.35) 0%, rgba(var(--primary-orange-rgb), 0.25) 100%) !important;
+            background: linear-gradient(135deg, 
+                rgba(var(--primary-orange-rgb), 0.85) 0%, 
+                rgba(var(--primary-orange-rgb), 0.75) 50%,
+                rgba(var(--primary-orange-rgb), 0.65) 100%) !important;
             justify-content: center !important;
         }
 
         .roll-card-wp .card-title-wp {
             font-size: clamp(15px, 1.7vw, 19px) !important;
-            font-weight: 700 !important;
+            font-weight: 800 !important;
             color: white !important;
             margin-bottom: 0 !important;
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
             transition: margin-bottom var(--transition-normal) var(--easing-smooth) !important;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
         }
 
         .roll-card-wp:hover .card-title-wp {
             margin-bottom: 15px !important;
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3) !important;
+            font-weight: 900 !important;
         }
 
         .roll-card-wp .card-description-wp {
@@ -885,6 +925,10 @@
             max-height: 300px !important;
             opacity: 1 !important;
             margin-top: 10px !important;
+            color: rgba(255, 255, 255, 1) !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+            color: rgba(255, 255, 255, 1) !important;
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
         }
 
         .carousel-controls-wp {
@@ -954,7 +998,7 @@
 
         .who-we-serve-section .serve-header {
             text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 0;
         }
 
         .who-we-serve-section .serve-title {
@@ -963,20 +1007,20 @@
             text-align: center;
             color: white;
             letter-spacing: 2px;
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
 
         .serve-progress-bar-container {
             position: relative;
             width: 100%;
             max-width: var(--container-md);
-            margin: 40px auto 0;
+            margin: 0 auto;
             height: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 0 6px;
-            margin-bottom: 28px;
+            padding: 0;
+            margin-bottom: 40px;
         }
 
         .serve-progress-bar-track {
@@ -1040,7 +1084,7 @@
             position: relative;
             height: 500px;
             overflow: hidden;
-            margin-bottom: 40px;
+            margin-bottom: 0;
         }
 
         .serve-cards-wrapper {
@@ -1091,13 +1135,16 @@
 
         .serve-card:hover .serve-card-overlay,
         .serve-card.active .serve-card-overlay {
-            background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.35) 0%, rgba(var(--primary-orange-rgb), 0.25) 100%);
+            background: linear-gradient(135deg, 
+                rgba(var(--primary-orange-rgb), 0.85) 0%, 
+                rgba(var(--primary-orange-rgb), 0.75) 50%,
+                rgba(var(--primary-orange-rgb), 0.65) 100%);
             justify-content: center;
         }
 
         .serve-card .serve-card-title {
             font-size: clamp(15px, 1.7vw, 19px);
-            font-weight: 700;
+            font-weight: 800;
             text-align: center;
             color: white;
             margin: 0;
@@ -1105,6 +1152,14 @@
             text-transform: uppercase;
             letter-spacing: 1px;
             flex-shrink: 0;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+            transition: all var(--transition-normal) var(--easing-smooth);
+        }
+
+        .serve-card:hover .serve-card-title,
+        .serve-card.active .serve-card-title {
+            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+            font-weight: 900;
         }
 
         .serve-card .serve-card-description {
@@ -1122,7 +1177,8 @@
             max-height: 300px;
             opacity: 1;
             margin-top: 10px;
-            color: rgba(255, 255, 255, 0.95);
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
         }
 
         /* ============================================
@@ -1603,17 +1659,17 @@
             }
 
             .who-we-serve-section .serve-header {
-                margin-bottom: 30px;
+                margin-bottom: 0;
             }
 
             .who-we-serve-section .serve-title {
-                margin-bottom: 20px;
+                margin-bottom: 0;
                 font-size: clamp(22px, 5vw, 28px);
                 letter-spacing: 1.5px;
             }
 
             .serve-progress-bar-container {
-                margin: 30px auto 25px;
+                margin: 0 auto 30px;
                 max-width: 90%;
             }
 
@@ -1629,7 +1685,7 @@
                 height: 450px;
                 -webkit-overflow-scrolling: touch;
                 overflow: visible;
-                margin-bottom: 30px;
+                margin-bottom: 0;
             }
 
             .serve-cards-wrapper {
@@ -1659,7 +1715,10 @@
             }
 
             .serve-card.active .serve-card-overlay {
-                background: linear-gradient(135deg, rgba(var(--primary-orange-rgb), 0.4) 0%, rgba(var(--primary-orange-rgb), 0.3) 50%, rgba(0, 0, 0, 0.7) 100%);
+                background: linear-gradient(135deg, 
+                    rgba(var(--primary-orange-rgb), 0.85) 0%, 
+                    rgba(var(--primary-orange-rgb), 0.75) 50%,
+                    rgba(var(--primary-orange-rgb), 0.65) 100%);
             }
 
             .serve-card.active {
@@ -1686,6 +1745,10 @@
             .serve-card.active .serve-card-overlay {
                 justify-content: center;
                 padding: 30px 25px;
+                background: linear-gradient(135deg, 
+                    rgba(var(--primary-orange-rgb), 0.85) 0%, 
+                    rgba(var(--primary-orange-rgb), 0.75) 50%,
+                    rgba(var(--primary-orange-rgb), 0.65) 100%);
             }
 
             .serve-card:hover .serve-card-description,
@@ -1693,6 +1756,8 @@
                 max-height: 300px;
                 opacity: 1;
                 margin-top: 15px;
+                color: rgba(255, 255, 255, 1);
+                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
                 color: rgba(255, 255, 255, 0.95);
             }
 
@@ -1942,22 +2007,22 @@
             }
 
             .who-we-serve-section .serve-header {
-                margin-bottom: 25px;
+                margin-bottom: 0;
             }
 
             .who-we-serve-section .serve-title {
-                margin-bottom: 15px;
+                margin-bottom: 0;
                 font-size: clamp(20px, 5.5vw, 24px);
             }
 
             .serve-progress-bar-container {
-                margin: 25px auto 20px;
+                margin: 0 auto 25px;
                 max-width: 85%;
             }
 
             .who-we-serve-section .serve-cards-container {
                 height: 400px;
-                margin-bottom: 25px;
+                margin-bottom: 0;
             }
 
             .serve-card {
@@ -2274,6 +2339,7 @@
                 <div class="roll-progress-diamond-left"></div>
                 <div class="roll-progress-bar-track">
                     <div class="roll-progress-bar-fill" id="rollProgressBarFill">
+                        <div class="roll-progress-arrow-left"></div>
                         <div class="roll-progress-arrow-right"></div>
                     </div>
                 </div>
@@ -2928,7 +2994,7 @@
 
             if (!cardsContainerWp || totalCardsWp === 0) return;
 
-            // Add hover handlers for progress bar updates - only show on hover
+            // Add hover handlers for progress bar updates
             cardsWp.forEach(function (card, index) {
                 card.addEventListener('mouseenter', function () {
                     // Update progress bar to show this card's position
@@ -2936,7 +3002,7 @@
                 });
 
                 card.addEventListener('mouseleave', function () {
-                    // Reset progress bar when not hovering - no active state
+                    // Hide orange segment when not hovering
                     resetProgressLineWp();
                 });
             });
@@ -3032,20 +3098,61 @@
             }
 
             function updateProgressLineWp(index) {
-                // Exact same calculation and logic as Who We Serve
-                const progressPercent = ((index + 1) / totalCardsWp) * 100;
+                if (!progressFillWp || !cardsContainerWp) return;
                 
-                if (progressFillWp) {
-                    progressFillWp.style.width = progressPercent + '%';
-                }
-
+                // Get the card element
+                const card = cardsWp[index];
+                if (!card) return;
+                
+                // Get the progress bar track
+                const track = progressFillWp.parentElement;
+                if (!track) return;
+                
+                // Force a reflow to ensure accurate measurements
+                void track.offsetWidth;
+                
+                // Show the orange segment
+                progressFillWp.classList.add('active');
+                
+                // Get actual widths
+                const trackWidth = track.offsetWidth;
+                const fillWidth = progressFillWp.offsetWidth || (trackWidth / totalCardsWp);
+                
+                // Get positions relative to viewport using getBoundingClientRect
+                const cardRect = card.getBoundingClientRect();
+                const trackRect = track.getBoundingClientRect();
+                
+                // Calculate card center position in viewport coordinates
+                const cardCenterX = cardRect.left + (cardRect.width / 2);
+                
+                // Calculate track left edge in viewport coordinates
+                const trackLeftX = trackRect.left;
+                
+                // Calculate where card center is relative to track (in pixels)
+                // This gives us the exact pixel position where the card center is on the track
+                const cardCenterRelativeToTrack = cardCenterX - trackLeftX;
+                
+                // Calculate desired position for orange segment (center it on card)
+                // We want the center of the orange segment to align with the center of the card
+                const desiredPosition = cardCenterRelativeToTrack - (fillWidth / 2);
+                
+                // Constrain movement so orange segment doesn't fully move off screen
+                // Allow it to go to the edges but keep it visible
+                const minPosition = 0;
+                const maxPosition = trackWidth - fillWidth;
+                const constrainedPosition = Math.max(minPosition, Math.min(maxPosition, desiredPosition));
+                
+                // Apply transform using pixels (not percentage) for precise positioning
+                progressFillWp.style.transform = `translateX(${constrainedPosition}px)`;
+                
+                // Update diamond states
                 if (progressLineContainerWp) {
-                    if (progressPercent > 0) {
+                    if (index === 0) {
                         progressLineContainerWp.classList.add('active');
                     } else {
                         progressLineContainerWp.classList.remove('active');
                     }
-                    if (progressPercent >= 100) {
+                    if (index === totalCardsWp - 1) {
                         progressLineContainerWp.classList.add('complete');
                     } else {
                         progressLineContainerWp.classList.remove('complete');
@@ -3054,8 +3161,10 @@
             }
 
             function resetProgressLineWp() {
+                // Hide the orange segment by default
                 if (progressFillWp) {
-                    progressFillWp.style.width = '0%';
+                    progressFillWp.classList.remove('active');
+                    progressFillWp.style.transform = 'translateX(0px)';
                 }
                 if (progressLineContainerWp) {
                     progressLineContainerWp.classList.remove('active');
@@ -3091,8 +3200,29 @@
 
             // Initialize carousel position
             updateCarouselWp();
-            // Reset progress bar on initialization - no active state by default
-            resetProgressLineWp();
+            
+            // Initialize progress bar position after a short delay to ensure layout is ready
+            setTimeout(function() {
+                resetProgressLineWp();
+            }, 100);
+            
+            // Recalculate progress bar position on window resize
+            let resizeTimeoutWp;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimeoutWp);
+                resizeTimeoutWp = setTimeout(function() {
+                    // If a card is currently hovered, update its position
+                    const hoveredCard = Array.from(cardsWp).find(function(card) {
+                        return card.matches(':hover');
+                    });
+                    if (hoveredCard) {
+                        const hoveredIndex = Array.from(cardsWp).indexOf(hoveredCard);
+                        updateProgressLineWp(hoveredIndex);
+                    } else {
+                        resetProgressLineWp();
+                    }
+                }, 250);
+            });
 
             if (prevBtnWp) {
                 prevBtnWp.addEventListener('click', function (e) {
@@ -3201,7 +3331,7 @@
                         };
                     }
 
-                    const cardSpacing = isMobile ? 15 : 110;
+                    const cardSpacing = isMobile ? 10 : 90;
                     let translateX = position * cardSpacing;
                     let scale = 0.9;
                     let opacity = 0.4;
@@ -3240,7 +3370,7 @@
                         };
                     }
 
-                    const cardSpacing = 110;
+                    const cardSpacing = 90;
                     let translateX = position * cardSpacing;
                     let scale = 1;
                     let opacity = 0.5;
