@@ -125,14 +125,7 @@
         }
 
         .hero-section-wp::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(to bottom, rgba(var(--primary-blue-rgb), 0.3) 0%, rgba(var(--primary-blue-rgb), 0.5) 100%);
-            z-index: var(--z-base);
+            display: none !important;
         }
 
         .hero-content-wrapper-wp {
@@ -396,6 +389,7 @@
 
         .hover-section-content-wp {
             position: absolute;
+            z-index: 1 !important;
             right: -100%;
             top: 0;
             width: 60%;
@@ -1370,7 +1364,7 @@
             }
 
             .hero-section-wp::before {
-                background: linear-gradient(to bottom, rgba(var(--primary-blue-rgb), 0.5) 0%, rgba(var(--primary-blue-rgb), 0.7) 100%);
+                display: none !important;
             }
 
             .hero-content-wrapper-wp {
@@ -1892,7 +1886,7 @@
             }
 
             .hero-section-wp::before {
-                background: linear-gradient(to bottom, rgba(var(--primary-blue-rgb), 0.6) 0%, rgba(var(--primary-blue-rgb), 0.75) 100%);
+                display: none !important;
             }
 
             .hero-content-wrapper-wp {
@@ -2597,10 +2591,9 @@
                 const scrollWrapper = document.createElement('div');
                 scrollWrapper.className = 'hero-stat-scroll-wrapper-wp';
                 
-                // Use only the 5 unique numbers - no duplicates
-                // We'll handle infinite scrolling by wrapping the index
-                // But we need to create a virtual extended array for positioning (2 above, center, 2 below)
+                // Use only the 5 unique numbers, but create extended array for positioning
                 // Structure: [last2, last1, all5, first1, first2] to always have 2 above and 2 below
+                // This ensures we always have 2 numbers above and 2 below the center
                 const extendedTargets = [
                     allTargets[allTargets.length - 2], // 500 (2nd from last)
                     allTargets[allTargets.length - 1], // 400 (last)
@@ -2608,9 +2601,9 @@
                     allTargets[0], // 300 (first)
                     allTargets[1]  // 600 (2nd)
                 ];
-                // Main set indices: 2-6 (the 5 unique numbers)
+                // Main set indices: 2-6 (the 5 unique numbers that are visible)
                 const mainSetStart = 2;
-                const mainSetEnd = 7;
+                const mainSetEnd = 6;
                 
                 extendedTargets.forEach(function (target, index) {
                     const numberItem = document.createElement('div');
@@ -2629,6 +2622,9 @@
                     if (target === 150 && index === 4) {
                         numberItem.classList.add('active-wp');
                     }
+                    
+                    // All items start visible - updateActiveState will handle visibility based on position
+                    numberItem.style.visibility = 'visible';
                     
                     scrollWrapper.appendChild(numberItem);
                 });
@@ -2673,13 +2669,30 @@
                     items.forEach(function (numItem, index) {
                         const positionFromCenter = index - centerItemIndex;
                         
+                        // Always show items that are within the visible range (-2 to +2 from center)
+                        // This ensures we always have 2 above and 2 below, using duplicates when needed
+                        const isInVisibleRange = Math.abs(positionFromCenter) <= 2;
+                        
+                        if (!isInVisibleRange) {
+                            // Hide items that are outside visible range
+                            numItem.style.opacity = '0';
+                            numItem.style.visibility = 'hidden';
+                            numItem.style.pointerEvents = 'none';
+                            numItem.classList.remove('active-wp');
+                            return;
+                        }
+                        
+                        // Show items in visible range (including duplicates when needed)
+                        numItem.style.visibility = 'visible';
+                        numItem.style.pointerEvents = 'auto';
+                        
                         // Update scale and opacity based on position
                         // Position: -2 (top), -1, 0 (center), 1, 2 (bottom)
                         let opacity, fontSize;
                         if (positionFromCenter === 0) {
                             // Center item (3rd position)
                             opacity = 1;
-                            fontSize = '56px';
+                            fontSize = '48px';
                             numItem.classList.add('active-wp');
                         } else if (Math.abs(positionFromCenter) === 1) {
                             // Items directly above/below center (2nd and 4th)
@@ -2687,13 +2700,13 @@
                             fontSize = '36px';
                             numItem.classList.remove('active-wp');
                         } else if (Math.abs(positionFromCenter) === 2) {
-                            // Items at top/bottom (1st and 5th)
+                            // Items at top/bottom (1st and 5th) - these can be duplicates
                             opacity = 0.5;
                             fontSize = '28px';
                             numItem.classList.remove('active-wp');
                         } else {
-                            // Items outside view - make them more visible
-                            opacity = 0.4;
+                            // Items outside view
+                            opacity = 0.3;
                             fontSize = '24px';
                             numItem.classList.remove('active-wp');
                         }
@@ -2709,9 +2722,9 @@
                 }
                 
                 // Track current center index for infinite scrolling
-                // Use main set indices (2-6) which are the 5 unique numbers
                 // Extended: [500, 400, 300, 600, 150, 500, 400, 300, 600]
                 // Main set: indices 2-6 = [300, 600, 150, 500, 400]
+                // We can scroll from index 2 to 6, but need to show duplicates when at edges
                 let currentCenterIndex = 4; // Start at 150+ (index 4 in extended = index 2 in main set)
                 let lastScrollTime = 0;
                 const scrollThrottle = 150; // Fast response time
@@ -2727,6 +2740,7 @@
                     lastScrollTime = currentTime;
                     
                     // Move one item at a time - infinite scroll within main set (2-6)
+                    // This ensures we always have 2 numbers above and 2 below
                     if (e.deltaY > 0) {
                         // Scroll down = move to next number (move up in list)
                         currentCenterIndex += 1;
