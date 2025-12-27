@@ -48,6 +48,7 @@ function section_2_who_we_are_shortcode($atts) {
 
         .hover-section-content-wp {
             position: absolute;
+            z-index: 10 !important;
             right: -100%;
             top: 0;
             width: 60%;
@@ -72,6 +73,8 @@ function section_2_who_we_are_shortcode($atts) {
             transform: translateX(20px);
             transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
                 transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+            position: relative;
+            z-index: 11 !important;
         }
 
         .hover-section-wp.active .hover-section-content-wp p {

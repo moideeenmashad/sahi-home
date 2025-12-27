@@ -37,7 +37,8 @@ function section_5_who_we_serve_shortcode($atts) {
             text-align: center;
             color: white;
             letter-spacing: 2px;
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+            text-shadow: none !important;
         }
 
         /* Progress Bar */
@@ -120,6 +121,7 @@ function section_5_who_we_serve_shortcode($atts) {
             position: relative;
             height: 500px;
             overflow: hidden;
+            margin-top: 60px;
             margin-bottom: 40px;
         }
 
@@ -159,8 +161,9 @@ function section_5_who_we_serve_shortcode($atts) {
             bottom: 0;
             left: 0;
             right: 0;
-            top: 0;
-            height: 100%;
+            top: auto;
+            height: auto;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
             padding: 30px;
             box-sizing: border-box;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
@@ -171,6 +174,8 @@ function section_5_who_we_serve_shortcode($atts) {
         }
 
         .serve-card-wp:hover .serve-card-overlay-wp {
+            top: 0;
+            height: 100%;
             background: linear-gradient(135deg, rgba(255, 107, 53, 0.35) 0%, rgba(255, 140, 0, 0.3) 100%);
             justify-content: center;
         }
@@ -181,10 +186,16 @@ function section_5_who_we_serve_shortcode($atts) {
             text-align: center;
             color: white;
             margin: 0;
-            margin-top: 15px;
+            margin-bottom: 0;
             text-transform: uppercase;
             letter-spacing: 1px;
             flex-shrink: 0;
+            text-shadow: none !important;
+            transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .serve-card-wp:hover .serve-card-title-wp {
+            margin-bottom: 15px;
         }
 
         .serve-card-wp .serve-card-description-wp {
@@ -195,12 +206,14 @@ function section_5_who_we_serve_shortcode($atts) {
             opacity: 0;
             overflow: hidden;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            text-shadow: none !important;
         }
 
         .serve-card-wp:hover .serve-card-description-wp {
             max-height: 300px;
             opacity: 1;
             margin-top: 10px;
+            text-shadow: none !important;
         }
 
         /* Responsive Design */

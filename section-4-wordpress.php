@@ -30,6 +30,7 @@ function section_4_how_we_roll_shortcode($atts) {
             text-align: center !important;
             letter-spacing: 2px !important;
             margin-bottom: 30px !important;
+            text-shadow: none !important;
         }
 
         .progress-line-container-wp {
@@ -170,10 +171,12 @@ function section_4_how_we_roll_shortcode($atts) {
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
             transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            text-shadow: none !important;
         }
 
         .roll-card-wp:hover .card-title-wp {
             margin-bottom: 15px !important;
+            text-shadow: none !important;
         }
 
         .roll-card-wp .card-description-wp {
@@ -184,12 +187,14 @@ function section_4_how_we_roll_shortcode($atts) {
             opacity: 0 !important;
             overflow: hidden !important;
             transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1) !important;
+            text-shadow: none !important;
         }
 
         .roll-card-wp:hover .card-description-wp {
             max-height: 300px !important;
             opacity: 1 !important;
             margin-top: 10px !important;
+            text-shadow: none !important;
         }
 
         .carousel-controls-wp {

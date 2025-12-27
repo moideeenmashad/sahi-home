@@ -60,6 +60,7 @@ body, input, textarea, button, select {
 
 .hover-section-content {
     position: absolute;
+    z-index: 10;
     right: -100%;
     top: 0;
     width: 60%;
@@ -85,6 +86,8 @@ body, input, textarea, button, select {
     transform: translateX(20px);
     transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s,
         transform 0.6s cubic-bezier(0.4, 0, 0.2, 1) 0.2s;
+    position: relative;
+    z-index: 11;
 }
 
 .hover-section.active .hover-section-content p {
@@ -399,6 +402,7 @@ body, input, textarea, button, select {
     color: white;
     letter-spacing: 2px;
     margin-bottom: 30px;
+    text-shadow: none;
 }
 
 /* Progress Line */
@@ -548,10 +552,12 @@ body, input, textarea, button, select {
     text-transform: uppercase;
     letter-spacing: 1px;
     transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: none;
 }
 
 .roll-card:hover .card-title {
     margin-bottom: 15px;
+    text-shadow: none;
 }
 
 .roll-card .card-description {
@@ -562,12 +568,14 @@ body, input, textarea, button, select {
     opacity: 0;
     overflow: hidden;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: none;
 }
 
 .roll-card:hover .card-description {
     max-height: 300px;
     opacity: 1;
     margin-top: 10px;
+    text-shadow: none;
 }
 
 /* Mobile Carousel Navigation */
@@ -709,7 +717,8 @@ body, input, textarea, button, select {
     color: white;
     letter-spacing: 2px;
     text-transform: uppercase;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    text-shadow: none;
 }
 
 /* Progress Bar */
@@ -792,6 +801,7 @@ body, input, textarea, button, select {
     position: relative;
     height: 500px;
     overflow: hidden;
+    margin-top: 60px;
     margin-bottom: 40px;
 }
 
@@ -831,9 +841,9 @@ body, input, textarea, button, select {
     bottom: 0;
     left: 0;
     right: 0;
-    top: 0;
-    height: 100%;
-    /* background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%); */
+    top: auto;
+    height: auto;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
     padding: 30px;
     transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
@@ -842,6 +852,8 @@ body, input, textarea, button, select {
 }
 
 .serve-card:hover .card-overlay {
+    top: 0;
+    height: 100%;
     background: linear-gradient(135deg, rgba(255, 107, 53, 0.35) 0%, rgba(255, 140, 0, 0.3) 100%);
     justify-content: center;
 }
@@ -850,15 +862,22 @@ body, input, textarea, button, select {
     font-size: clamp(18px, 2vw, 22px);
     font-weight: 700;
     color: white;
-    margin-bottom: 15px;
+    margin-bottom: 0;
     text-transform: uppercase;
     letter-spacing: 1px;
+    text-shadow: none;
+    transition: margin-bottom 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.serve-card:hover .card-title {
+    margin-bottom: 15px;
 }
 
 .serve-card .card-description {
     font-size: clamp(13px, 1.2vw, 15px);
     color: rgba(255, 255, 255, 0.95);
     line-height: 1.6;
+    text-shadow: none;
 }
 
 /* Responsive Design */

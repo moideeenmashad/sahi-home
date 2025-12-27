@@ -389,7 +389,7 @@
 
         .hover-section-content-wp {
             position: absolute;
-            z-index: 1 !important;
+            z-index: 10 !important;
             right: -100%;
             top: 0;
             width: 60%;
@@ -414,6 +414,8 @@
             transform: translateX(20px);
             transition:             opacity 0.6s var(--easing-smooth) 0.2s,
                 transform 0.6s var(--easing-smooth) 0.2s;
+            position: relative;
+            z-index: 11 !important;
         }
 
         .hover-section-wp.active .hover-section-content-wp p {
@@ -665,6 +667,7 @@
             text-align: center !important;
             letter-spacing: 2px !important;
             margin-bottom: 30px !important;
+            text-shadow: none !important;
         }
 
         /* How We Roll Progress Bar - Same as Who We Serve */
@@ -906,12 +909,12 @@
             text-transform: uppercase !important;
             letter-spacing: 1px !important;
             transition: margin-bottom var(--transition-normal) var(--easing-smooth) !important;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5) !important;
+            text-shadow: none !important;
         }
 
         .roll-card-wp:hover .card-title-wp {
             margin-bottom: 15px !important;
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3) !important;
+            text-shadow: none !important;
             font-weight: 900 !important;
         }
 
@@ -923,6 +926,7 @@
             opacity: 0 !important;
             overflow: hidden !important;
             transition: all var(--transition-normal) var(--easing-smooth) !important;
+            text-shadow: none !important;
         }
 
         .roll-card-wp:hover .card-description-wp {
@@ -930,9 +934,9 @@
             opacity: 1 !important;
             margin-top: 10px !important;
             color: rgba(255, 255, 255, 1) !important;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+            text-shadow: none !important;
             color: rgba(255, 255, 255, 1) !important;
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4) !important;
+            text-shadow: none !important;
         }
 
         .carousel-controls-wp {
@@ -1002,7 +1006,7 @@
 
         .who-we-serve-section .serve-header {
             text-align: center;
-            margin-bottom: 0;
+            margin-bottom: 60px !important;
         }
 
         .who-we-serve-section .serve-title {
@@ -1011,20 +1015,21 @@
             text-align: center;
             color: white;
             letter-spacing: 2px;
-            margin-bottom: 0;
+            margin-bottom: 30px !important;
+            text-shadow: none !important;
         }
 
         .serve-progress-bar-container {
             position: relative;
             width: 100%;
             max-width: var(--container-md);
-            margin: 0 auto;
+            margin: 40px auto 0;
             height: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             padding: 0;
-            margin-bottom: 40px;
+            margin-bottom: 28px;
         }
 
         .serve-progress-bar-track {
@@ -1088,6 +1093,7 @@
             position: relative;
             height: 500px;
             overflow: hidden;
+            margin-top: 60px !important;
             margin-bottom: 0;
         }
 
@@ -1126,8 +1132,9 @@
             bottom: 0;
             left: 0;
             right: 0;
-            top: 0;
-            height: 100%;
+            top: auto;
+            height: auto;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
             padding: 30px;
             box-sizing: border-box;
             transition: all var(--transition-normal) var(--easing-smooth);
@@ -1137,8 +1144,9 @@
             overflow: visible;
         }
 
-        .serve-card:hover .serve-card-overlay,
-        .serve-card.active .serve-card-overlay {
+        .serve-card:hover .serve-card-overlay {
+            top: 0;
+            height: 100%;
             background: linear-gradient(135deg, 
                 rgba(var(--primary-orange-rgb), 0.85) 0%, 
                 rgba(var(--primary-orange-rgb), 0.75) 50%,
@@ -1152,18 +1160,18 @@
             text-align: center;
             color: white;
             margin: 0;
-            margin-top: 15px;
+            margin-bottom: 0;
             text-transform: uppercase;
             letter-spacing: 1px;
             flex-shrink: 0;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
-            transition: all var(--transition-normal) var(--easing-smooth);
+            text-shadow: none !important;
+            transition: margin-bottom var(--transition-normal) var(--easing-smooth);
         }
 
-        .serve-card:hover .serve-card-title,
-        .serve-card.active .serve-card-title {
-            text-shadow: 0 2px 12px rgba(0, 0, 0, 0.7), 0 0 20px rgba(255, 255, 255, 0.3);
+        .serve-card:hover .serve-card-title {
+            text-shadow: none !important;
             font-weight: 900;
+            margin-bottom: 15px;
         }
 
         .serve-card .serve-card-description {
@@ -1174,15 +1182,15 @@
             opacity: 0;
             overflow: hidden;
             transition: all var(--transition-normal) var(--easing-smooth);
+            text-shadow: none !important;
         }
 
-        .serve-card:hover .serve-card-description,
-        .serve-card.active .serve-card-description {
+        .serve-card:hover .serve-card-description {
             max-height: 300px;
             opacity: 1;
             margin-top: 10px;
             color: rgba(255, 255, 255, 1);
-            text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+            text-shadow: none !important;
         }
 
         /* ============================================
@@ -1302,10 +1310,12 @@
             /* How We Roll Section */
             .roll-card-wp .card-title-wp {
                 font-size: clamp(13px, 1.7vw, 17px) !important;
+                text-shadow: none !important;
             }
 
             .roll-card-wp .card-description-wp {
                 font-size: 14px !important;
+                text-shadow: none !important;
             }
 
             .carousel-btn-wp {
@@ -1315,14 +1325,26 @@
             /* Who We Serve Section */
             .who-we-serve-section .serve-title {
                 font-size: clamp(25px, 4.25vw, 39px);
+                text-shadow: none !important;
             }
 
             .serve-card .serve-card-title {
                 font-size: clamp(13px, 1.7vw, 17px);
+                text-shadow: none !important;
+                max-height: 0 !important;
+                opacity: 0 !important;
+                overflow: hidden !important;
+            }
+
+            .serve-card:hover .serve-card-title {
+                max-height: 100px !important;
+                opacity: 1 !important;
+                margin-bottom: 15px !important;
             }
 
             .serve-card .serve-card-description {
                 font-size: 14px;
+                text-shadow: none !important;
             }
 
             /* Enquire Section */
@@ -1689,10 +1711,12 @@
 
             .roll-card-wp .card-title-wp {
                 font-size: clamp(16px, 2vw, 18px) !important;
+                text-shadow: none !important;
             }
 
             .roll-card-wp .card-description-wp {
                 font-size: 16px !important;
+                text-shadow: none !important;
             }
 
             .carousel-controls-wp {
@@ -1726,6 +1750,7 @@
                 margin-bottom: 0;
                 font-size: clamp(22px, 5vw, 28px);
                 letter-spacing: 1.5px;
+                text-shadow: none !important;
             }
 
             .serve-progress-bar-container {
@@ -1764,45 +1789,36 @@
                 box-shadow: var(--shadow-xl);
             }
 
-            .serve-card.active {
-                box-shadow: var(--shadow-xl);
-            }
-
             .serve-card .serve-card-overlay {
                 padding: 30px 25px;
                 background: linear-gradient(to top, rgba(0, 0, 0, 0.95) 0%, rgba(0, 0, 0, 0.7) 50%, rgba(0, 0, 0, 0.4) 100%);
                 border-radius: var(--radius-xl);
             }
 
-            .serve-card.active .serve-card-overlay {
-                background: linear-gradient(135deg, 
-                    rgba(var(--primary-orange-rgb), 0.85) 0%, 
-                    rgba(var(--primary-orange-rgb), 0.75) 50%,
-                    rgba(var(--primary-orange-rgb), 0.65) 100%);
-            }
-
-            .serve-card.active {
-                transform: translate(-50%, -50%) scale(1) !important;
-                opacity: 1 !important;
-                filter: none !important;
-            }
-
             .serve-card .serve-card-title {
                 font-size: clamp(16px, 2.5vw, 18px);
-                margin-top: 20px;
+                margin-bottom: 0;
                 letter-spacing: 1.2px;
-                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+                text-shadow: none !important;
+                max-height: 0 !important;
+                opacity: 0 !important;
+                overflow: hidden !important;
+            }
+
+            .serve-card:hover .serve-card-title {
+                max-height: 100px !important;
+                opacity: 1 !important;
+                margin-bottom: 15px !important;
             }
 
             .serve-card .serve-card-description {
                 font-size: 16px;
                 line-height: 1.7;
                 margin-top: 15px;
-                text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+                text-shadow: none !important;
             }
 
-            .serve-card:hover .serve-card-overlay,
-            .serve-card.active .serve-card-overlay {
+            .serve-card:hover .serve-card-overlay {
                 justify-content: center;
                 padding: 30px 25px;
                 background: linear-gradient(135deg, 
@@ -1811,14 +1827,12 @@
                     rgba(var(--primary-orange-rgb), 0.65) 100%);
             }
 
-            .serve-card:hover .serve-card-description,
-            .serve-card.active .serve-card-description {
+            .serve-card:hover .serve-card-description {
                 max-height: 300px;
                 opacity: 1;
                 margin-top: 15px;
                 color: rgba(255, 255, 255, 1);
-                text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
-                color: rgba(255, 255, 255, 0.95);
+                text-shadow: none !important;
             }
 
             /* Section 6 - Enquire Now Mobile */
@@ -2100,11 +2114,13 @@
             .serve-card .serve-card-title {
                 font-size: clamp(15px, 2.2vw, 17px);
                 margin-top: 15px;
+                text-shadow: none !important;
             }
 
             .serve-card .serve-card-description {
                 font-size: 16px;
                 margin-top: 12px;
+                text-shadow: none !important;
             }
 
             /* Section 6 Small Mobile */
