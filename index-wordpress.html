@@ -7,12 +7,14 @@
     <title>SAHI - All Sections</title>
     <!-- WordPress Embed Version - Copy entire content from <style> to </script> -->
     <style>
-        *{
+        * {
             font-family: 'Poppins', sans-serif !important;
         }
-        body{
+
+        body {
             background-color: var(--primary-blue) !important;
         }
+
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
 
         /* ============================================
@@ -21,23 +23,25 @@
         :root {
             /* Colors */
             --primary-orange: #EF6824;
-            --primary-orange-light: #ff8c42;
+            --primary-orange-light: #EF6824;
             --primary-orange-rgb: 239, 104, 36;
             --primary-blue: #1b2a56;
             --primary-blue-rgb: 27, 42, 86;
             --white: #ffffff;
             --black: #000000;
-            
+
             /* Border Radius */
             --radius-xs: 5px;
             --radius-sm: 8px;
             --radius-md: 10px;
             --radius-lg: 20px;
             --radius-xl: 25px;
-            --radius-2xl: 30px;  /* Used for card borders */
-            --radius-3xl: 50px;  /* Used for button borders */
+            --radius-2xl: 30px;
+            /* Used for card borders */
+            --radius-3xl: 50px;
+            /* Used for button borders */
             --radius-full: 50%;
-            
+
             /* Spacing */
             --spacing-xs: 10px;
             --spacing-sm: 15px;
@@ -45,11 +49,11 @@
             --spacing-lg: 30px;
             --spacing-xl: 50px;
             --spacing-xxl: 80px;
-            
+
             /* Container Widths */
             --container-sm: 1200px;
             --container-md: 1400px;
-            
+
             /* Transitions */
             --transition-fast: 0.3s;
             --transition-normal: 0.5s;
@@ -57,7 +61,7 @@
             --transition-slower: 0.8s;
             --easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
             --easing-ease: ease;
-            
+
             /* Z-Index Layers */
             --z-base: 1;
             --z-content: 2;
@@ -66,19 +70,19 @@
             --z-higher: 5;
             --z-modal: 10;
             --z-top: 20;
-            
+
             /* Backdrop Filter */
             --blur-sm: blur(8px);
             --blur-md: blur(10px);
             --blur-lg: blur(15px);
-            
+
             /* Box Shadows */
             --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.2);
             --shadow-md: 0 4px 15px rgba(0, 0, 0, 0.2);
             --shadow-lg: 0 6px 20px rgba(0, 0, 0, 0.3);
             --shadow-xl: 0 10px 30px rgba(0, 0, 0, 0.3);
             --shadow-orange: 0 0 20px rgba(var(--primary-orange-rgb), 0.4);
-            
+
             /* Font Weights */
             --font-light: 300;
             --font-normal: 400;
@@ -199,7 +203,8 @@
         }
 
         .hero-stat-item-wp {
-            display: none; /* Hide individual items, we'll create a single column */
+            display: none;
+            /* Hide individual items, we'll create a single column */
         }
 
         .hero-stats-single-column-wp {
@@ -412,7 +417,7 @@
             margin-bottom: 20px;
             opacity: 0;
             transform: translateX(20px);
-            transition:             opacity 0.6s var(--easing-smooth) 0.2s,
+            transition: opacity 0.6s var(--easing-smooth) 0.2s,
                 transform 0.6s var(--easing-smooth) 0.2s;
             position: relative;
             z-index: 11 !important;
@@ -688,10 +693,10 @@
             position: relative;
             width: 100%;
             height: 4px;
-            background: linear-gradient(to right, 
-                rgba(255, 255, 255, 0.6) 0%, 
-                rgba(255, 255, 255, 0.5) 50%, 
-                rgba(255, 255, 255, 0.6) 100%);
+            background: linear-gradient(to right,
+                    rgba(255, 255, 255, 0.6) 0%,
+                    rgba(255, 255, 255, 0.5) 50%,
+                    rgba(255, 255, 255, 0.6) 100%);
             display: flex;
             align-items: center;
             overflow: visible;
@@ -705,8 +710,8 @@
             min-width: 180px;
             max-width: 450px;
             background: var(--primary-orange);
-            transition: transform var(--transition-slow) var(--easing-smooth), 
-                        opacity var(--transition-slow) var(--easing-smooth);
+            transition: transform var(--transition-slow) var(--easing-smooth),
+                opacity var(--transition-slow) var(--easing-smooth);
             display: flex;
             align-items: center;
             transform: translateX(0px);
@@ -838,12 +843,15 @@
             width: 100% !important;
             position: relative !important;
             /* Hide scrollbar */
-            scrollbar-width: none; /* Firefox */
-            -ms-overflow-style: none; /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+            -ms-overflow-style: none;
+            /* IE and Edge */
         }
 
         .how-we-roll-section-wp .cards-container-wp::-webkit-scrollbar {
-            display: none; /* Chrome, Safari, Opera */
+            display: none;
+            /* Chrome, Safari, Opera */
         }
 
         .roll-card-wp {
@@ -894,10 +902,10 @@
         .roll-card-wp:hover .card-overlay-wp {
             top: 0 !important;
             height: 100% !important;
-            background: linear-gradient(135deg, 
-                rgba(var(--primary-orange-rgb), 0.85) 0%, 
-                rgba(var(--primary-orange-rgb), 0.75) 50%,
-                rgba(var(--primary-orange-rgb), 0.65) 100%) !important;
+            background: linear-gradient(135deg,
+                    rgba(var(--primary-orange-rgb), 0.85) 0%,
+                    rgba(var(--primary-orange-rgb), 0.75) 50%,
+                    rgba(var(--primary-orange-rgb), 0.65) 100%) !important;
             justify-content: center !important;
         }
 
@@ -1147,10 +1155,10 @@
         .serve-card:hover .serve-card-overlay {
             top: 0;
             height: 100%;
-            background: linear-gradient(135deg, 
-                rgba(var(--primary-orange-rgb), 0.85) 0%, 
-                rgba(var(--primary-orange-rgb), 0.75) 50%,
-                rgba(var(--primary-orange-rgb), 0.65) 100%);
+            background: linear-gradient(135deg,
+                    rgba(var(--primary-orange-rgb), 0.85) 0%,
+                    rgba(var(--primary-orange-rgb), 0.75) 50%,
+                    rgba(var(--primary-orange-rgb), 0.65) 100%);
             justify-content: center;
         }
 
@@ -1294,6 +1302,7 @@
 
         /* Small Laptops - Reduce font sizes by 2px */
         @media (min-width: 969px) and (max-width: 1200px) {
+
             /* Hero Section */
             .hero-logo-letter-wp {
                 font-size: clamp(78px, 15vw, 198px);
@@ -1377,6 +1386,7 @@
            MOBILE UI/UX IMPROVEMENTS
            ============================================ */
         @media (max-width: 768px) {
+
             /* Hero Section Mobile Improvements */
             .hero-section-wp {
                 min-height: 75vh;
@@ -1682,12 +1692,15 @@
                 width: 100% !important;
                 position: relative !important;
                 /* Hide scrollbar */
-                scrollbar-width: none; /* Firefox */
-                -ms-overflow-style: none; /* IE and Edge */
+                scrollbar-width: none;
+                /* Firefox */
+                -ms-overflow-style: none;
+                /* IE and Edge */
             }
 
             .how-we-roll-section-wp .cards-container-wp::-webkit-scrollbar {
-                display: none; /* Chrome, Safari, Opera */
+                display: none;
+                /* Chrome, Safari, Opera */
             }
 
             .roll-card-wp {
@@ -1821,10 +1834,10 @@
             .serve-card:hover .serve-card-overlay {
                 justify-content: center;
                 padding: 30px 25px;
-                background: linear-gradient(135deg, 
-                    rgba(var(--primary-orange-rgb), 0.85) 0%, 
-                    rgba(var(--primary-orange-rgb), 0.75) 50%,
-                    rgba(var(--primary-orange-rgb), 0.65) 100%);
+                background: linear-gradient(135deg,
+                        rgba(var(--primary-orange-rgb), 0.85) 0%,
+                        rgba(var(--primary-orange-rgb), 0.75) 50%,
+                        rgba(var(--primary-orange-rgb), 0.65) 100%);
             }
 
             .serve-card:hover .serve-card-description {
@@ -1894,6 +1907,7 @@
         }
 
         @media (max-width: 480px) {
+
             /* Hero Section Small Mobile */
             .hero-section-wp {
                 min-height: 65vh;
@@ -2159,6 +2173,7 @@
 
         /* General Mobile UX Enhancements */
         @media (max-width: 768px) {
+
             /* Smooth scrolling */
             html {
                 scroll-behavior: smooth;
@@ -2166,13 +2181,19 @@
             }
 
             /* Better touch targets */
-            button, a, .hero-stat-item-wp, .roll-card-wp, .serve-card {
+            button,
+            a,
+            .hero-stat-item-wp,
+            .roll-card-wp,
+            .serve-card {
                 min-height: 44px;
                 min-width: 44px;
             }
 
             /* Prevent text selection on interactive elements */
-            .hero-stat-item-wp, .carousel-btn-wp, .enquire-button-wp {
+            .hero-stat-item-wp,
+            .carousel-btn-wp,
+            .enquire-button-wp {
                 -webkit-user-select: none;
                 -moz-user-select: none;
                 -ms-user-select: none;
@@ -2297,7 +2318,8 @@
 
 <body style="background: var(--primary-blue); margin: 0; padding: 0;">
     <!-- Section 1 - Hero Section -->
-    <section class="hero-section-wp" style="background-image: url('http://uat-wp.sahi.ai/wp-content/uploads/2025/12/MAIN-WEBSITE-HOME-PAGE-1.jpg');">
+    <section class="hero-section-wp"
+        style="background-image: url('http://uat-wp.sahi.ai/wp-content/uploads/2025/12/MAIN-WEBSITE-HOME-PAGE-1.jpg');">
         <div class="hero-content-wrapper-wp">
             <div class="hero-stats-container-wp">
                 <div class="hero-stat-item-wp" data-target="300" data-values="0,50,100,150,200,250,300">
@@ -2376,30 +2398,31 @@
             <div class="cards-container-wp">
                 <div class="content-card-wp card-1-wp">
                     <p class="card-content-wp">
-                        We identify and prepare pre-assessed, job-ready talent
-                        tailored to your business needs.
+                        We build workforces that perform from day one by <br>
+                        identifying and preparing pre-assessed, job-ready talent
+                        tailored to your business needs
                     </p>
                 </div>
 
                 <div class="content-card-wp card-2-wp">
                     <p class="card-content-wp">
-                        We maintain compliance and performance
-                        through transparent systems.
+                        Maintain full statutory and operational compliance
+
                     </p>
                 </div>
 
                 <div class="content-card-wp card-3-wp">
                     <p class="card-content-wp">
-                        Our flexible forms of work and continuous skilling model
-                        ensures productivity stays high.
+                        Drive productivity through on-the-job learning, continuous development, engagement and career
+                        progression pathways.
                     </p>
                 </div>
 
                 <div class="content-card-wp card-4-wp">
                     <p class="card-content-wp">
-                        providing integrated benefits that support your workforce through housing and financial
-                        planning.
-                        , improving efficiency and engagement over time.
+                        Improve retention by providing integrated benefits <br>
+                        that support your workforce through <br>
+                        housing and financial planning.
                     </p>
                 </div>
             </div>
@@ -2425,8 +2448,8 @@
 
         <div class="cards-container-wp" id="cardsContainerWp">
             <div class="roll-card-wp">
-                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/Screenshot-2025-12-22-135121.png" alt="SAHI Work"
-                    class="card-image-wp">
+                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/Screenshot-2025-12-22-135121.png"
+                    alt="SAHI Work" class="card-image-wp">
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">SAHI WORK</h3>
                     <p class="card-description-wp">
@@ -2436,8 +2459,8 @@
             </div>
 
             <div class="roll-card-wp">
-                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/12-1.png"
-                    alt="Work Integrated Skilling" class="card-image-wp">
+                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/12-1.png" alt="Work Integrated Skilling"
+                    class="card-image-wp">
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">WORK INTEGRATED SKILLING</h3>
                     <p class="card-description-wp">
@@ -2449,8 +2472,8 @@
             </div>
 
             <div class="roll-card-wp">
-                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/14-1.png"
-                    alt="Work Integrated Benefits" class="card-image-wp">
+                <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/14-1.png" alt="Work Integrated Benefits"
+                    class="card-image-wp">
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">WORK INTEGRATED BENEFITS</h3>
                     <p class="card-description-wp">
@@ -2492,8 +2515,8 @@
             <div class="serve-cards-container" id="serveCarouselContainer">
                 <div class="serve-cards-wrapper" id="serveCardsWrapper">
                     <div class="serve-card" data-index="0">
-                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/13-1.png"
-                            alt="Manufacturing" class="serve-card-image">
+                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/13-1.png" alt="Manufacturing"
+                            class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
                                 We help manufacturing enterprises operate with precision and confidence by building
@@ -2521,8 +2544,8 @@
                     </div>
 
                     <div class="serve-card" data-index="2">
-                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/15-1.png"
-                            alt="Digital - IT/ITES" class="serve-card-image">
+                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/15-1.png" alt="Digital - IT/ITES"
+                            class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
                                 We partner with digital enterprises to build adaptive talent pipelines that scale with
@@ -2571,9 +2594,9 @@
             function initializeCounters() {
                 const isMobile = window.innerWidth <= 768;
                 const statsContainer = document.querySelector('.hero-stats-container-wp');
-                
+
                 if (!statsContainer) return;
-                
+
                 if (isMobile) {
                     // Mobile: Static display
                     statItemsWp.forEach(function (item, itemIndex) {
@@ -2595,18 +2618,18 @@
                     });
                     return;
                 }
-                
+
                 // Desktop: Collect only the target values (300, 600, 150, 500, 400)
                 const allTargets = [300, 600, 150, 500, 400];
-                
+
                 // Clear container and create single column
                 statsContainer.innerHTML = '';
                 const singleColumn = document.createElement('div');
                 singleColumn.className = 'hero-stats-single-column-wp';
-                
+
                 const scrollWrapper = document.createElement('div');
                 scrollWrapper.className = 'hero-stat-scroll-wrapper-wp';
-                
+
                 // Use only the 5 unique numbers, but create extended array for positioning
                 // Structure: [last2, last1, all5, first1, first2] to always have 2 above and 2 below
                 // This ensures we always have 2 numbers above and 2 below the center
@@ -2620,34 +2643,34 @@
                 // Main set indices: 2-6 (the 5 unique numbers that are visible)
                 const mainSetStart = 2;
                 const mainSetEnd = 6;
-                
+
                 extendedTargets.forEach(function (target, index) {
                     const numberItem = document.createElement('div');
                     numberItem.className = 'hero-stat-number-item-wp';
                     numberItem.textContent = target;
                     numberItem.setAttribute('data-value', target);
-                    
+
                     const plusSpan = document.createElement('span');
                     plusSpan.className = 'stat-plus-wp';
                     plusSpan.textContent = '+';
                     numberItem.appendChild(plusSpan);
-                    
+
                     // Mark 150+ as active initially
                     // Extended: [500, 400, 300, 600, 150, 500, 400, 300, 600]
                     // 150 is at index 4 in extended array (which is index 2 in main set)
                     if (target === 150 && index === 4) {
                         numberItem.classList.add('active-wp');
                     }
-                    
+
                     // All items start visible - updateActiveState will handle visibility based on position
                     numberItem.style.visibility = 'visible';
-                    
+
                     scrollWrapper.appendChild(numberItem);
                 });
-                
+
                 singleColumn.appendChild(scrollWrapper);
                 statsContainer.appendChild(singleColumn);
-                
+
                 // Mouse wheel scroll handler with smooth fluid scrolling
                 // Always show: 2 above, 1 center (3rd), 2 below
                 const itemHeight = 60;
@@ -2658,15 +2681,15 @@
                 // Position so 150+ is exactly at the center
                 let scrollPosition = -(targetIndex * itemHeight) + centerOffset - (itemHeight / 2);
                 const totalItems = extendedTargets.length; // Extended array length (9 items)
-                
+
                 // Set initial scroll position
                 scrollWrapper.style.transform = 'translateY(' + scrollPosition + 'px)';
-                
+
                 function updateActiveState() {
                     const items = scrollWrapper.querySelectorAll('.hero-stat-number-item-wp');
                     const containerRect = singleColumn.getBoundingClientRect();
                     const containerCenter = containerRect.top + containerRect.height / 2;
-                    
+
                     // Find the item closest to center
                     let centerItemIndex = -1;
                     let minDistance = Infinity;
@@ -2679,16 +2702,16 @@
                             centerItemIndex = index;
                         }
                     });
-                    
+
                     // Update each item based on its position relative to center
                     // Layout: 2 above, 1 center (3rd), 2 below
                     items.forEach(function (numItem, index) {
                         const positionFromCenter = index - centerItemIndex;
-                        
+
                         // Always show items that are within the visible range (-2 to +2 from center)
                         // This ensures we always have 2 above and 2 below, using duplicates when needed
                         const isInVisibleRange = Math.abs(positionFromCenter) <= 2;
-                        
+
                         if (!isInVisibleRange) {
                             // Hide items that are outside visible range
                             numItem.style.opacity = '0';
@@ -2697,11 +2720,11 @@
                             numItem.classList.remove('active-wp');
                             return;
                         }
-                        
+
                         // Show items in visible range (including duplicates when needed)
                         numItem.style.visibility = 'visible';
                         numItem.style.pointerEvents = 'auto';
-                        
+
                         // Update scale and opacity based on position
                         // Position: -2 (top), -1, 0 (center), 1, 2 (bottom)
                         let opacity, fontSize;
@@ -2726,17 +2749,17 @@
                             fontSize = '24px';
                             numItem.classList.remove('active-wp');
                         }
-                        
+
                         numItem.style.opacity = opacity;
                         numItem.style.fontSize = fontSize;
-                        
+
                         const plus = numItem.querySelector('.stat-plus-wp');
                         if (plus) {
                             plus.style.fontSize = (parseFloat(fontSize) * 0.8) + 'px';
                         }
                     });
                 }
-                
+
                 // Track current center index for infinite scrolling
                 // Extended: [500, 400, 300, 600, 150, 500, 400, 300, 600]
                 // Main set: indices 2-6 = [300, 600, 150, 500, 400]
@@ -2744,23 +2767,23 @@
                 let currentCenterIndex = 4; // Start at 150+ (index 4 in extended = index 2 in main set)
                 let lastScrollTime = 0;
                 const scrollThrottle = 150; // Fast response time
-                
-                singleColumn.addEventListener('wheel', function(e) {
+
+                singleColumn.addEventListener('wheel', function (e) {
                     e.preventDefault();
                     e.stopPropagation();
-                    
+
                     const currentTime = Date.now();
                     if (currentTime - lastScrollTime < scrollThrottle) {
                         return; // Throttle to move one at a time
                     }
                     lastScrollTime = currentTime;
-                    
+
                     // Move one item at a time - infinite scroll within main set (2-6)
                     // This ensures we always have 2 numbers above and 2 below
                     if (e.deltaY > 0) {
                         // Scroll down = move to next number (move up in list)
                         currentCenterIndex += 1;
-                        
+
                         // Infinite wrap around - stay within main set (2-6)
                         if (currentCenterIndex > mainSetEnd) {
                             // Wrap to start of main set
@@ -2770,7 +2793,7 @@
                             scrollPosition = -(currentCenterIndex * itemHeight) + centerOffset - (itemHeight / 2);
                             scrollWrapper.style.transform = 'translateY(' + scrollPosition + 'px)';
                             // Re-enable transition after a frame
-                            requestAnimationFrame(function() {
+                            requestAnimationFrame(function () {
                                 scrollWrapper.style.transition = 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
                             });
                         } else {
@@ -2783,7 +2806,7 @@
                     } else {
                         // Scroll up = move to previous number (move down in list)
                         currentCenterIndex -= 1;
-                        
+
                         // Infinite wrap around - stay within main set (2-6)
                         if (currentCenterIndex < mainSetStart) {
                             // Wrap to end of main set
@@ -2793,7 +2816,7 @@
                             scrollPosition = -(currentCenterIndex * itemHeight) + centerOffset - (itemHeight / 2);
                             scrollWrapper.style.transform = 'translateY(' + scrollPosition + 'px)';
                             // Re-enable transition after a frame
-                            requestAnimationFrame(function() {
+                            requestAnimationFrame(function () {
                                 scrollWrapper.style.transition = 'transform 0.25s cubic-bezier(0.4, 0, 0.2, 1)';
                             });
                         } else {
@@ -2804,13 +2827,13 @@
                             scrollWrapper.style.transform = 'translateY(' + scrollPosition + 'px)';
                         }
                     }
-                    
+
                     // Update active state after animation
-                    setTimeout(function() {
+                    setTimeout(function () {
                         requestAnimationFrame(updateActiveState);
                     }, 250);
                 }, { passive: false });
-                
+
                 // Initial active state
                 requestAnimationFrame(updateActiveState);
             }
@@ -2863,7 +2886,7 @@
 
                 const itemHeight = item.offsetHeight || parseInt(getComputedStyle(item).height, 10);
                 const translateY = -(adjustedIndex * itemHeight);
-                
+
                 // No animations - instant movement
                 scrollWrapper.style.transition = 'none';
                 scrollWrapper.style.transform = 'translateY(' + translateY + 'px)';
@@ -2891,15 +2914,15 @@
                 const offset = parseInt(item.getAttribute('data-offset'), 10);
                 const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
                 let currentIndex = currentActiveIndexes[itemIndex] || offset;
-                
+
                 // Move to next value in the main area
                 currentIndex = currentIndex + 1;
-                
+
                 // If we've gone past the main area, wrap to beginning
                 if (currentIndex >= offset + originalCount) {
                     currentIndex = offset;
                 }
-                
+
                 scrollToValueIndex(itemIndex, currentIndex, true);
             }
 
@@ -2913,15 +2936,15 @@
                 const offset = parseInt(item.getAttribute('data-offset'), 10);
                 const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
                 let currentIndex = currentActiveIndexes[itemIndex] || offset;
-                
+
                 // Move to previous value in the main area
                 currentIndex = currentIndex - 1;
-                
+
                 // If we've gone before the main area, wrap to end
                 if (currentIndex < offset) {
                     currentIndex = offset + originalCount - 1;
                 }
-                
+
                 scrollToValueIndex(itemIndex, currentIndex, true);
             }
 
@@ -2938,19 +2961,19 @@
                     if (!item) {
                         return;
                     }
-                    
+
                     const offset = parseInt(item.getAttribute('data-offset'), 10);
                     const originalCount = parseInt(item.getAttribute('data-original-count'), 10);
                     let currentIndex = currentActiveIndexes[itemIndex] || offset;
-                    
+
                     // Move to next value in sequence
                     currentIndex = currentIndex + 1;
-                    
+
                     // If we've reached the end, loop back to start
                     if (currentIndex >= offset + originalCount) {
                         currentIndex = offset;
                     }
-                    
+
                     // Smoothly scroll to next value
                     scrollToValueIndex(itemIndex, currentIndex, true);
                 }, 5000);
@@ -2967,22 +2990,22 @@
             // Initialize interactive scrolling
             function setupInteractiveScrolling() {
                 const isMobile = window.innerWidth <= 768;
-                
+
                 // On mobile, counters are static - no interactive scrolling
                 // On desktop, we use horizontal train scroll - skip individual item scrolling
                 if (isMobile) {
                     return;
                 }
-                
+
                 // Desktop now uses horizontal train scroll - skip this
                 return;
-                
+
                 statItemsWp.forEach(function (item, itemIndex) {
                     const values = getValuesArray(item);
                     const target = parseInt(item.getAttribute('data-target'), 10);
                     const targetIndex = values.indexOf(target);
                     const numberItems = item.querySelectorAll('.hero-stat-number-item-wp');
-                    
+
                     // Set initial position to target (accounting for duplicates)
                     const offset = parseInt(item.getAttribute('data-offset'), 10);
                     if (targetIndex !== -1 && offset) {
@@ -2996,18 +3019,18 @@
                         numberItem.addEventListener('click', function (e) {
                             e.preventDefault();
                             e.stopPropagation();
-                            
+
                             const clickedValue = parseInt(numberItem.getAttribute('data-value'), 10);
                             const values = getValuesArray(item);
                             const clickedValueIndex = values.indexOf(clickedValue);
-                            
+
                             if (clickedValueIndex !== -1) {
                                 // Find the index in the main area (not duplicates)
                                 const mainAreaIndex = offset + clickedValueIndex;
-                                
+
                                 // Center the clicked value
                                 scrollToValueIndex(itemIndex, mainAreaIndex, true);
-                                
+
                                 // Auto-scroll disabled
                                 // stopAutoScroll(itemIndex);
                                 // setTimeout(function () {
@@ -3021,10 +3044,10 @@
                     item.addEventListener('wheel', function (e) {
                         e.preventDefault();
                         e.stopPropagation();
-                        
+
                         // Auto-scroll disabled
                         // stopAutoScroll(itemIndex);
-                        
+
                         if (e.deltaY > 0) {
                             // Scroll down - next value
                             scrollToNext(itemIndex);
@@ -3032,7 +3055,7 @@
                             // Scroll up - previous value
                             scrollToPrevious(itemIndex);
                         }
-                        
+
                         // Auto-scroll disabled
                         // setTimeout(function () {
                         //     startAutoScroll(itemIndex);
@@ -3052,7 +3075,7 @@
                     item.addEventListener('touchend', function (e) {
                         touchEndY = e.changedTouches[0].clientY;
                         const diff = touchStartY - touchEndY;
-                        
+
                         if (Math.abs(diff) > 30) {
                             if (diff > 0) {
                                 // Swipe up - next value
@@ -3062,7 +3085,7 @@
                                 scrollToPrevious(itemIndex);
                             }
                         }
-                        
+
                         // Auto-scroll disabled
                         // setTimeout(function () {
                         //     startAutoScroll(itemIndex);
@@ -3203,7 +3226,7 @@
 
             const sectionWp = document.getElementById('howWeDoSectionWp');
             if (!sectionWp) return;
-            
+
             const sectionHeaderWp = sectionWp.querySelector('.section-header-wp');
             if (!sectionHeaderWp) return;
 
@@ -3354,52 +3377,52 @@
 
             function updateProgressLineWp(index) {
                 if (!progressFillWp || !cardsContainerWp) return;
-                
+
                 // Get the card element
                 const card = cardsWp[index];
                 if (!card) return;
-                
+
                 // Get the progress bar track
                 const track = progressFillWp.parentElement;
                 if (!track) return;
-                
+
                 // Force a reflow to ensure accurate measurements
                 void track.offsetWidth;
-                
+
                 // Show the orange segment
                 progressFillWp.classList.add('active');
-                
+
                 // Get actual widths
                 const trackWidth = track.offsetWidth;
                 const fillWidth = progressFillWp.offsetWidth || (trackWidth / totalCardsWp);
-                
+
                 // Get positions relative to viewport using getBoundingClientRect
                 const cardRect = card.getBoundingClientRect();
                 const trackRect = track.getBoundingClientRect();
-                
+
                 // Calculate card center position in viewport coordinates
                 const cardCenterX = cardRect.left + (cardRect.width / 2);
-                
+
                 // Calculate track left edge in viewport coordinates
                 const trackLeftX = trackRect.left;
-                
+
                 // Calculate where card center is relative to track (in pixels)
                 // This gives us the exact pixel position where the card center is on the track
                 const cardCenterRelativeToTrack = cardCenterX - trackLeftX;
-                
+
                 // Calculate desired position for orange segment (center it on card)
                 // We want the center of the orange segment to align with the center of the card
                 const desiredPosition = cardCenterRelativeToTrack - (fillWidth / 2);
-                
+
                 // Constrain movement so orange segment doesn't fully move off screen
                 // Allow it to go to the edges but keep it visible
                 const minPosition = 0;
                 const maxPosition = trackWidth - fillWidth;
                 const constrainedPosition = Math.max(minPosition, Math.min(maxPosition, desiredPosition));
-                
+
                 // Apply transform using pixels (not percentage) for precise positioning
                 progressFillWp.style.transform = `translateX(${constrainedPosition}px)`;
-                
+
                 // Update diamond states
                 if (progressLineContainerWp) {
                     if (index === 0) {
@@ -3440,10 +3463,10 @@
                     // Desktop: Use scrollIntoView for smooth scrolling only if shouldScroll is true
                     // Don't scroll on initial page load
                     if (shouldScroll && cardsWp[currentIndexWp]) {
-                        cardsWp[currentIndexWp].scrollIntoView({ 
-                            behavior: 'smooth', 
-                            block: 'nearest', 
-                            inline: 'center' 
+                        cardsWp[currentIndexWp].scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'nearest',
+                            inline: 'center'
                         });
                     }
                 }
@@ -3459,19 +3482,19 @@
             // Initialize carousel position without scrolling
             updateCarouselWp(false);
             isInitialized = true;
-            
+
             // Initialize progress bar position after a short delay to ensure layout is ready
-            setTimeout(function() {
+            setTimeout(function () {
                 resetProgressLineWp();
             }, 100);
-            
+
             // Recalculate progress bar position on window resize
             let resizeTimeoutWp;
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 clearTimeout(resizeTimeoutWp);
-                resizeTimeoutWp = setTimeout(function() {
+                resizeTimeoutWp = setTimeout(function () {
                     // If a card is currently hovered, update its position
-                    const hoveredCard = Array.from(cardsWp).find(function(card) {
+                    const hoveredCard = Array.from(cardsWp).find(function (card) {
                         return card.matches(':hover');
                     });
                     if (hoveredCard) {
@@ -3752,23 +3775,23 @@
             function handleServeTouchEnd() {
                 const swipeThreshold = 50;
                 const swipeDistance = serveTouchStart - serveTouchEnd;
-                
+
                 if (Math.abs(swipeDistance) > swipeThreshold) {
                     if (swipeDistance > 0) {
                         // Swipe left - next slide
-                        nextServeSlide();   
+                        nextServeSlide();
                     } else {
                         // Swipe right - previous slide
                         prevServeSlide();
                     }
                 }
-                
+
                 // Reset touch values
                 serveTouchStart = 0;
                 serveTouchEnd = 0;
-                
+
                 // Restart autoplay after a delay
-                setTimeout(function() {
+                setTimeout(function () {
                     startServeAutoPlay();
                 }, 3000);
             }
@@ -3790,9 +3813,9 @@
 
             // Handle window resize
             let resizeTimeout;
-            window.addEventListener('resize', function() {
+            window.addEventListener('resize', function () {
                 clearTimeout(resizeTimeout);
-                resizeTimeout = setTimeout(function() {
+                resizeTimeout = setTimeout(function () {
                     updateServeCarousel();
                 }, 250);
             });
@@ -3818,4 +3841,3 @@
 </body>
 
 </html>
-
