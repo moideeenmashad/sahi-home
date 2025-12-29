@@ -871,6 +871,11 @@ body, input, textarea, button, select {
 
 .serve-card:hover .card-title {
     margin-bottom: 15px;
+    color: white;
+}
+
+.serve-card.active .card-title {
+    color: #1b2a56;
 }
 
 .serve-card .card-description {

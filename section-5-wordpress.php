@@ -196,6 +196,11 @@ function section_5_who_we_serve_shortcode($atts) {
 
         .serve-card-wp:hover .serve-card-title-wp {
             margin-bottom: 15px;
+            color: white !important;
+        }
+
+        .serve-card-wp.active .serve-card-title-wp {
+            color: #1b2a56 !important;
         }
 
         .serve-card-wp .serve-card-description-wp {
