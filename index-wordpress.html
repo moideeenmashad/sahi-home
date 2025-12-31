@@ -160,8 +160,8 @@
         }
 
         .hero-logo-letter-wp {
-            font-size: clamp(80px, 15vw, 200px);
-            font-weight: var(--font-black);
+            font-size: 28px !important;
+            font-weight: bold !important;
             line-height: 1;
             position: relative;
             z-index: var(--z-overlay);
@@ -209,10 +209,10 @@
 
         .hero-stats-single-column-wp {
             position: relative;
-            width: 250px;
+            width: 750px;
             height: 300px;
             overflow: visible;
-            text-align: right;
+            text-align: left;
             display: flex;
             align-items: center;
             justify-content: flex-end;
@@ -244,13 +244,13 @@
             height: 60px;
             width: 100%;
             opacity: 0.6;
-            font-size: 28px;
+        font-size: 28px !important;
             padding-right: 10px;
         }
 
         .hero-stat-number-item-wp.active-wp {
             opacity: 1;
-            font-size: 56px;
+            font-size: 32px !important;
             font-weight: 900;
         }
 
@@ -1054,9 +1054,26 @@
             left: 0;
             height: 4px;
             background: var(--primary-orange);
-            transition: width var(--transition-slow) var(--easing-smooth);
+            transition: transform var(--transition-slow) var(--easing-smooth), opacity var(--transition-slow) var(--easing-smooth);
             display: flex;
             align-items: center;
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .serve-progress-bar-fill.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .serve-progress-arrow-left {
+            position: absolute;
+            left: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--primary-orange);
+            transform: translateX(-5px) rotate(45deg);
+            z-index: 2;
         }
 
         .serve-progress-arrow-right {
@@ -1066,6 +1083,7 @@
             height: 10px;
             background: var(--primary-orange);
             transform: translateX(5px) rotate(45deg);
+            z-index: 2;
         }
 
         .serve-progress-diamond-left,
@@ -1142,7 +1160,7 @@
             right: 0;
             top: auto;
             height: auto;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%);
+            /* background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.4) 70%, transparent 100%); */
             padding: 30px;
             box-sizing: border-box;
             transition: all var(--transition-normal) var(--easing-smooth);
@@ -1156,9 +1174,9 @@
             top: 0;
             height: 100%;
             background: linear-gradient(135deg,
-                    rgba(var(--primary-orange-rgb), 0.85) 0%,
-                    rgba(var(--primary-orange-rgb), 0.75) 50%,
-                    rgba(var(--primary-orange-rgb), 0.65) 100%);
+                    rgba(var(--primary-orange-rgb), 0.8) 0%,
+                    rgba(var(--primary-orange-rgb), 0.6) 50%,
+                    rgba(var(--primary-orange-rgb), 0.4) 100%);
             justify-content: center;
         }
 
@@ -1185,6 +1203,10 @@
 
         .serve-card.active .serve-card-title {
             color: #1b2a56;
+        }
+
+        .serve-card.active:hover .serve-card-title {
+            color: white;
         }
 
         .serve-card .serve-card-description {
@@ -1840,9 +1862,9 @@
                 justify-content: center;
                 padding: 30px 25px;
                 background: linear-gradient(135deg,
-                        rgba(var(--primary-orange-rgb), 0.85) 0%,
-                        rgba(var(--primary-orange-rgb), 0.75) 50%,
-                        rgba(var(--primary-orange-rgb), 0.65) 100%);
+                        rgba(var(--primary-orange-rgb), 0.8) 0%,
+                        rgba(var(--primary-orange-rgb), 0.6) 50%,
+                        rgba(var(--primary-orange-rgb), 0.4) 100%);
             }
 
             .serve-card:hover .serve-card-description {
@@ -2135,6 +2157,9 @@
                 margin-top: 15px;
                 text-shadow: none !important;
             }
+            /* .serve-card .serve-card-title:hover {
+                color: white !important;
+            } */
 
             .serve-card .serve-card-description {
                 font-size: 16px;
@@ -2356,22 +2381,20 @@
         <div class="hover-section-wp" data-section="who-we-are">
             <h2 class="hover-section-title-wp">WHO WE ARE</h2>
             <div class="hover-section-content-wp">
-                <p>We are SAHI - Your trusted partner that helps enterprises like yours <br> find, train, and manage the
+                <p>We are SAHI - Your trusted partner that helps enterprises like yours find, train, and manage the
                     people who make growth a reality.
                 </p>
-                <p> We partner with you to build productive, compliant, and future-ready <br> teams by strengthening people
-                    foundations for long-term success <br>, driving sustained growth and performance across every level.</p>
+                <p> We partner with you to build productive, compliant, and future-ready teams by strengthening the foundations of people
+                    for long-term success, driving sustained growth and performance across every level.</p>
             </div>
         </div>
 
         <div class="hover-section-wp" data-section="what-we-do">
             <h2 class="hover-section-title-wp">WHAT WE DO</h2>
             <div class="hover-section-content-wp">
-                <p>We partner with you to manage every part of your talent ecosystem - <br>
-                    from hiring to managing and engaging, which in turn enhances <br>
-                    productivity, ensures compliance, and improves retention. <br>
-                    Our solutions are simple, adaptable, and scalable, <br>
-                    designed to deliver measurable business outcomes.
+                <p>We partner with you to manage every part of your talent ecosystem - from hiring to managing and engaging - which in turn enhances productivity, ensures compliance, and improves retention.
+                </p>
+                <p>Our solutions are simple, adaptable, and scalable, designed to deliver measurable business outcomes.
                 </p>
             </div>
         </div>
@@ -2396,7 +2419,7 @@
             <div class="section-header-wp">
                 <h2 class="section-title-wp">HOW WE DO IT</h2>
                 <p class="section-description-wp">
-                    We combine industry expertise, technology, and <br> onground insight to create sustainable talent
+                    We combine industry expertise, technology, and on-ground <br> insight to create sustainable talent
                     ecosystems:
                 </p>
             </div>
@@ -2404,9 +2427,7 @@
             <div class="cards-container-wp">
                 <div class="content-card-wp card-1-wp">
                     <p class="card-content-wp">
-                        We build workforces that perform from day one by <br>
-                        identifying and preparing pre-assessed, job-ready talent
-                        tailored to your business needs
+                        Build workforces that perform from day one
                     </p>
                 </div>
 
@@ -2419,16 +2440,13 @@
 
                 <div class="content-card-wp card-3-wp">
                     <p class="card-content-wp">
-                        Drive productivity through on-the-job learning, continuous development, engagement and career
-                        progression pathways.
+                        Improve retention by providing integrated benefits that support your workforce through housing and financial planning.
                     </p>
                 </div>
 
                 <div class="content-card-wp card-4-wp">
                     <p class="card-content-wp">
-                        Improve retention by providing integrated benefits <br>
-                        that support your workforce through <br>
-                        housing and financial planning.
+                        Drive productivity through on-the-job learning, continuous development, engagement and career progression pathways.
                     </p>
                 </div>
             </div>
@@ -2459,8 +2477,7 @@
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">SAHI WORK</h3>
                     <p class="card-description-wp">
-                        <b>Solve for Compliance</b>
-                        with our experts by creating pipelines for Talent-Ready Hiring & Onboarding
+                        Solve for Compliance with our experts by creating pipelines for Talent-Ready Hiring & Onboarding
                     </p>
                 </div>
             </div>
@@ -2471,10 +2488,7 @@
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">WORK INTEGRATED SKILLING</h3>
                     <p class="card-description-wp">
-                        <b>Solve for Productivity</b>
-                        through our role-specific skilling and engagement-led deployment models and career progression
-                        pathways that boost output and increase efficiency.
-
+                        Solve for Productivity through our role-specific skilling and engagement-led deployment models, on-the-job learning, continuous development, engagement and career progression pathways that boost output, increase efficiency.
                     </p>
                 </div>
             </div>
@@ -2485,10 +2499,7 @@
                 <div class="card-overlay-wp">
                     <h3 class="card-title-wp">WORK INTEGRATED BENEFITS</h3>
                     <p class="card-description-wp">
-                        <b>Solve for Retention</b>
-                        through our comprehensive,
-                        worker benefits that create stable foundations for organisations.
-
+                        Solve for Retention by providing comprehensive, long-term worker benefits to create stable foundations for organisations, leading to improved tenure & retention reducing rehiring and re-training costs.
                     </p>
                 </div>
             </div>
@@ -2516,6 +2527,7 @@
                 <div class="serve-progress-diamond-left"></div>
                 <div class="serve-progress-bar-track">
                     <div class="serve-progress-bar-fill" id="serveProgressBarFill">
+                        <div class="serve-progress-arrow-left"></div>
                         <div class="serve-progress-arrow-right"></div>
                     </div>
                 </div>
@@ -2524,45 +2536,34 @@
 
             <div class="serve-cards-container" id="serveCarouselContainer">
                 <div class="serve-cards-wrapper" id="serveCardsWrapper">
-                    <div class="serve-card" data-index="0">
+                    <div class="serve-card">
                         <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/13-1.png" alt="Manufacturing"
                             class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
-                                We help manufacturing enterprises operate with precision and confidence by building
-                                compliant, skilled, and resilient teams. From shop floor operators to apprentices, our
-                                talent solutions align directly with your productivity, safety, and compliance
-                                goals—keeping operations efficient today and future-ready tomorrow.
+                                We help manufacturing enterprises run more smoothly, safely, and efficiently by building compliant, skilled, and reliable teams. From operators to apprentices, our talent ecosystem solutions are aligned with productivity, safety, and compliance KPIs, keeping your operations efficient and future-ready.
                             </p>
                             <h3 class="serve-card-title">MANUFACTURING</h3>
                         </div>
                     </div>
 
-                    <div class="serve-card" data-index="1">
-                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/16-1.png" alt="Sales & Service"
+                    <div class="serve-card">
+                        <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/16-1.png" alt="Consumer Services"
                             class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
-                                We develop motivated, high-performing frontline teams across retail, QSR, logistics,
-                                BFSI, hospitality, and healthcare - that deliver results and stay committed. Our
-                                flexible, retention-focused approach boosts on-ground productivity and ensures
-                                consistent customer experiences, helping you scale reliable teams across regions and
-                                channels.
+                                We build motivated, high-performing frontline teams across retail, QSR, logistics, BFSI, hospitality, and healthcare that deliver results and stay longer. Our flexible, retention-led approach improves on-ground productivity and keeps your customer experience consistent, helping you grow stronger teams across regions and channels.
                             </p>
-                            <h3 class="serve-card-title">SALES & SERVICE</h3>
+                            <h3 class="serve-card-title">CONSUMER SERVICES</h3>
                         </div>
                     </div>
 
-                    <div class="serve-card" data-index="2">
+                    <div class="serve-card">
                         <img src="http://uat-wp.sahi.ai/wp-content/uploads/2025/12/15-1.png" alt="Digital - IT/ITES"
                             class="serve-card-image">
                         <div class="serve-card-overlay">
                             <p class="serve-card-description">
-                                We partner with digital enterprises to build adaptive talent pipelines that scale with
-                                evolving technologies and business demands. Through blended learning, live project
-                                immersion, and performance-driven frameworks, we strengthen your digital
-                                capability—empowering teams to deliver immediate impact and drive long-term
-                                transformation.
+                                We help digital enterprises build the right foundations for growth, creating adaptable, capable talent pipelines aligned with evolving technologies and enterprise needs. Through blended learning, live project exposure, and performance-focused frameworks, we strengthen your digital capability, helping your teams deliver impact today and lead transformation tomorrow.
                             </p>
                             <h3 class="serve-card-title">DIGITAL - IT/ITES</h3>
                         </div>
@@ -2629,8 +2630,9 @@
                     return;
                 }
 
-                // Desktop: Collect only the target values (300, 600, 150, 500, 400)
-                const allTargets = [300, 600, 150, 500, 400];
+                // Desktop: Collect the target values
+                const allTargets = [150, 1000000, 15000, 150, 1000000, 120000];
+                const displayTexts = ['150+ Training centers across India', '1 M Employment Opportunities Generated', '15000 Pin Codes', '150+ Satisfied Clients', '1000K+ Skilled & Assessed Workers', '120k Associates Payrolled annually'];
 
                 // Clear container and create single column
                 statsContainer.innerHTML = '';
@@ -2640,35 +2642,44 @@
                 const scrollWrapper = document.createElement('div');
                 scrollWrapper.className = 'hero-stat-scroll-wrapper-wp';
 
-                // Use only the 5 unique numbers, but create extended array for positioning
-                // Structure: [last2, last1, all5, first1, first2] to always have 2 above and 2 below
+                // Use the 6 numbers, but create extended array for positioning
+                // Structure: [last2, last1, all6, first1, first2] to always have 2 above and 2 below
                 // This ensures we always have 2 numbers above and 2 below the center
                 const extendedTargets = [
-                    allTargets[allTargets.length - 2], // 500 (2nd from last)
-                    allTargets[allTargets.length - 1], // 400 (last)
-                    ...allTargets, // [300, 600, 150, 500, 400]
-                    allTargets[0], // 300 (first)
-                    allTargets[1]  // 600 (2nd)
+                    allTargets[allTargets.length - 2], // 1000000 (5th)
+                    allTargets[allTargets.length - 1], // 120000 (6th)
+                    ...allTargets, // [150, 1000000, 15000, 150, 1000000, 120000]
+                    allTargets[0], // 150 (first)
+                    allTargets[1]  // 1000000 (2nd)
                 ];
-                // Main set indices: 2-6 (the 5 unique numbers that are visible)
+                // Main set indices: 2-7 (the 6 numbers that are visible)
                 const mainSetStart = 2;
-                const mainSetEnd = 6;
+                const mainSetEnd = 7;
 
                 extendedTargets.forEach(function (target, index) {
                     const numberItem = document.createElement('div');
                     numberItem.className = 'hero-stat-number-item-wp';
-                    numberItem.textContent = target;
+                    let displayText;
+                    if (index >= 2 && index <= 7) {
+                        displayText = displayTexts[index - 2];
+                    } else if (index === 0) {
+                        displayText = displayTexts[1]; // 1 M
+                    } else if (index === 1) {
+                        displayText = displayTexts[5]; // 120k
+                    } else if (index === 7) {
+                        displayText = displayTexts[0]; // 150+
+                    } else if (index === 8) {
+                        displayText = displayTexts[1]; // 1 M
+                    } else if (index === 9) {
+                        displayText = displayTexts[0]; // 150+
+                    }
+                    numberItem.textContent = displayText;
                     numberItem.setAttribute('data-value', target);
 
-                    const plusSpan = document.createElement('span');
-                    plusSpan.className = 'stat-plus-wp';
-                    plusSpan.textContent = '+';
-                    numberItem.appendChild(plusSpan);
-
-                    // Mark 150+ as active initially
-                    // Extended: [500, 400, 300, 600, 150, 500, 400, 300, 600]
-                    // 150 is at index 4 in extended array (which is index 2 in main set)
-                    if (target === 150 && index === 4) {
+                    // Mark 15000 as active initially
+                    // Extended: [1000000, 120000, 150, 1000000, 15000, 150, 1000000, 150, 1000000]
+                    // 15000 is at index 4
+                    if (target === 15000 && index === 4) {
                         numberItem.classList.add('active-wp');
                     }
 
@@ -2687,8 +2698,8 @@
                 const containerHeight = 300; // Reduced to show exactly 5 items
                 const centerOffset = containerHeight / 2; // Center position (150px)
                 // 150+ is at index 4 in extendedTargets: [500, 400, 300, 600, 150, 500, 400, 300, 600]
-                const targetIndex = 4; // 150+ position in extended array (main set index 2)
-                // Position so 150+ is exactly at the center
+                const targetIndex = 4; // 15000 position in extended array
+                // Position so 15000 is exactly at the center
                 let scrollPosition = -(targetIndex * itemHeight) + centerOffset - (itemHeight / 2);
                 const totalItems = extendedTargets.length; // Extended array length (9 items)
 
@@ -2741,7 +2752,7 @@
                         if (positionFromCenter === 0) {
                             // Center item (3rd position)
                             opacity = 1;
-                            fontSize = '48px';
+                            fontSize = '36px';
                             numItem.classList.add('active-wp');
                         } else if (Math.abs(positionFromCenter) === 1) {
                             // Items directly above/below center (2nd and 4th)
@@ -2774,7 +2785,7 @@
                 // Extended: [500, 400, 300, 600, 150, 500, 400, 300, 600]
                 // Main set: indices 2-6 = [300, 600, 150, 500, 400]
                 // We can scroll from index 2 to 6, but need to show duplicates when at edges
-                let currentCenterIndex = 4; // Start at 150+ (index 4 in extended = index 2 in main set)
+                let currentCenterIndex = 4; // Start at 15000 (index 4 in extended)
                 let lastScrollTime = 0;
                 const scrollThrottle = 150; // Fast response time
 
@@ -3586,7 +3597,7 @@
         (function () {
             'use strict';
 
-            let serveActiveIndex = 0;
+            let serveActiveIndex = 1; // Start with center card active by default
             let serveTouchStart = 0;
             let serveTouchEnd = 0;
             let serveAutoPlayInterval = null;
@@ -3692,24 +3703,25 @@
                 }
             }
 
-            function updateServeProgressBar() {
+            function updateServeProgressBar(activeIndex = serveActiveIndex) {
                 const progressBarFill = document.getElementById('serveProgressBarFill');
                 const progressBarContainer = progressBarFill ? progressBarFill.closest('.serve-progress-bar-container') : null;
-                if (progressBarFill) {
-                    const progressPercent = ((serveActiveIndex + 1) / serveTotalItems) * 100;
-                    progressBarFill.style.width = progressPercent + '%';
-                    if (progressBarContainer) {
-                        if (progressPercent > 0) {
-                            progressBarContainer.classList.add('active');
-                        } else {
-                            progressBarContainer.classList.remove('active');
-                        }
-                        if (progressPercent >= 100) {
-                            progressBarContainer.classList.add('complete');
-                        } else {
-                            progressBarContainer.classList.remove('complete');
-                        }
-                    }
+                if (progressBarFill && progressBarContainer) {
+                    // Get track width
+                    const track = progressBarFill.parentElement;
+                    const trackWidth = track.offsetWidth;
+                    const fillWidth = trackWidth / serveTotalItems;
+
+                    // Set fill width to one card width
+                    progressBarFill.style.width = fillWidth + 'px';
+
+                    // Calculate position to center on the card
+                    const desiredPosition = (activeIndex * trackWidth) / serveTotalItems;
+
+                    // Apply transform
+                    progressBarFill.style.transform = `translateX(${desiredPosition}px)`;
+
+                    // progressBarFill.classList.add('active'); // Only on hover
                 }
             }
 
@@ -3816,6 +3828,18 @@
                     updateServeCarousel();
                     resetServeAutoPlay();
                 });
+
+                card.addEventListener('mouseenter', function () {
+                    updateServeProgressBar(index);
+                    const progressBarFill = document.getElementById('serveProgressBarFill');
+                    if (progressBarFill) progressBarFill.classList.add('active');
+                });
+
+                card.addEventListener('mouseleave', function () {
+                    updateServeProgressBar();
+                    const progressBarFill = document.getElementById('serveProgressBarFill');
+                    if (progressBarFill) progressBarFill.classList.remove('active');
+                });
             });
 
             serveCarouselContainer.addEventListener('mouseenter', stopServeAutoPlay);
@@ -3832,7 +3856,7 @@
 
 
             updateServeCarousel();
-            startServeAutoPlay();
+            // startServeAutoPlay(); // Disabled to keep center card always active
         })();
 
         // Section 6 - Enquire Now
