@@ -3830,9 +3830,24 @@
                 });
 
                 card.addEventListener('mouseenter', function () {
-                    updateServeProgressBar(index);
                     const progressBarFill = document.getElementById('serveProgressBarFill');
-                    if (progressBarFill) progressBarFill.classList.add('active');
+                    if (progressBarFill) {
+                        const track = progressBarFill.parentElement;
+                        const trackWidth = track.offsetWidth;
+                        const fillWidth = trackWidth / serveTotalItems;
+                        progressBarFill.style.width = fillWidth + 'px';
+                        const relativeIndex = (index - serveActiveIndex + serveTotalItems) % serveTotalItems;
+                        let position;
+                        if (relativeIndex === 0) {
+                            position = trackWidth / 3;
+                        } else if (relativeIndex === 2) {
+                            position = 0;
+                        } else if (relativeIndex === 1) {
+                            position = 2 * trackWidth / 3;
+                        }
+                        progressBarFill.style.transform = `translateX(${position}px)`;
+                        progressBarFill.classList.add('active');
+                    }
                 });
 
                 card.addEventListener('mouseleave', function () {
